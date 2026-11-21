@@ -167,8 +167,13 @@ def build_report(root: Path, artifacts: Path) -> dict:
         {item["code_commit"] for item in invariant.get("checkpoints", [])}
     )
     phase_commits["S"] = read_json(audit / "actual_baseline_invariants.json", {}).get("code_commit")
+    execution_source = read_json(audit / "execution_source_provenance.json", {})
+    entry_revisions = [
+        item["entry_code_commit"]
+        for item in execution_source.get("persistent_campaign_entries", [])
+    ]
     command_gaps = []
-    for path in sorted(audit.glob("command_*.json")):
+    for path in sorted(audit.glob("command_[0-9]*.json")):
         command = read_json(path)
         if "-" in command["argv"] and not command.get("stdin_source_path"):
             command_gaps.append(path.name)
@@ -193,6 +198,10 @@ def build_report(root: Path, artifacts: Path) -> dict:
         "The bundle's delivery.json binds the exact final implementation/results commits "
         "without a self-referential commit hash.",
         f"Execution revisions: `{json.dumps(phase_commits, sort_keys=True)}`.",
+        f"The persistent interpreter loaded `{', '.join(entry_revisions)}`. "
+        "S metadata also records HEAD at its initialization; the scientific core is unchanged. "
+        "Exact historical execution source archives are included in the bundle. The later "
+        "internal reserve guard is not retroactive; the owned-process watchdog covers this run.",
         "",
         "| Preliminary | Status | Actual scope |",
         "| --- | --- | --- |",
@@ -370,7 +379,8 @@ def build_report(root: Path, artifacts: Path) -> dict:
         "",
         "The ten official raw demonstration files are revision/hash pinned. Each task "
         "has ten selected "
-        "training and five separate held-out validation trajectories. Source-verified post-action "
+        "training and five separate held-out validation trajectories (100 TRAIN and 50 "
+        "held-out trajectories total). Source-verified post-action "
         "observations are paired with the following action chunk, excluding one extra "
         "terminal candidate "
         "window per selected trajectory. Native camera rotation and processing are preserved. "

@@ -1,0 +1,13 @@
+{
+  "persistent_campaign_entries": [
+    {
+      "command_record": "command_087.json",
+      "entry_code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "started_utc": "2026-11-21T11:29:40.809134+00:00",
+      "current_head": "5f9ec82f4fa4c215a0633bc3a594029d5294aa21",
+      "science_core_unchanged_at_current_head": true
+    }
+  ],
+  "resource_guard_note": "The process loaded the entry revision. The later nested reserve guard is not retroactive; the owned-process watchdog covers the active run.",
+  "historical_source_packaging": "Exact execution revisions included as source archives in the review bundle."
+}

@@ -14,6 +14,8 @@ from effect_pretraining.integrity import sha256_file, verify_release
 
 def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
     verified = verify_release(root)
+    if (artifacts / "active_accelerator_job.json").exists():
+        raise RuntimeError("The campaign reservation must end before final packaging")
     results_commit = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=root, text=True
     ).strip()
@@ -38,6 +40,9 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
     destination = root / "bundles"
     destination.mkdir(exist_ok=True)
     resolved = json.loads((root / "resolved_environment.json").read_text())
+    for item in resolved["source_hashes"]:
+        if sha256_file(Path(item["path"])) != item["sha256"]:
+            raise ValueError(f"Pinned runtime source changed: {item['path']}")
     artifact_rows = []
     for path in sorted(artifacts.rglob("*")):
         if path.is_file():
@@ -133,7 +138,7 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
         record_path = artifacts / name
         if record_path.exists():
             revisions.add(json.loads(record_path.read_text())["code_commit"])
-    for path in (root / "audit").glob("command_*.json"):
+    for path in (root / "audit").glob("command_[0-9]*.json"):
         command = json.loads(path.read_text())
         if "effect_pretraining.campaign" in command["argv"]:
             revisions.add(command["code_commit"])
