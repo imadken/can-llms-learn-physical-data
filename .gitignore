@@ -1,0 +1,11 @@
+# Local runtime and full research artifacts
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.egg-info/
+.runtime/
+artifacts/
+bundles/
+RSS_2027_Codex_Supervision_Package.zip

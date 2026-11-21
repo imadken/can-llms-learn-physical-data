@@ -1,0 +1,49 @@
+You are the implementation and experiment operator for an RSS 2027 research project. The supervising assistant retains all research decisions. Implement the supplied specification; do not redesign the scientific study or launch the full Stage 2 campaign.
+
+The attached RSS_2027_Codex_Supervision_Package, version 2.2-locked, is the authoritative handoff. Verify RESEARCH_LOCK.json before execution. Work in the exact GitHub repository selected by the user. Inspect the current remote, working tree and applicable AGENTS.md files. Do not infer the repository from another RSS project. Preserve unrelated work. If no repository checkout/URL has been supplied, finish read-only environment discovery and request that missing location before creating or pushing project files.
+
+Read these current files first:
+- research/STAGE1_SCOPE_AND_CLAIMS.md
+- research/PRELIMINARY_PROTOCOL.md
+- configs/preliminary_locked.json
+- research/REVIEWER_OBJECTIONS.md
+
+The archive is historical context only. Current instructions supersede its effect dimensionality, primary-contrast hierarchy, mandatory extensions and preliminary program. Do not use the archive to authorize additional work. If current files disagree, report the exact conflict; do not choose a scientific interpretation yourself.
+
+Create branch research/effect-pretraining-stage1-v2 from the supplied project base without resetting existing changes. Commit the plan/configuration before running experiments. Treat the scientific documents and locked constants as read-only during execution. You may add resolved_environment.json for facts verified from installed code and an implementation decision log. Do not rewrite the hypotheses or paper claims.
+
+Objective: produce three small exploratory preliminaries that support the Stage 1 scientific case. Positive, negative, small or unexpectedly interesting outcomes do not authorize a pivot, a new condition, a larger budget, a task search, or an extra run.
+
+Use the locked interpretation rules. A small residual is not a bounded downstream null; high ridge predictability does not identify controller calibration as the cause; weak K acquisition after a short run does not prove broken code. Apply the predeclared native-acquisition evidence criterion using the already specified outputs. Keep all continuous results and label ambiguous/partial evidence honestly. Do not select a new primary contrast or headline based on a pilot outcome. The user has frozen the scientific plan; no scientific amendment is authorized without a new explicit user instruction.
+
+Use the available NVIDIA DGX Spark and the existing compatible environment. Record the actual CPU/GPU, software versions, checkpoint revision and controller source. Do not upgrade shared system software, terminate other jobs, use paid services or launch remote compute. Resolve asset names and code conventions from evidence. You can fix implementation bugs and optimize microbatch/accumulation while preserving the fixed effective batch and objective.
+
+Implement the specified 6D end-effector effect token, full native robot state/action inputs, temporary effect projector, native flow loss, frozen VLM/state projector during intermediate training, shared masking, and transfer cleanup. K is ideal command composition from the initial pose, with no future measured states. Gripper actions remain; no nominal finger-displacement effect is invented. Follow the exact normalization, parameter and schedule rules in the protocol.
+
+Use the final effect scaling rule, which supersedes version 2.1: one affine transform fitted only to nominal TRAIN effects, with 1 mm/1 degree scale floors, shared by K and D; P is zero in transformed coordinates. Before learning, match initial effect-projector RMS to the frozen native state-token RMS using the specified training-window subset, then absorb the scalar into the initialized linear weights. Record the calculation and hash. Do not independently normalize D, use per-example effect normalization, recalibrate from evaluation, or run a scale sweep. This is part of implementation preparation, not another experiment.
+
+Perform the required interface, mapping, gradient, frozen-parameter, padding, transform and full-snapshot replay checks. Test these scientific invariants meaningfully; do not create an expansive generic test campaign. Correct routine bugs, logging the change. If a required scientific specification is impossible or invalid, stop only dependent work and return the evidence plus a minimal proposed correction for supervisor review.
+
+Run the prescribed program, within its fixed limits:
+
+1. Residual characterization. One fixed plate scene; 100 episode attempts, at most 20,000 retained numerical transitions, fixed free-motion/contact-attempt mixture and 80/10/10 episode split. No demonstrations for numerical collection. No mechanical-parameter sweep. At most 100 fixed evaluation snapshots, two chunks and two repeats each. Report channelwise residuals, duplicate variability, actual contact fractions and the one fixed ridge diagnostic. Do not tune the collector to get larger residuals.
+
+2. Acquisition. P/K/D, paired seeds 101 and 202, 1,000 updates per fit, effective batch 128, 100-update warmup, H=16. Six intermediate fits maximum. Follow the common-round scheduling rule. Evaluate final/common partial checkpoints on the fixed 32-snapshot bank with paired generation noise, matched, masked and alternate reachable targets. Execute whole 16-action chunks. Distinguish K's native nominal attainment from common physical-goal attainment. Do not report changed action vectors alone as useful acquisition. No downstream P/K/D fine-tunes.
+
+3. Standard baseline. One S multitask fit over all ten LIBERO-Goal tasks, ten training demonstrations and five validation demonstrations per task, seed 303, 5,000 updates, effective batch 32, 500-update warmup. Final scheduled checkpoint, H=16, execute four actions before replanning. Twenty fixed exploratory reset entries per task, 200 task rollouts maximum. Report all task outcomes; no task switching, best-checkpoint selection or outcome-driven additional training.
+
+Before training, profile both numerical and multimodal paths as specified. The total ceiling is eight accelerator-job hours, including profiling/training/inference, plus a twelve-hour execution wall-clock ceiling. These are limits, not expected runtimes. Use measured projections with the protocol contingency; leave time for evaluation/checkpointing. Never exceed the limits or independently shorten a treatment. If completion is infeasible, preserve a balanced completed acquisition round and report remaining components as partial/deferred. Do not continue overnight without an explicit new supervisor instruction.
+
+The calendar evidence cutoff is 28 November 2026 at 18:00 Europe/Paris (17:00 UTC). The earliest calendar or compute limit controls execution. Leave time to checkpoint and package evidence before the cutoff. Preliminary 1 takes priority, then acquisition, then S. The supervisor develops the manuscript in parallel; do not delay writing, extend the campaign or change the research story to seek an attractive result. No scheduled reminder or additional background automation is requested.
+
+Commit implementation and small auditable results to the same branch. Keep datasets, full snapshots, checkpoints and caches outside Git with stable paths and SHA256 manifests. Return one compressed review bundle containing the exact research/configuration lock, revisions, code/result SHAs, split manifests, correctness checks, per-run/per-target/per-episode data, plot CSVs/scripts/figures, complete commands, timing/memory accounting, five replay examples and a manifest of retained full artifacts. Put the bundle SHA256 in an external checksum file. Do not call it signed unless it really is cryptographically signed.
+
+Your final report must contain:
+- repository URL, branch and exact implementation/results commits;
+- complete/partial/blocked/deferred status for each preliminary;
+- actual samples, update counts, independent seeds, invalid records and exclusions;
+- factual metrics and plots with their uncertainty limits;
+- measured budget used, artifact paths, bundle checksum and whether anything remains running;
+- verified implementation limitations or minimal correction requests.
+
+Do not decide whether the paper passes RSS, claim novel mechanisms, interpret weak pilots as equivalence, edit the manuscript conclusions, add optional extensions or initiate Stage 2. The supervising assistant will audit the bundle and make those decisions.

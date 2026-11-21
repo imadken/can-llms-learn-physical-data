@@ -1,0 +1,37 @@
+{
+  "lock_version": "2.2-locked",
+  "date": "2026-11-20",
+  "timezone": "Europe/Paris",
+  "status": "scientific_plan_locked_by_user",
+  "paper_title": "What Transfers from Effect-Conditioned Action Pretraining to Vision-Language-Action Policies?",
+  "empirical_status": "no_experiments_executed_by_supervisor",
+  "scientific_amendment_policy": "No autonomous scientific amendments. A new explicit user instruction is required, and this release must be preserved.",
+  "allowed_execution_records": "Record source facts, training-only calibration constants, runtime paths, implementation repairs and evidence in separate artifacts without modifying protected files.",
+  "verification": "SHA256 file integrity manifest, not a cryptographic signature.",
+  "protected_files": [
+    {
+      "path": "README.md",
+      "sha256": "018d3a159d599c497878efa955d7d8814086b4cf399346f082e381ba8eec255e"
+    },
+    {
+      "path": "research/STAGE1_SCOPE_AND_CLAIMS.md",
+      "sha256": "f038be131cfd5abe92afd44708b32389bc88004e7c99537d9ba59607467a367a"
+    },
+    {
+      "path": "research/PRELIMINARY_PROTOCOL.md",
+      "sha256": "2833e970c0750457f817463b06b13e9d40003ec6253ba96375e23f6b4d249c51"
+    },
+    {
+      "path": "research/REVIEWER_OBJECTIONS.md",
+      "sha256": "97bb025f13816d9126fa000e73e38e1952034f638b284a88ec9624b126e716a1"
+    },
+    {
+      "path": "configs/preliminary_locked.json",
+      "sha256": "2595203623e1d584517b9cf6428d4e4af3f4c19f8a062cc9ce051f64fee17edb"
+    },
+    {
+      "path": "prompts/CODEX_PRELIMINARIES.txt",
+      "sha256": "fcd7c3f71b44f8791d83115d54e2af47317974350cf1fb5d946c4bc1424a19c2"
+    }
+  ]
+}
