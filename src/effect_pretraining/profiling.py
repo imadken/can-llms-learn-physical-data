@@ -74,23 +74,40 @@ def multimodal_loss(policy, batch: dict, noise: torch.Tensor, time: torch.Tensor
     return losses[..., :7].mean()
 
 
-def profile(root: Path, artifacts: Path, *, recover_pre_update_fault: bool = False) -> None:
+def profile(
+    root: Path,
+    artifacts: Path,
+    *,
+    recover_pre_update_fault: bool = False,
+    optimize_multimodal_microbatch: int | None = None,
+) -> None:
     verify_release(root)
     result_path = root / "audit/profiling.json"
+    previous = None
     if result_path.exists():
         previous = json.loads(result_path.read_text())
-        if not (
-            recover_pre_update_fault
-            and previous.get("status") == "fault"
-            and previous.get("paths") == {}
-            and "out of memory" in previous.get("error", "")
-        ):
-            raise FileExistsError("Do not silently repeat prescribed profiles")
-        history = root / "audit/profiling_pre_update_fault.json"
-        if history.exists():
-            raise FileExistsError("A prior recovery must be audited before another attempt")
-        history.write_bytes(result_path.read_bytes())
-        finish_unavailable_wait(artifacts)
+        if optimize_multimodal_microbatch is not None:
+            if previous.get("status") != "complete" or optimize_multimodal_microbatch != 8:
+                raise ValueError(
+                    "Only the measured-memory microbatch-8 engineering optimization is specified"
+                )
+            history = root / "audit/profiling_multimodal_microbatch1.json"
+            if history.exists():
+                raise FileExistsError("Do not silently repeat a completed microbatch optimization")
+            history.write_bytes(result_path.read_bytes())
+        else:
+            if not (
+                recover_pre_update_fault
+                and previous.get("status") == "fault"
+                and previous.get("paths") == {}
+                and "out of memory" in previous.get("error", "")
+            ):
+                raise FileExistsError("Do not silently repeat prescribed profiles")
+            history = root / "audit/profiling_pre_update_fault.json"
+            if history.exists():
+                raise FileExistsError("A prior recovery must be audited before another attempt")
+            history.write_bytes(result_path.read_bytes())
+            finish_unavailable_wait(artifacts)
     resolved = json.loads((root / "resolved_environment.json").read_text())
     paths = resolved["runtime_paths"]
     report = {
@@ -99,21 +116,32 @@ def profile(root: Path, artifacts: Path, *, recover_pre_update_fault: bool = Fal
         "paths": {},
         "production_updates": 0,
     }
+    settings = [("numerical", 128, 16), ("multimodal", 32, 1)]
+    if optimize_multimodal_microbatch is not None:
+        if previous is None:
+            raise ValueError("Optimization requires the original completed measured profiles")
+        report = previous | {"status": "started"}
+        report["microbatch_optimization"] = (
+            "multimodal only; effective batch 32, microbatch 8, accumulation 4"
+        )
+        settings = [("multimodal", 32, optimize_multimodal_microbatch)]
     interface = json.loads((artifacts / "numerical_interface.json").read_text())
     coordinates = NumericalCoordinates.model_validate(interface["coordinates"])
     with np.load(artifacts / "training_arrays.npz", allow_pickle=False) as saved:
         arrays = {name: saved[name].copy() for name in saved.files}
     try:
-        with accelerator_job(artifacts, "required_disposable_profiles"):
+        with accelerator_job(
+            artifacts,
+            "multimodal_microbatch_optimization"
+            if optimize_multimodal_microbatch
+            else "required_disposable_profiles",
+        ):
             report["gpu_name"] = torch.cuda.get_device_name(0)
             report["capability"] = torch.cuda.get_device_capability(0)
             report["torch_architectures"] = torch.cuda.get_arch_list()
             if not torch.cuda.is_bf16_supported():
                 raise RuntimeError("The locked BF16 precision is unavailable")
-            for path_name, effective_batch, microbatch in [
-                ("numerical", 128, 16),
-                ("multimodal", 32, 1),
-            ]:
+            for path_name, effective_batch, microbatch in settings:
                 policy = load_native_policy(Path(paths["checkpoint"]), Path(paths["vlm_assets"]))
                 if path_name == "numerical":
                     projector = nn.Linear(6, policy.model.state_proj.out_features)
@@ -243,7 +271,7 @@ def profile(root: Path, artifacts: Path, *, recover_pre_update_fault: bool = Fal
                         raise FloatingPointError("Non-finite BF16 numerical chunk generation")
                     report["numerical_chunk_seconds"] = time.monotonic() - started
                     report["numerical_chunk_development_source"] = {"episode_id": 80, "offset": 0}
-                else:
+                elif optimize_multimodal_microbatch is None:
                     from libero.libero import benchmark, get_libero_path
                     from libero.libero.envs.env_wrapper import OffScreenRenderEnv
 
@@ -317,7 +345,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifacts", type=Path, required=True)
     parser.add_argument("--recover-pre-update-fault", action="store_true")
+    parser.add_argument("--optimize-multimodal-microbatch", type=int)
     args = parser.parse_args()
     profile(
-        Path.cwd(), args.artifacts.resolve(), recover_pre_update_fault=args.recover_pre_update_fault
+        Path.cwd(),
+        args.artifacts.resolve(),
+        recover_pre_update_fault=args.recover_pre_update_fault,
+        optimize_multimodal_microbatch=args.optimize_multimodal_microbatch,
     )
