@@ -314,6 +314,12 @@ def build_report(root: Path, artifacts: Path) -> dict:
         lines += ["No final/common-checkpoint acquisition evidence has been produced yet.", ""]
     lines += ["## Standard baseline", ""]
     if baseline:
+        mean = baseline["equal_task_mean_valid"]
+        mean_text = f"{100 * mean:.2f}%" if mean is not None else "unmeasured"
+        interval = baseline["pooled_wilson95_valid_episodes"]
+        pooled_interval = (
+            f"[{100 * interval[0]:.2f}%, {100 * interval[1]:.2f}%]" if interval else "unmeasured"
+        )
         lines += [
             "| Task | Successes / valid episodes | Invalid episodes | "
             "Descriptive 95% Wilson interval |",
@@ -334,7 +340,8 @@ def build_report(root: Path, artifacts: Path) -> dict:
         lines += [
             "",
             f"Pooled successes: {baseline['successes']}/{baseline['valid_episodes']}. "
-            f"Equal-task mean: {baseline['equal_task_mean_valid']}. "
+            f"Equal-task mean: {mean_text}; descriptive pooled 95% Wilson interval: "
+            f"{pooled_interval}. "
             f"{200 - baseline['total_attempts']} scheduled episodes were unperformed. "
             "Invalid attempts are retained with reasons in baseline_episodes.csv and "
             "excluded from valid-episode success denominators; there are no replacements. "
@@ -427,7 +434,7 @@ def build_report(root: Path, artifacts: Path) -> dict:
         peaks.append(baseline_invariant["peak_allocated_bytes"])
     lines += [
         "",
-        f"Maximum production fit allocation recorded: {max(peaks) / 2**30:.4f} GiB. "
+        f"Maximum production fit allocation recorded: {max(peaks) / 2**30:.4f} GiB."
         if peaks
         else "Production fit memory is not yet audited. ",
         "The ledger counts the full persistent accelerator reservation, including CPU "
