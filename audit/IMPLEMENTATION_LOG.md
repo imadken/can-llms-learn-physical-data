@@ -30,3 +30,17 @@ The user selected https://github.com/imadken/can-llms-learn-physical-data.git at
 - Contacts will be recorded at every physics substep, not only at action endpoints. Native reset failures are not retried by the public wrapper.
 - CPU native-model checks passed: nonzero effect-projector gradient through the frozen decoder, unchanged frozen parameter hashes after one disposable optimizer step, bit-identical actions after changing a masked effect, and finite ordinary language/state inference after removing the effect wrapper. This is not a production acquisition fit or multimodal profile.
 - Current storage is insufficient for six ordinary uncompressed resumable checkpoints (7,189,150,464 bytes before overhead). Additional artifact storage was requested asynchronously; no shared files or jobs are deleted.
+
+## Resumed after user-requested storage cleanup
+
+The user requested a pause while cleaning disk space. Only this collector was suspended, at 85 completed attempts, and it resumed on the user's explicit instruction. No attempt was replaced. Disk free space increased to about 53 GB. The original collection completed all 100 attempts and 20,000 retained transitions with no invalid episodes. All 400 fixed replays completed; all 200 duplicate pairs were bit-identical in integration state. No robot-object contact was observed; this is retained as an observed collector limitation, with no enrichment retry.
+
+The fixed ridge implementation explicitly minimizes mean squared error over records and the six target coordinates plus 0.001 times the squared coefficient norm, with an unpenalized intercept. Its loss-gradient test passed. All fitted effects/features use TRAIN episodes only.
+
+The complete official raw LIBERO-Goal demonstration source was pinned at f13aa24a3da8c43c7225569f28c562979fa0e35a and all ten LFS file hashes were verified. Trajectory ordering was frozen before scores: SeedSequence([72026, task_id]) over sorted identifiers, taking 10 train and 5 validation per task.
+
+The upstream LeRobot interface moved to src/lerobot/sim/integrations/libero.py. Its canonical observation at b13b952556c597d1e0849cadb6b6e7496bc5a2f3 verifies rotation by 180 degrees for both camera images and the native EEF position/axis-angle/two-finger state order. This source inspection does not upgrade the installed runtime.
+
+## Raw demonstration timestamp repair before neural work
+
+Official LIBERO create_dataset.py records observation[j] after executing action[j], while storing action[j] at the same row. A fixed five-row forward-kinematics audit on the first selected trajectory of task 0 confirmed that observations match the next recorded state much more closely (0.13–0.25 mm) than the same recorded state (3.0–5.6 mm). The loader therefore pairs observation row j with the complete next-action chunk actions[j+1:j+17], excluding the single incomplete terminal window. This corrects current-state/action alignment; it changes no trajectory allocation, controller command, condition, horizon or objective. The split manifest records this source-derived alignment explicitly, before profiling/training.

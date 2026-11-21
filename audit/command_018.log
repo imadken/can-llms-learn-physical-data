@@ -1,0 +1,44 @@
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Reducing the number of VLM layers to 16 ...
+{
+  "complete_training_windows": 14800,
+  "calibration": {
+    "101": {
+      "projector_seed": 800101,
+      "state_rms": 0.2193545219138319,
+      "effect_rms_before": 0.11076668949934983,
+      "alpha": 1.9803293111429447,
+      "effect_rms_after": 0.21935451765483227,
+      "status": "calibrated",
+      "weight_sha256": "aea0b137e7e5147e7051deef2e31f1e0b79e4cabc656bdbea2da0dbc03179e13",
+      "bias_sha256": "a8eac8b0d3b1fde368813438dd5ba415a796fd6dd0a2a42fb6a5a2dfb2429576",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/initial_projector_seed101.safetensors",
+      "file_sha256": "cfd435db044ecdebcf869aa2451eb23cbadd815dfb8e9a8958ddcb3aef10a7a3",
+      "reference_count": 512,
+      "paired_arms": [
+        "P",
+        "K",
+        "D"
+      ]
+    },
+    "202": {
+      "projector_seed": 800202,
+      "state_rms": 0.2193545219138319,
+      "effect_rms_before": 0.11136260384455322,
+      "alpha": 1.9697323368984838,
+      "effect_rms_after": 0.21935451607319034,
+      "status": "calibrated",
+      "weight_sha256": "893c8effcfdc2d08958c7061fe79e3f869fe0ce6398f75b5afc1e26908318bf2",
+      "bias_sha256": "a8eac8b0d3b1fde368813438dd5ba415a796fd6dd0a2a42fb6a5a2dfb2429576",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/initial_projector_seed202.safetensors",
+      "file_sha256": "e040ae8d9663545421be319aeec3a179040f82a681c2325c529b63a6826ba940",
+      "reference_count": 512,
+      "paired_arms": [
+        "P",
+        "K",
+        "D"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+RAW_SHAPES (127, 79) (127, 3)
+[
+  {
+    "row": 0,
+    "same_recorded_state_position_error_m": 0.0030124847545209953,
+    "next_recorded_state_position_error_m": 0.0001282502446683939
+  },
+  {
+    "row": 1,
+    "same_recorded_state_position_error_m": 0.0033385809134495524,
+    "next_recorded_state_position_error_m": 0.0001425279822419169
+  },
+  {
+    "row": 2,
+    "same_recorded_state_position_error_m": 0.003774787550121028,
+    "next_recorded_state_position_error_m": 0.0001630089891927214
+  },
+  {
+    "row": 3,
+    "same_recorded_state_position_error_m": 0.004482114314514512,
+    "next_recorded_state_position_error_m": 0.00019763983403304157
+  },
+  {
+    "row": 4,
+    "same_recorded_state_position_error_m": 0.005568680804675686,
+    "next_recorded_state_position_error_m": 0.00024673993059265263
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "objective": "mean squared error over all training windows and six targets + 0.001 * sum(coefficient**2)",
+  "training_window_count": 14800,
+  "feature_count": 120,
+  "intercept_penalized": false,
+  "hyperparameter_search": false,
+  "heldout_source": "fixed reference replays from evaluation episodes only; repeats and snapshots are correlated",
+  "overall": {
+    "translation": {
+      "count": 400,
+      "ridge_rmse": 4.59683454997771,
+      "zero_rmse": 47.22565172116596,
+      "training_mean_rmse": 47.10980789943741,
+      "squared_error_reduction": 0.9904787256551723,
+      "units": "mm",
+      "undefined_ratio_reason": null
+    },
+    "rotation": {
+      "count": 400,
+      "ridge_rmse": 2.5485612498364367,
+      "zero_rmse": 13.556321998494052,
+      "training_mean_rmse": 13.598747725675826,
+      "squared_error_reduction": 0.9648769423344615,
+      "units": "degrees",
+      "undefined_ratio_reason": null
+    }
+  },
+  "contact": {
+    "translation": {
+      "count": 0,
+      "ridge_rmse": null,
+      "zero_rmse": null,
+      "training_mean_rmse": null,
+      "squared_error_reduction": null,
+      "units": "mm",
+      "undefined_ratio_reason": "empty_or_negligible_training_mean_SSE"
+    },
+    "rotation": {
+      "count": 0,
+      "ridge_rmse": null,
+      "zero_rmse": null,
+      "training_mean_rmse": null,
+      "squared_error_reduction": null,
+      "units": "degrees",
+      "undefined_ratio_reason": "empty_or_negligible_training_mean_SSE"
+    }
+  },
+  "no_contact": {
+    "translation": {
+      "count": 400,
+      "ridge_rmse": 4.59683454997771,
+      "zero_rmse": 47.22565172116596,
+      "training_mean_rmse": 47.10980789943741,
+      "squared_error_reduction": 0.9904787256551723,
+      "units": "mm",
+      "undefined_ratio_reason": null
+    },
+    "rotation": {
+      "count": 400,
+      "ridge_rmse": 2.5485612498364367,
+      "zero_rmse": 13.556321998494052,
+      "training_mean_rmse": 13.598747725675826,
+      "squared_error_reduction": 0.9648769423344615,
+      "units": "degrees",
+      "undefined_ratio_reason": null
+    }
+  }
+}

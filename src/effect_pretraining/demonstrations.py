@@ -93,7 +93,7 @@ def freeze_trajectories(root: Path, destination: Path) -> list[dict]:
                                 f"Missing native demonstration field {task.name}/{name}/{key}"
                             )
                     count = len(group["actions"])
-                    if count < 16 or group["actions"].shape[1] != 7:
+                    if count < 17 or group["actions"].shape[1] != 7:
                         raise ValueError(f"Invalid complete action windows: {task.name}/{name}")
                     if group["obs/ee_pos"].shape != (count, 3):
                         raise ValueError("Invalid EEF demonstration position shape")
@@ -102,7 +102,7 @@ def freeze_trajectories(root: Path, destination: Path) -> list[dict]:
                             "trajectory_id": name,
                             "split": split,
                             "action_count": count,
-                            "complete_window_count": count - 15,
+                            "complete_window_count": count - 16,
                         }
                     )
             initial_file = (
@@ -122,7 +122,11 @@ def freeze_trajectories(root: Path, destination: Path) -> list[dict]:
                     "evaluation_initial_state_indices": list(range(20)),
                     "rollout_limit_control_steps": 300,
                     "warmup_steps": 10,
-                    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed",
+                    "raw_observation_timing": "observation[j] is after action[j]",
+                    "action_window_start_relative_to_observation_row": 1,
+                    "provenance_limit": (
+                        "official exploratory resets; demonstration/reset disjointness not assumed"
+                    ),
                 }
             )
     (root / "audit/demonstration_split_manifest.json").write_text(

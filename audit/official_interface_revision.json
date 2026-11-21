@@ -1,0 +1,6 @@
+{
+  "repository": "huggingface/lerobot",
+  "revision": "b13b952556c597d1e0849cadb6b6e7496bc5a2f3",
+  "file": "src/lerobot/sim/integrations/libero.py",
+  "sha256": "419f788e9be11b8757f3ad0885b470c282942ec269eb1592cbae3cf9e2b29f0f"
+}

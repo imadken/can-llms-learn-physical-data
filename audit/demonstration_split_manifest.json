@@ -1,0 +1,1292 @@
+[
+  {
+    "task_id": 0,
+    "task_name": "open_the_middle_drawer_of_the_cabinet",
+    "language": "open the middle drawer of the cabinet",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/open_the_middle_drawer_of_the_cabinet_demo.hdf5",
+    "demonstration_sha256": "20252c7cf98cd7437061f7f200ae7b6cb6219fabbd53b4536dfaa8abda6ab737",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_11",
+        "split": "train",
+        "action_count": 127,
+        "complete_window_count": 111
+      },
+      {
+        "trajectory_id": "demo_30",
+        "split": "train",
+        "action_count": 136,
+        "complete_window_count": 120
+      },
+      {
+        "trajectory_id": "demo_34",
+        "split": "train",
+        "action_count": 146,
+        "complete_window_count": 130
+      },
+      {
+        "trajectory_id": "demo_35",
+        "split": "train",
+        "action_count": 143,
+        "complete_window_count": 127
+      },
+      {
+        "trajectory_id": "demo_25",
+        "split": "train",
+        "action_count": 160,
+        "complete_window_count": 144
+      },
+      {
+        "trajectory_id": "demo_46",
+        "split": "train",
+        "action_count": 124,
+        "complete_window_count": 108
+      },
+      {
+        "trajectory_id": "demo_42",
+        "split": "train",
+        "action_count": 131,
+        "complete_window_count": 115
+      },
+      {
+        "trajectory_id": "demo_24",
+        "split": "train",
+        "action_count": 153,
+        "complete_window_count": 137
+      },
+      {
+        "trajectory_id": "demo_18",
+        "split": "train",
+        "action_count": 126,
+        "complete_window_count": 110
+      },
+      {
+        "trajectory_id": "demo_1",
+        "split": "train",
+        "action_count": 138,
+        "complete_window_count": 122
+      },
+      {
+        "trajectory_id": "demo_48",
+        "split": "validation",
+        "action_count": 143,
+        "complete_window_count": 127
+      },
+      {
+        "trajectory_id": "demo_27",
+        "split": "validation",
+        "action_count": 156,
+        "complete_window_count": 140
+      },
+      {
+        "trajectory_id": "demo_26",
+        "split": "validation",
+        "action_count": 128,
+        "complete_window_count": 112
+      },
+      {
+        "trajectory_id": "demo_37",
+        "split": "validation",
+        "action_count": 133,
+        "complete_window_count": 117
+      },
+      {
+        "trajectory_id": "demo_16",
+        "split": "validation",
+        "action_count": 185,
+        "complete_window_count": 169
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/open_the_middle_drawer_of_the_cabinet.pruned_init",
+    "initial_state_sha256": "977efe1216bee72bb4e9fa9ec4be1bcfe37fb00ece815eac117feba019b34b9f",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 1,
+    "task_name": "put_the_bowl_on_the_stove",
+    "language": "put the bowl on the stove",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/put_the_bowl_on_the_stove_demo.hdf5",
+    "demonstration_sha256": "ff77d3bf0f89a147d423840ecbd842cd63c3c55aeead91f88dbc0917be473e99",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_4",
+        "split": "train",
+        "action_count": 104,
+        "complete_window_count": 88
+      },
+      {
+        "trajectory_id": "demo_22",
+        "split": "train",
+        "action_count": 104,
+        "complete_window_count": 88
+      },
+      {
+        "trajectory_id": "demo_42",
+        "split": "train",
+        "action_count": 98,
+        "complete_window_count": 82
+      },
+      {
+        "trajectory_id": "demo_10",
+        "split": "train",
+        "action_count": 96,
+        "complete_window_count": 80
+      },
+      {
+        "trajectory_id": "demo_9",
+        "split": "train",
+        "action_count": 94,
+        "complete_window_count": 78
+      },
+      {
+        "trajectory_id": "demo_0",
+        "split": "train",
+        "action_count": 94,
+        "complete_window_count": 78
+      },
+      {
+        "trajectory_id": "demo_20",
+        "split": "train",
+        "action_count": 119,
+        "complete_window_count": 103
+      },
+      {
+        "trajectory_id": "demo_34",
+        "split": "train",
+        "action_count": 98,
+        "complete_window_count": 82
+      },
+      {
+        "trajectory_id": "demo_31",
+        "split": "train",
+        "action_count": 114,
+        "complete_window_count": 98
+      },
+      {
+        "trajectory_id": "demo_21",
+        "split": "train",
+        "action_count": 92,
+        "complete_window_count": 76
+      },
+      {
+        "trajectory_id": "demo_47",
+        "split": "validation",
+        "action_count": 115,
+        "complete_window_count": 99
+      },
+      {
+        "trajectory_id": "demo_14",
+        "split": "validation",
+        "action_count": 123,
+        "complete_window_count": 107
+      },
+      {
+        "trajectory_id": "demo_23",
+        "split": "validation",
+        "action_count": 100,
+        "complete_window_count": 84
+      },
+      {
+        "trajectory_id": "demo_16",
+        "split": "validation",
+        "action_count": 97,
+        "complete_window_count": 81
+      },
+      {
+        "trajectory_id": "demo_33",
+        "split": "validation",
+        "action_count": 103,
+        "complete_window_count": 87
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/put_the_bowl_on_the_stove.pruned_init",
+    "initial_state_sha256": "7c1819725af8d08988078d6efb98ddb6dbefadb2e6d20df4ed23a2074f4d9ed1",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 2,
+    "task_name": "put_the_wine_bottle_on_top_of_the_cabinet",
+    "language": "put the wine bottle on top of the cabinet",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/put_the_wine_bottle_on_top_of_the_cabinet_demo.hdf5",
+    "demonstration_sha256": "7dc087a7596d5cbbe394f681b21a0be434438b0dca73ac430c293fe4c818404a",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_28",
+        "split": "train",
+        "action_count": 114,
+        "complete_window_count": 98
+      },
+      {
+        "trajectory_id": "demo_43",
+        "split": "train",
+        "action_count": 92,
+        "complete_window_count": 76
+      },
+      {
+        "trajectory_id": "demo_15",
+        "split": "train",
+        "action_count": 116,
+        "complete_window_count": 100
+      },
+      {
+        "trajectory_id": "demo_32",
+        "split": "train",
+        "action_count": 97,
+        "complete_window_count": 81
+      },
+      {
+        "trajectory_id": "demo_45",
+        "split": "train",
+        "action_count": 128,
+        "complete_window_count": 112
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "train",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_42",
+        "split": "train",
+        "action_count": 137,
+        "complete_window_count": 121
+      },
+      {
+        "trajectory_id": "demo_1",
+        "split": "train",
+        "action_count": 130,
+        "complete_window_count": 114
+      },
+      {
+        "trajectory_id": "demo_9",
+        "split": "train",
+        "action_count": 100,
+        "complete_window_count": 84
+      },
+      {
+        "trajectory_id": "demo_44",
+        "split": "train",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_24",
+        "split": "validation",
+        "action_count": 121,
+        "complete_window_count": 105
+      },
+      {
+        "trajectory_id": "demo_31",
+        "split": "validation",
+        "action_count": 93,
+        "complete_window_count": 77
+      },
+      {
+        "trajectory_id": "demo_0",
+        "split": "validation",
+        "action_count": 93,
+        "complete_window_count": 77
+      },
+      {
+        "trajectory_id": "demo_8",
+        "split": "validation",
+        "action_count": 107,
+        "complete_window_count": 91
+      },
+      {
+        "trajectory_id": "demo_7",
+        "split": "validation",
+        "action_count": 113,
+        "complete_window_count": 97
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_top_of_the_cabinet.pruned_init",
+    "initial_state_sha256": "b8c659d17c722bf848065bec6b4d088ab8e90f48b5ae991b2f118b0f2b5bbe4b",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 3,
+    "task_name": "open_the_top_drawer_and_put_the_bowl_inside",
+    "language": "open the top drawer and put the bowl inside",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/open_the_top_drawer_and_put_the_bowl_inside_demo.hdf5",
+    "demonstration_sha256": "1b50d99a053a7e4547c9ae9ccd2e3cd762543d27be78f240f13440d7ae487ae8",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_25",
+        "split": "train",
+        "action_count": 188,
+        "complete_window_count": 172
+      },
+      {
+        "trajectory_id": "demo_3",
+        "split": "train",
+        "action_count": 199,
+        "complete_window_count": 183
+      },
+      {
+        "trajectory_id": "demo_11",
+        "split": "train",
+        "action_count": 228,
+        "complete_window_count": 212
+      },
+      {
+        "trajectory_id": "demo_18",
+        "split": "train",
+        "action_count": 184,
+        "complete_window_count": 168
+      },
+      {
+        "trajectory_id": "demo_27",
+        "split": "train",
+        "action_count": 184,
+        "complete_window_count": 168
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "train",
+        "action_count": 215,
+        "complete_window_count": 199
+      },
+      {
+        "trajectory_id": "demo_40",
+        "split": "train",
+        "action_count": 187,
+        "complete_window_count": 171
+      },
+      {
+        "trajectory_id": "demo_14",
+        "split": "train",
+        "action_count": 178,
+        "complete_window_count": 162
+      },
+      {
+        "trajectory_id": "demo_42",
+        "split": "train",
+        "action_count": 204,
+        "complete_window_count": 188
+      },
+      {
+        "trajectory_id": "demo_36",
+        "split": "train",
+        "action_count": 227,
+        "complete_window_count": 211
+      },
+      {
+        "trajectory_id": "demo_34",
+        "split": "validation",
+        "action_count": 198,
+        "complete_window_count": 182
+      },
+      {
+        "trajectory_id": "demo_0",
+        "split": "validation",
+        "action_count": 170,
+        "complete_window_count": 154
+      },
+      {
+        "trajectory_id": "demo_22",
+        "split": "validation",
+        "action_count": 218,
+        "complete_window_count": 202
+      },
+      {
+        "trajectory_id": "demo_44",
+        "split": "validation",
+        "action_count": 195,
+        "complete_window_count": 179
+      },
+      {
+        "trajectory_id": "demo_23",
+        "split": "validation",
+        "action_count": 200,
+        "complete_window_count": 184
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/open_the_top_drawer_and_put_the_bowl_inside.pruned_init",
+    "initial_state_sha256": "1cd5354ade9ab9f323a518515f961df96123b7daeca017df1f62d3e9ff18794f",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 4,
+    "task_name": "put_the_bowl_on_top_of_the_cabinet",
+    "language": "put the bowl on top of the cabinet",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/put_the_bowl_on_top_of_the_cabinet_demo.hdf5",
+    "demonstration_sha256": "e14c84ebc820a13ef9a92ca82a7f04bb299f0ee96dfe9cc907bab71aeb2683b2",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_30",
+        "split": "train",
+        "action_count": 103,
+        "complete_window_count": 87
+      },
+      {
+        "trajectory_id": "demo_5",
+        "split": "train",
+        "action_count": 96,
+        "complete_window_count": 80
+      },
+      {
+        "trajectory_id": "demo_27",
+        "split": "train",
+        "action_count": 99,
+        "complete_window_count": 83
+      },
+      {
+        "trajectory_id": "demo_2",
+        "split": "train",
+        "action_count": 99,
+        "complete_window_count": 83
+      },
+      {
+        "trajectory_id": "demo_29",
+        "split": "train",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_48",
+        "split": "train",
+        "action_count": 98,
+        "complete_window_count": 82
+      },
+      {
+        "trajectory_id": "demo_9",
+        "split": "train",
+        "action_count": 110,
+        "complete_window_count": 94
+      },
+      {
+        "trajectory_id": "demo_21",
+        "split": "train",
+        "action_count": 105,
+        "complete_window_count": 89
+      },
+      {
+        "trajectory_id": "demo_23",
+        "split": "train",
+        "action_count": 91,
+        "complete_window_count": 75
+      },
+      {
+        "trajectory_id": "demo_3",
+        "split": "train",
+        "action_count": 123,
+        "complete_window_count": 107
+      },
+      {
+        "trajectory_id": "demo_10",
+        "split": "validation",
+        "action_count": 88,
+        "complete_window_count": 72
+      },
+      {
+        "trajectory_id": "demo_44",
+        "split": "validation",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_1",
+        "split": "validation",
+        "action_count": 110,
+        "complete_window_count": 94
+      },
+      {
+        "trajectory_id": "demo_46",
+        "split": "validation",
+        "action_count": 148,
+        "complete_window_count": 132
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "validation",
+        "action_count": 98,
+        "complete_window_count": 82
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/put_the_bowl_on_top_of_the_cabinet.pruned_init",
+    "initial_state_sha256": "c0b7baf82f36f5304488bac91d788800a1c93d0a9fd19a73f448992d5366e145",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 5,
+    "task_name": "push_the_plate_to_the_front_of_the_stove",
+    "language": "push the plate to the front of the stove",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/push_the_plate_to_the_front_of_the_stove_demo.hdf5",
+    "demonstration_sha256": "36b4e1bced49d2f4ff6b2fce6b1596a63978e14199e2513cd0df71e127bf47a6",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_16",
+        "split": "train",
+        "action_count": 206,
+        "complete_window_count": 190
+      },
+      {
+        "trajectory_id": "demo_13",
+        "split": "train",
+        "action_count": 151,
+        "complete_window_count": 135
+      },
+      {
+        "trajectory_id": "demo_34",
+        "split": "train",
+        "action_count": 154,
+        "complete_window_count": 138
+      },
+      {
+        "trajectory_id": "demo_5",
+        "split": "train",
+        "action_count": 117,
+        "complete_window_count": 101
+      },
+      {
+        "trajectory_id": "demo_21",
+        "split": "train",
+        "action_count": 149,
+        "complete_window_count": 133
+      },
+      {
+        "trajectory_id": "demo_27",
+        "split": "train",
+        "action_count": 220,
+        "complete_window_count": 204
+      },
+      {
+        "trajectory_id": "demo_41",
+        "split": "train",
+        "action_count": 188,
+        "complete_window_count": 172
+      },
+      {
+        "trajectory_id": "demo_8",
+        "split": "train",
+        "action_count": 139,
+        "complete_window_count": 123
+      },
+      {
+        "trajectory_id": "demo_11",
+        "split": "train",
+        "action_count": 144,
+        "complete_window_count": 128
+      },
+      {
+        "trajectory_id": "demo_37",
+        "split": "train",
+        "action_count": 203,
+        "complete_window_count": 187
+      },
+      {
+        "trajectory_id": "demo_35",
+        "split": "validation",
+        "action_count": 169,
+        "complete_window_count": 153
+      },
+      {
+        "trajectory_id": "demo_7",
+        "split": "validation",
+        "action_count": 123,
+        "complete_window_count": 107
+      },
+      {
+        "trajectory_id": "demo_32",
+        "split": "validation",
+        "action_count": 115,
+        "complete_window_count": 99
+      },
+      {
+        "trajectory_id": "demo_43",
+        "split": "validation",
+        "action_count": 182,
+        "complete_window_count": 166
+      },
+      {
+        "trajectory_id": "demo_36",
+        "split": "validation",
+        "action_count": 145,
+        "complete_window_count": 129
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/push_the_plate_to_the_front_of_the_stove.pruned_init",
+    "initial_state_sha256": "794beed679b18bbd7d9fb851c81877a974915ad63addff2d5ac5af0607fafac9",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 6,
+    "task_name": "put_the_cream_cheese_in_the_bowl",
+    "language": "put the cream cheese in the bowl",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/put_the_cream_cheese_in_the_bowl_demo.hdf5",
+    "demonstration_sha256": "ee58a7d72c143a71bf1448674e70940ac7781c1d1bb10a1b0c7a5c69b26abbef",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_47",
+        "split": "train",
+        "action_count": 110,
+        "complete_window_count": 94
+      },
+      {
+        "trajectory_id": "demo_5",
+        "split": "train",
+        "action_count": 92,
+        "complete_window_count": 76
+      },
+      {
+        "trajectory_id": "demo_26",
+        "split": "train",
+        "action_count": 147,
+        "complete_window_count": 131
+      },
+      {
+        "trajectory_id": "demo_39",
+        "split": "train",
+        "action_count": 131,
+        "complete_window_count": 115
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "train",
+        "action_count": 136,
+        "complete_window_count": 120
+      },
+      {
+        "trajectory_id": "demo_3",
+        "split": "train",
+        "action_count": 104,
+        "complete_window_count": 88
+      },
+      {
+        "trajectory_id": "demo_19",
+        "split": "train",
+        "action_count": 92,
+        "complete_window_count": 76
+      },
+      {
+        "trajectory_id": "demo_8",
+        "split": "train",
+        "action_count": 99,
+        "complete_window_count": 83
+      },
+      {
+        "trajectory_id": "demo_23",
+        "split": "train",
+        "action_count": 152,
+        "complete_window_count": 136
+      },
+      {
+        "trajectory_id": "demo_38",
+        "split": "train",
+        "action_count": 103,
+        "complete_window_count": 87
+      },
+      {
+        "trajectory_id": "demo_10",
+        "split": "validation",
+        "action_count": 107,
+        "complete_window_count": 91
+      },
+      {
+        "trajectory_id": "demo_0",
+        "split": "validation",
+        "action_count": 92,
+        "complete_window_count": 76
+      },
+      {
+        "trajectory_id": "demo_49",
+        "split": "validation",
+        "action_count": 102,
+        "complete_window_count": 86
+      },
+      {
+        "trajectory_id": "demo_4",
+        "split": "validation",
+        "action_count": 94,
+        "complete_window_count": 78
+      },
+      {
+        "trajectory_id": "demo_1",
+        "split": "validation",
+        "action_count": 113,
+        "complete_window_count": 97
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/put_the_cream_cheese_in_the_bowl.pruned_init",
+    "initial_state_sha256": "524de11d240f33b93d5218b1779a1ded1037950fcf865f07d0c0029cc48cf3f5",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 7,
+    "task_name": "turn_on_the_stove",
+    "language": "turn on the stove",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/turn_on_the_stove_demo.hdf5",
+    "demonstration_sha256": "387fc10747696b80dea6ed8d7f2beaa162bf92ae11750b241073cbd33aac73d5",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_49",
+        "split": "train",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_37",
+        "split": "train",
+        "action_count": 85,
+        "complete_window_count": 69
+      },
+      {
+        "trajectory_id": "demo_27",
+        "split": "train",
+        "action_count": 100,
+        "complete_window_count": 84
+      },
+      {
+        "trajectory_id": "demo_10",
+        "split": "train",
+        "action_count": 97,
+        "complete_window_count": 81
+      },
+      {
+        "trajectory_id": "demo_32",
+        "split": "train",
+        "action_count": 85,
+        "complete_window_count": 69
+      },
+      {
+        "trajectory_id": "demo_16",
+        "split": "train",
+        "action_count": 91,
+        "complete_window_count": 75
+      },
+      {
+        "trajectory_id": "demo_26",
+        "split": "train",
+        "action_count": 85,
+        "complete_window_count": 69
+      },
+      {
+        "trajectory_id": "demo_7",
+        "split": "train",
+        "action_count": 96,
+        "complete_window_count": 80
+      },
+      {
+        "trajectory_id": "demo_19",
+        "split": "train",
+        "action_count": 81,
+        "complete_window_count": 65
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "train",
+        "action_count": 103,
+        "complete_window_count": 87
+      },
+      {
+        "trajectory_id": "demo_17",
+        "split": "validation",
+        "action_count": 86,
+        "complete_window_count": 70
+      },
+      {
+        "trajectory_id": "demo_25",
+        "split": "validation",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_36",
+        "split": "validation",
+        "action_count": 84,
+        "complete_window_count": 68
+      },
+      {
+        "trajectory_id": "demo_22",
+        "split": "validation",
+        "action_count": 79,
+        "complete_window_count": 63
+      },
+      {
+        "trajectory_id": "demo_38",
+        "split": "validation",
+        "action_count": 90,
+        "complete_window_count": 74
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/turn_on_the_stove.pruned_init",
+    "initial_state_sha256": "ed121db31d749647d70741c4c4ef0bd8e0876663986578795968e962d9b91340",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 8,
+    "task_name": "put_the_bowl_on_the_plate",
+    "language": "put the bowl on the plate",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/put_the_bowl_on_the_plate_demo.hdf5",
+    "demonstration_sha256": "e69528b0cf10dfc59b20698e12ec2affc03f3887309034d3eb74cac3ec929406",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_16",
+        "split": "train",
+        "action_count": 95,
+        "complete_window_count": 79
+      },
+      {
+        "trajectory_id": "demo_34",
+        "split": "train",
+        "action_count": 92,
+        "complete_window_count": 76
+      },
+      {
+        "trajectory_id": "demo_11",
+        "split": "train",
+        "action_count": 85,
+        "complete_window_count": 69
+      },
+      {
+        "trajectory_id": "demo_24",
+        "split": "train",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_45",
+        "split": "train",
+        "action_count": 109,
+        "complete_window_count": 93
+      },
+      {
+        "trajectory_id": "demo_46",
+        "split": "train",
+        "action_count": 79,
+        "complete_window_count": 63
+      },
+      {
+        "trajectory_id": "demo_9",
+        "split": "train",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_21",
+        "split": "train",
+        "action_count": 106,
+        "complete_window_count": 90
+      },
+      {
+        "trajectory_id": "demo_15",
+        "split": "train",
+        "action_count": 84,
+        "complete_window_count": 68
+      },
+      {
+        "trajectory_id": "demo_13",
+        "split": "train",
+        "action_count": 98,
+        "complete_window_count": 82
+      },
+      {
+        "trajectory_id": "demo_19",
+        "split": "validation",
+        "action_count": 95,
+        "complete_window_count": 79
+      },
+      {
+        "trajectory_id": "demo_40",
+        "split": "validation",
+        "action_count": 90,
+        "complete_window_count": 74
+      },
+      {
+        "trajectory_id": "demo_39",
+        "split": "validation",
+        "action_count": 83,
+        "complete_window_count": 67
+      },
+      {
+        "trajectory_id": "demo_22",
+        "split": "validation",
+        "action_count": 80,
+        "complete_window_count": 64
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "validation",
+        "action_count": 88,
+        "complete_window_count": 72
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/put_the_bowl_on_the_plate.pruned_init",
+    "initial_state_sha256": "ef3466ffad734754dc40eba1f6f5712e37aa46b9692c595e0da34f16d3a0c668",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  },
+  {
+    "task_id": 9,
+    "task_name": "put_the_wine_bottle_on_the_rack",
+    "language": "put the wine bottle on the rack",
+    "demonstration_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/demonstrations/put_the_wine_bottle_on_the_rack_demo.hdf5",
+    "demonstration_sha256": "f9092aa70734fc4083e97fc58c3ba25f87c614d18326182ddc7a455f0ab4da2e",
+    "available_trajectories": 50,
+    "selected_trajectories": [
+      {
+        "trajectory_id": "demo_37",
+        "split": "train",
+        "action_count": 162,
+        "complete_window_count": 146
+      },
+      {
+        "trajectory_id": "demo_4",
+        "split": "train",
+        "action_count": 158,
+        "complete_window_count": 142
+      },
+      {
+        "trajectory_id": "demo_16",
+        "split": "train",
+        "action_count": 163,
+        "complete_window_count": 147
+      },
+      {
+        "trajectory_id": "demo_21",
+        "split": "train",
+        "action_count": 153,
+        "complete_window_count": 137
+      },
+      {
+        "trajectory_id": "demo_12",
+        "split": "train",
+        "action_count": 177,
+        "complete_window_count": 161
+      },
+      {
+        "trajectory_id": "demo_18",
+        "split": "train",
+        "action_count": 184,
+        "complete_window_count": 168
+      },
+      {
+        "trajectory_id": "demo_27",
+        "split": "train",
+        "action_count": 177,
+        "complete_window_count": 161
+      },
+      {
+        "trajectory_id": "demo_32",
+        "split": "train",
+        "action_count": 173,
+        "complete_window_count": 157
+      },
+      {
+        "trajectory_id": "demo_33",
+        "split": "train",
+        "action_count": 179,
+        "complete_window_count": 163
+      },
+      {
+        "trajectory_id": "demo_30",
+        "split": "train",
+        "action_count": 155,
+        "complete_window_count": 139
+      },
+      {
+        "trajectory_id": "demo_19",
+        "split": "validation",
+        "action_count": 170,
+        "complete_window_count": 154
+      },
+      {
+        "trajectory_id": "demo_22",
+        "split": "validation",
+        "action_count": 155,
+        "complete_window_count": 139
+      },
+      {
+        "trajectory_id": "demo_39",
+        "split": "validation",
+        "action_count": 164,
+        "complete_window_count": 148
+      },
+      {
+        "trajectory_id": "demo_0",
+        "split": "validation",
+        "action_count": 347,
+        "complete_window_count": 331
+      },
+      {
+        "trajectory_id": "demo_6",
+        "split": "validation",
+        "action_count": 152,
+        "complete_window_count": 136
+      }
+    ],
+    "initial_state_path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/init_files/libero_goal/put_the_wine_bottle_on_the_rack.pruned_init",
+    "initial_state_sha256": "fa09aa4ade871c1c6be3dd8c93eb3437ea15190fd7dc73b8c986c8d2d3cfb062",
+    "evaluation_initial_state_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "rollout_limit_control_steps": 300,
+    "warmup_steps": 10,
+    "raw_observation_timing": "observation[j] is after action[j]",
+    "action_window_start_relative_to_observation_row": 1,
+    "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed"
+  }
+]
