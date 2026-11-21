@@ -1,5 +1,6 @@
 """Run with the verified existing environment and record complete commands."""
 
+import hashlib
 import json
 import os
 import subprocess
@@ -63,6 +64,12 @@ def main() -> int:
         ).strip(),
         "log_path": str(audit / f"command_{index:03d}.log"),
     }
+    stdin_source = sys.stdin.read() if sys.argv[1:] == ["-"] else None
+    if stdin_source is not None:
+        source_path = audit / f"command_{index:03d}.stdin.py"
+        source_path.write_text(stdin_source)
+        record["stdin_source_path"] = str(source_path)
+        record["stdin_source_sha256"] = hashlib.sha256(stdin_source.encode()).hexdigest()
     record_path.write_text(json.dumps(record, indent=2) + "\n")
     with Path(record["log_path"]).open("w") as logfile:
         process = subprocess.Popen(
@@ -71,8 +78,12 @@ def main() -> int:
             env=environment,
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
+            stdin=subprocess.PIPE if stdin_source is not None else None,
             text=True,
         )
+        if stdin_source is not None:
+            process.stdin.write(stdin_source)
+            process.stdin.close()
         for line in process.stdout:
             logfile.write(line)
             logfile.flush()

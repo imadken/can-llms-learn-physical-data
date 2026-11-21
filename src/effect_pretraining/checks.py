@@ -51,6 +51,10 @@ def check_native(checkpoint: Path, vlm_assets: Path, output: Path) -> dict:
     )
     torch.nn.utils.clip_grad_norm_(model.parameters(), 10)
     optimizer.step()
+    for values in optimizer.state.values():
+        for name in ("exp_avg", "exp_avg_sq"):
+            if name in values and values[name].dtype != torch.float32:
+                raise ValueError("Adam moment buffers must remain float32")
     frozen_after = parameter_digest(frozen)
     if frozen_before != frozen_after or before == parameter_digest(trainable):
         raise ValueError("Frozen/trainable parameter integrity check failed")
@@ -83,6 +87,7 @@ def check_native(checkpoint: Path, vlm_assets: Path, output: Path) -> dict:
         "device": "cpu",
         "data": "synthetic_engineering_inputs_only",
         "production_updates": 0,
+        "trainable_parameters_and_adam_moments_float32": True,
         "disposable_optimizer_steps": 1,
         "effect_projector_gradient_norm": gradient_norm,
         "frozen_parameter_sha256_before": frozen_before,

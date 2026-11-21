@@ -36,6 +36,15 @@ class NumericalFlow(nn.Module):
         super().__init__()
         self.native = native
         self.effect_projector = projector
+        # AutoModel may honor BF16 outside autocast. Keep trainable masters and Adam state FP32.
+        native.vlm_with_expert.lm_expert.float()
+        for name in (
+            "action_in_proj",
+            "action_out_proj",
+            "action_time_mlp_in",
+            "action_time_mlp_out",
+        ):
+            getattr(native, name).float()
         for parameter in native.parameters():
             parameter.requires_grad_(False)
         for name, parameter in native.named_parameters():

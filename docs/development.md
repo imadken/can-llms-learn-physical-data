@@ -25,7 +25,7 @@ using the corresponding inspected paths in `resolved_environment.json`:
 python3 scripts/run.py -m effect_pretraining.checks --checkpoint CHECKPOINT --vlm-assets VLM_ASSETS
 ```
 
-The only current production execution entry point is the fixed numerical collector:
+The fixed numerical collector is:
 
 ```bash
 python3 scripts/run.py -m effect_pretraining.collection --artifacts ARTIFACT_DIRECTORY
@@ -45,6 +45,25 @@ The shared effect transform and initial RMS calibration use complete nominal TRA
 windows and a separate paired projector RNG. No training entry point may run before
 both prescribed profiles, valid data, storage and resource admission are established.
 
-The actual image path, production paired data/noise/mask streams and resource scheduling
-still require integration validation before any neural campaign can be represented as
-ready. Passing CPU checks does not replace those requirements.
+`effect_pretraining.residuals` executes the fixed 400 reference replays and single ridge
+diagnostic; `effect_pretraining.plots` renders its two-panel figure and source CSV.
+`effect_pretraining.preparation` computes training-only effects and initial projector RMS.
+These programs take the same `--artifacts` directory.
+
+The acquisition runner, `effect_pretraining.training`, admits only complete measured
+profiles and balanced six-fit 250-update rounds. It has not run a production update.
+The S fit and final neural evaluation remain unvalidated integration work. The actual
+image profile, production GPU behavior and resource projections must pass before any
+neural campaign can be represented as ready. CPU checks do not replace those requirements.
+
+The initial CUDA profile failed before its first update. Its failed record and platform
+diagnostics are retained. After the prerequisite is repaired, an explicit
+`--recover-pre-update-fault` flag on `effect_pretraining.profiling` preserves the failed
+record before attempting the original profiles. It refuses to overwrite completed
+profiles. It changes no schedule, condition, effective batch, objective or precision.
+
+Raw official LIBERO observations are post-action. The S loader pairs observation row j
+with actions[j+1:j+17] and excludes the final incomplete window. Both camera images use
+the source-verified native 180-degree rotation and native SmolVLA resize/pixel processing.
+Trainable action/state master parameters and Adam moments stay FP32 under BF16 autocast;
+the frozen VLM keeps its native dtypes.

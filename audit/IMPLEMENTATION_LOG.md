@@ -44,3 +44,11 @@ The upstream LeRobot interface moved to src/lerobot/sim/integrations/libero.py. 
 ## Raw demonstration timestamp repair before neural work
 
 Official LIBERO create_dataset.py records observation[j] after executing action[j], while storing action[j] at the same row. A fixed five-row forward-kinematics audit on the first selected trajectory of task 0 confirmed that observations match the next recorded state much more closely (0.13–0.25 mm) than the same recorded state (3.0–5.6 mm). The loader therefore pairs observation row j with the complete next-action chunk actions[j+1:j+17], excluding the single incomplete terminal window. This corrects current-state/action alignment; it changes no trajectory allocation, controller command, condition, horizon or objective. The split manifest records this source-derived alignment explicitly, before profiling/training.
+
+## Accelerator prerequisite fault and precision repair
+
+The first required profile failed before update 0 while transferring the model to CUDA. No optimizer update or production fit occurred. Read-only diagnostics found approximately 37 GB reported free, one successful one-element CUDA allocation, and subsequent CUDA context initialization failures even before loading a model. Cgroup memory.max is unlimited. These observations establish a platform prerequisite failure; they do not prove a specific cause or implicate the scientific objective.
+
+The matching GB10 context-initialization symptom is discussed in NVIDIA developer forum topic 384326. NVIDIA known-issues documentation describes a one-time cache flush as a debugging workaround. Host-wide cache flushing/compaction was proposed to the user for approval; no host control was changed without that approval, no other job was terminated, and no software upgrade or precision substitution occurred.
+
+Source inspection also identified that AutoModel can preserve BF16 trainable expert weights from its config. Before any production update, the native expert and trainable projections are explicitly converted to FP32 master parameters, while using BF16 autocast and retaining native frozen dtypes. The CPU engineering check now verifies FP32 Adam moments. The earlier CPU disposable optimizer check is superseded for optimizer-precision evidence; no empirical run was affected. Calibration of the frozen state token is unchanged.

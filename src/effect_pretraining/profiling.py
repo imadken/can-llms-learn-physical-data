@@ -19,7 +19,7 @@ from effect_pretraining.deployment import (
 from effect_pretraining.effect_scaling import EffectTransform
 from effect_pretraining.integrity import verify_release
 from effect_pretraining.native_flow import NumericalFlow, load_native_policy, pad_native
-from effect_pretraining.resources import accelerator_job
+from effect_pretraining.resources import accelerator_job, finish_unavailable_wait
 from effect_pretraining.training_data import DemonstrationSampler, paired_update
 
 
@@ -34,6 +34,15 @@ def optimizer_for(model):
 
 
 def prepare_baseline(policy):
+    policy.model.vlm_with_expert.lm_expert.float()
+    for name in (
+        "state_proj",
+        "action_in_proj",
+        "action_out_proj",
+        "action_time_mlp_in",
+        "action_time_mlp_out",
+    ):
+        getattr(policy.model, name).float()
     for parameter in policy.model.parameters():
         parameter.requires_grad_(False)
     for name, parameter in policy.model.named_parameters():
@@ -65,16 +74,28 @@ def multimodal_loss(policy, batch: dict, noise: torch.Tensor, time: torch.Tensor
     return losses[..., :7].mean()
 
 
-def profile(root: Path, artifacts: Path) -> None:
+def profile(root: Path, artifacts: Path, *, recover_pre_update_fault: bool = False) -> None:
     verify_release(root)
     result_path = root / "audit/profiling.json"
     if result_path.exists():
-        raise FileExistsError("Do not silently repeat prescribed profiles")
+        previous = json.loads(result_path.read_text())
+        if not (
+            recover_pre_update_fault
+            and previous.get("status") == "fault"
+            and previous.get("paths") == {}
+            and "out of memory" in previous.get("error", "")
+        ):
+            raise FileExistsError("Do not silently repeat prescribed profiles")
+        history = root / "audit/profiling_pre_update_fault.json"
+        if history.exists():
+            raise FileExistsError("A prior recovery must be audited before another attempt")
+        history.write_bytes(result_path.read_bytes())
+        finish_unavailable_wait(artifacts)
     resolved = json.loads((root / "resolved_environment.json").read_text())
     paths = resolved["runtime_paths"]
     report = {
         "status": "started",
-        "precision": "bf16_autocast_float32_parameters_and_optimizer",
+        "precision": "bf16_autocast_float32_trainable_masters_and_optimizer_native_frozen_dtypes",
         "paths": {},
         "production_updates": 0,
     }
@@ -295,5 +316,8 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifacts", type=Path, required=True)
+    parser.add_argument("--recover-pre-update-fault", action="store_true")
     args = parser.parse_args()
-    profile(Path.cwd(), args.artifacts.resolve())
+    profile(
+        Path.cwd(), args.artifacts.resolve(), recover_pre_update_fault=args.recover_pre_update_fault
+    )

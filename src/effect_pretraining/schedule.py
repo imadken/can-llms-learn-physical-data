@@ -20,6 +20,8 @@ class ResourceBudget(BaseModel):
     model_config = ConfigDict(extra="forbid")
     profiling_started_utc: datetime | None = None
     accelerator_seconds_used: float = Field(default=0, ge=0)
+    unavailable_wait_seconds: float = Field(default=0, ge=0)
+    unavailable_wait_started_utc: datetime | None = None
     accelerator_limit_seconds: int = 8 * 3600
     execution_limit_seconds: int = 12 * 3600
     cutoff_utc: datetime = datetime(2026, 11, 28, 17, tzinfo=UTC)
@@ -27,12 +29,16 @@ class ResourceBudget(BaseModel):
     def permits(self, now: datetime, projected_job_seconds: float, reserve_seconds: float) -> bool:
         if min(projected_job_seconds, reserve_seconds) < 0:
             raise ValueError("Projection and checkpoint/report reserve cannot be negative")
+        if self.unavailable_wait_started_utc is not None:
+            return False
         required = projected_job_seconds * 1.25 + reserve_seconds
         wall_remaining = (self.cutoff_utc - now).total_seconds()
         if self.profiling_started_utc is not None:
             wall_remaining = min(
                 wall_remaining,
-                self.execution_limit_seconds - (now - self.profiling_started_utc).total_seconds(),
+                self.execution_limit_seconds
+                - (now - self.profiling_started_utc).total_seconds()
+                + self.unavailable_wait_seconds,
             )
         return required <= min(
             self.accelerator_limit_seconds - self.accelerator_seconds_used, wall_remaining

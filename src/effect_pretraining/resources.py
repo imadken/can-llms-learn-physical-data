@@ -20,16 +20,40 @@ def read_budget(path: Path) -> ResourceBudget:
     )
 
 
+def begin_unavailable_wait(artifacts: Path) -> None:
+    path = artifacts / "resource_budget.json"
+    budget = read_budget(path)
+    if budget.unavailable_wait_started_utc is None:
+        budget.unavailable_wait_started_utc = datetime.now(UTC)
+        path.write_text(budget.model_dump_json(indent=2) + "\n")
+
+
+def finish_unavailable_wait(artifacts: Path) -> None:
+    """Called only for an explicit recovery after the machine prerequisite is addressed."""
+    path = artifacts / "resource_budget.json"
+    budget = read_budget(path)
+    if budget.unavailable_wait_started_utc is not None:
+        budget.unavailable_wait_seconds += (
+            datetime.now(UTC) - budget.unavailable_wait_started_utc
+        ).total_seconds()
+        budget.unavailable_wait_started_utc = None
+        path.write_text(budget.model_dump_json(indent=2) + "\n")
+
+
 @contextmanager
 def accelerator_job(artifacts: Path, name: str):
     path = artifacts / "resource_budget.json"
     budget = read_budget(path)
+    if budget.unavailable_wait_started_utc is not None:
+        raise BudgetExpired("Machine unavailability is pending explicit prerequisite recovery")
     started = datetime.now(UTC)
     if budget.profiling_started_utc is None:
         budget.profiling_started_utc = started
     remaining = min(
         budget.accelerator_limit_seconds - budget.accelerator_seconds_used,
-        budget.execution_limit_seconds - (started - budget.profiling_started_utc).total_seconds(),
+        budget.execution_limit_seconds
+        - (started - budget.profiling_started_utc).total_seconds()
+        + budget.unavailable_wait_seconds,
         (budget.cutoff_utc - started).total_seconds(),
     )
     if remaining <= 180:
