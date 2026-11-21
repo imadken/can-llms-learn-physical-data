@@ -10,7 +10,13 @@ import torch
 from safetensors.torch import load_file
 from torch import nn
 
-from effect_pretraining.coordinates import NumericalCoordinates
+from effect_pretraining.coordinates import ControllerMap, NumericalCoordinates, nominal_effect
+from effect_pretraining.deployment import (
+    generate_ordinary,
+    observation_batch,
+    official_initial_states,
+)
+from effect_pretraining.effect_scaling import EffectTransform
 from effect_pretraining.integrity import verify_release
 from effect_pretraining.native_flow import NumericalFlow, load_native_policy, pad_native
 from effect_pretraining.resources import accelerator_job
@@ -179,8 +185,31 @@ def profile(root: Path, artifacts: Path) -> None:
                     "updates": all_updates,
                 }
                 if path_name == "numerical":
-                    state = batch.states[:1].cuda()
-                    effect = batch.nominal_z[:1].cuda()
+                    with np.load(
+                        artifacts / "episodes/episode_080.npz", allow_pickle=False
+                    ) as development:
+                        state = torch.tensor(
+                            coordinates.state(development["states"][0])[None],
+                            dtype=torch.float32,
+                            device="cuda",
+                        )
+                        mapping = ControllerMap.model_validate(interface["controller_map"])
+                        nominal = nominal_effect(
+                            development["positions"][0],
+                            development["rotations"][0],
+                            development["actions"][:16],
+                            mapping,
+                        )
+                    transform = EffectTransform.model_validate(
+                        {
+                            key: value
+                            for key, value in resolved["effect_transform"].items()
+                            if key in EffectTransform.model_fields
+                        }
+                    )
+                    effect = torch.tensor(
+                        transform.apply(nominal)[None], dtype=torch.float32, device="cuda"
+                    )
                     generation_noise = batch.noise[:1].cuda()
                     torch.cuda.synchronize()
                     started = time.monotonic()
@@ -192,6 +221,59 @@ def profile(root: Path, artifacts: Path) -> None:
                     if not torch.isfinite(generated).all():
                         raise FloatingPointError("Non-finite BF16 numerical chunk generation")
                     report["numerical_chunk_seconds"] = time.monotonic() - started
+                    report["numerical_chunk_development_source"] = {"episode_id": 80, "offset": 0}
+                else:
+                    from libero.libero import benchmark, get_libero_path
+                    from libero.libero.envs.env_wrapper import OffScreenRenderEnv
+
+                    suite = benchmark.get_benchmark_dict()["libero_goal"]()
+                    task = suite.tasks[0]
+                    bddl = (
+                        Path(get_libero_path("bddl_files")) / task.problem_folder / task.bddl_file
+                    )
+                    env = OffScreenRenderEnv(
+                        bddl_file_name=str(bddl), camera_heights=128, camera_widths=128
+                    )
+                    try:
+                        env.reset()
+                        entries = official_initial_states(suite, 0)
+                        raw = env.set_init_state(entries[20])
+                        for _ in range(10):
+                            raw, _, _, _ = env.step([0, 0, 0, 0, 0, 0, -1])
+                        torch.cuda.synchronize()
+                        started = time.monotonic()
+                        generation_times = []
+                        for _replan in range(2):
+                            generation_start = time.monotonic()
+                            with torch.autocast("cuda", dtype=torch.bfloat16):
+                                chunk = generate_ordinary(
+                                    policy, observation_batch(raw, coordinates, task.language)
+                                )
+                            torch.cuda.synchronize()
+                            generation_times.append(time.monotonic() - generation_start)
+                            commands = chunk[0, :4].float().cpu().numpy()
+                            if not np.isfinite(commands).all():
+                                raise FloatingPointError("Non-finite multimodal profile generation")
+                            for action in commands:
+                                raw, _, _, _ = env.step(
+                                    np.clip(
+                                        coordinates.action(action, inverse=True),
+                                        coordinates.action_min,
+                                        coordinates.action_max,
+                                    )
+                                )
+                        report["task_rollout_sample"] = {
+                            "task_id": 0,
+                            "official_initial_state_index": 20,
+                            "control_actions": 8,
+                            "replans": 2,
+                            "complete_task_rollout": False,
+                            "seconds": time.monotonic() - started,
+                            "mean_replan_generation_seconds": float(np.mean(generation_times)),
+                            "outcomes_scored": False,
+                        }
+                    finally:
+                        env.close()
                 if sampler is not None:
                     sampler.close()
                 del optimizer, model, policy, batch
@@ -199,7 +281,7 @@ def profile(root: Path, artifacts: Path) -> None:
                     del projector, state, effect, generation_noise, generated
                 gc.collect()
                 torch.cuda.empty_cache()
-            report["status"] = "profiles_complete_rollout_timing_pending"
+            report["status"] = "complete"
     except BaseException as error:
         report["status"] = "fault"
         report["error"] = f"{type(error).__name__}: {error}"
