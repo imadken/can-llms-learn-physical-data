@@ -1,0 +1,404 @@
+{
+  "selection": "first 16 valid snapshots per intended reset category in fixed Preliminary 1 order",
+  "snapshots": [
+    {
+      "episode_id": 90,
+      "offset": 0,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t000.npz",
+      "sha256": "c1c2a57a173dff932071e65aaa83d9238ffeb62da8ff31a49185e9d142608f52",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 16,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t016.npz",
+      "sha256": "613a4c5e7416626b98ef34b3bbbe1e7b48c7a507fa42bfd52e71f6d00b045c96",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 32,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t032.npz",
+      "sha256": "aceb83859e2614c9919190a4f10650b426e86b20f1fd9876de2327d68af14f23",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 48,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t048.npz",
+      "sha256": "1eda1401192315f629feb03598f37e0c57fea6e8f75af7c68494102df0938b72",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 64,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t064.npz",
+      "sha256": "b4b78ba71f97684b9ab509f82b663480249b3c9f270e4fa0a5f3a319cc8ebb74",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 80,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t080.npz",
+      "sha256": "e09bc477c6abc6ca0af2d99a593c7b79e18544d8092272d876d82e861cfefe50",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 96,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t096.npz",
+      "sha256": "681f39f35117e64f2ede30da81110e61bbeb55f5735a93d5b5901c40f21bbaeb",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 112,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t112.npz",
+      "sha256": "0b44d135b177feee39a233a49e0068184f1bf2c186ca73eb7fae4e1b6624d1ef",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 128,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t128.npz",
+      "sha256": "3bceec1129950f9f4020ac57e4a7d5f506f1507ccf6d5356f85772ed3f093899",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 90,
+      "offset": 144,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep090_t144.npz",
+      "sha256": "52c067b8223c25a91b4afcbd36f8c3e3ae1580ec73e57e833645d84c1e73600a",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 0,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t000.npz",
+      "sha256": "6544b07743a3cf6af40ad5e15e390a66d438d45158f6e7019d6a565dede76e57",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 16,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t016.npz",
+      "sha256": "c4b9faba899572b48e3a0b0e0f1d2d9f92d33cd99c476aef6b35dcbd5000b0d0",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 32,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t032.npz",
+      "sha256": "e0a1088805d25589b97c760d3667059cd52ee847804740d4e45956a18823aefb",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 48,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t048.npz",
+      "sha256": "ded219d6326c67a286372cee1152d3946a419ef251f8a483e4e9137ad20ea17a",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 64,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t064.npz",
+      "sha256": "44a0e9d7f89f7e543a82df0099e81c6dde49135986abc51539a41cda06f8775b",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 80,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t080.npz",
+      "sha256": "e8bd2601dee4bb795c02815d1b87dbece75647b60d42702d65eea93b06f1707a",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 96,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t096.npz",
+      "sha256": "9f750375308fcd9ff755cdff26569213f712ac434db314123b2338840c255d6c",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 112,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t112.npz",
+      "sha256": "a4b7893b6b39e0c2804653292943a06de05e2ebc95ae29c40f9980e4a46512fa",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 128,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t128.npz",
+      "sha256": "71b55407d938468f484f801ee0ccd152e7943c433f3c1c2492a0eef7f2279ca3",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 91,
+      "offset": 144,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep091_t144.npz",
+      "sha256": "cd6386bda838a00ea2ea93aa25ecfc4d4df74f17cc48d0343e5919ba2e2786b6",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 92,
+      "offset": 0,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep092_t000.npz",
+      "sha256": "73db772fe7570c1268246e648c5d68ff01f77cc6f9048d8d1d30db4dc082dca2",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 92,
+      "offset": 16,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep092_t016.npz",
+      "sha256": "60358769f1ad8fe1cb73c8fc142875bbc28660a88c163f9731ca6d9f7e80f998",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 92,
+      "offset": 32,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep092_t032.npz",
+      "sha256": "0af6c978c9918b4e44db2f5cfe7cdbd6aa41d0f8b084a4409c200fdd875232a2",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 92,
+      "offset": 48,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep092_t048.npz",
+      "sha256": "1a91f30c580535d5814360229b500bbeee148e42e4eae5e3627134eed3333c75",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 92,
+      "offset": 64,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep092_t064.npz",
+      "sha256": "78f9dcf88097eb5a6f6bfd571813f5568a177de5c24d3a578d81ba8c368914e2",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 92,
+      "offset": 80,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep092_t080.npz",
+      "sha256": "0ccb842cfbcef2f948e57c20a330c91edeba29efbf4ae6a12134b6313b6eec93",
+      "intended_reset": "native_free_motion_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 93,
+      "offset": 0,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep093_t000.npz",
+      "sha256": "871dcfbb62d33115e8055fc6d2b07ce6cd9ebd948f0a06d31ea457ab7557c8aa",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 93,
+      "offset": 16,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep093_t016.npz",
+      "sha256": "87d4febcbb92557ab2a1f8d5ae2bb7e9824e827887d063872d34510253cb011b",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 93,
+      "offset": 32,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep093_t032.npz",
+      "sha256": "0bb0418ba3d857f63e3807792048abc28e73b902f2a26b3628549b2656967451",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 93,
+      "offset": 48,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep093_t048.npz",
+      "sha256": "cb0aa9253036c7b1da523745edbeb0f64010f0895a826585a407d8f7a369b8f6",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 93,
+      "offset": 64,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep093_t064.npz",
+      "sha256": "f5f00680e2fb99b98a28598e642b058433c8527d19791fbc53f77270ec222517",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    },
+    {
+      "episode_id": 93,
+      "offset": 80,
+      "status": "valid",
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/snapshots/ep093_t080.npz",
+      "sha256": "7ff2c2be57e1f4a5b95b20c63042c8a58becb8b9a7a3c9a78eba65de403ecb74",
+      "intended_reset": "contact_attempt",
+      "reference_chunk_ids": [
+        0,
+        1
+      ]
+    }
+  ],
+  "source_episode_ids": [
+    90,
+    91,
+    92,
+    93
+  ],
+  "paired_training_seeds": [
+    101,
+    202
+  ],
+  "generation_rng_seed": 62026,
+  "generation_rng_derivation": "SeedSequence([62026, training_seed, episode_id, snapshot_offset])",
+  "maximum_unique_generated_chunks_for_implemented_reuse": 576,
+  "maximum_physical_chunk_replays_for_implemented_reuse": 448,
+  "protocol_generated_chunk_ceiling": 1024
+}
