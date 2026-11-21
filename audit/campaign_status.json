@@ -1,0 +1,10 @@
+{
+  "status": "complete_bounded_program",
+  "stage": "finished",
+  "context_attempts": [
+    {
+      "attempt": 1,
+      "status": "ready"
+    }
+  ]
+}

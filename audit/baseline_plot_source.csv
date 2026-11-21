@@ -1,0 +1,11 @@
+task_id,task_name,attempts,valid_episodes,invalid_episodes,successes,success_rate_valid,wilson95_low,wilson95_high
+0,open_the_middle_drawer_of_the_cabinet,20,20,0,17,0.85,0.6395811352592431,0.9476312541037835
+1,put_the_bowl_on_the_stove,20,20,0,20,1.0,0.8388748419471806,1.0
+2,put_the_wine_bottle_on_top_of_the_cabinet,20,20,0,19,0.95,0.763868806553258,0.9911185511992047
+3,open_the_top_drawer_and_put_the_bowl_inside,20,20,0,7,0.35,0.18119182410108206,0.5671457233147638
+4,put_the_bowl_on_top_of_the_cabinet,20,20,0,20,1.0,0.8388748419471806,1.0
+5,push_the_plate_to_the_front_of_the_stove,20,20,0,16,0.8,0.5839825677481064,0.919342337420202
+6,put_the_cream_cheese_in_the_bowl,20,20,0,10,0.5,0.2992980081982123,0.7007019918017877
+7,turn_on_the_stove,20,20,0,20,1.0,0.8388748419471806,1.0
+8,put_the_bowl_on_the_plate,20,20,0,18,0.9,0.6989663547715128,0.9721335187862319
+9,put_the_wine_bottle_on_the_rack,20,20,0,11,0.55,0.34208534245034233,0.7418021417443759

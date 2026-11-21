@@ -1,0 +1,23 @@
+E501 Line too long (104 > 100)
+   --> src/effect_pretraining/plots.py:235:101
+    |
+233 |     axes[2].legend(frameon=False)
+234 |     figure.suptitle(
+235 |         f"Exploratory acquisition · common checkpoint u{evidence['checkpoint_updates']} · 10 mm and 5°",
+    |                                                                                                     ^^^^
+236 |         fontsize=12,
+237 |     )
+    |
+
+E501 Line too long (108 > 100)
+   --> src/effect_pretraining/plots.py:239:101
+    |
+237 |     )
+238 |     figure.supxlabel(
+239 |         "Each seed shown separately; 64 targets from 32 snapshots / 4 episodes; no seed-significance claim",
+    |                                                                                                     ^^^^^^^^
+240 |         fontsize=9,
+241 |     )
+    |
+
+Found 2 errors.

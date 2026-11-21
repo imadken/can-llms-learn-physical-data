@@ -4337,9 +4337,9 @@
     "training_arrays_sha256": "d919bdd7315cd38662a47b01c2045d125daadb43a2f25c18fcd53060d37389b7"
   },
   "profiling": {
-    "status": "not_started",
-    "accelerator_seconds": 0,
-    "execution_clock_started": false
+    "status": "complete",
+    "accelerator_seconds": 14940.987879970577,
+    "execution_clock_started": true
   },
   "source_hashes": [
     {
@@ -4366,5 +4366,11 @@
       "path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/models/assets/grippers/panda_gripper.xml",
       "sha256": "d9d68123909d6910488310d0fae4e358ed4ac831c6d0957f3e30893a5412baac"
     }
-  ]
+  ],
+  "execution_status": {
+    "preliminary_1": "complete",
+    "preliminary_2": "complete",
+    "preliminary_3": "complete"
+  },
+  "repository_visibility": "public"
 }

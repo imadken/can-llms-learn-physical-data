@@ -1,0 +1,31 @@
+{
+  "status": "blocked_before_update_0",
+  "common_completed_updates": 0,
+  "fits": {
+    "P_101": {
+      "completed_updates": 0,
+      "checkpoints": []
+    },
+    "K_101": {
+      "completed_updates": 0,
+      "checkpoints": []
+    },
+    "D_101": {
+      "completed_updates": 0,
+      "checkpoints": []
+    },
+    "P_202": {
+      "completed_updates": 0,
+      "checkpoints": []
+    },
+    "K_202": {
+      "completed_updates": 0,
+      "checkpoints": []
+    },
+    "D_202": {
+      "completed_updates": 0,
+      "checkpoints": []
+    }
+  },
+  "rounds": []
+}

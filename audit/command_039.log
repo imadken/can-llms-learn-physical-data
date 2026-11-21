@@ -1,0 +1,20 @@
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  queued_call()
+Reducing the number of VLM layers to 16 ...
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+  File "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/torch/cuda/memory.py", line 897, in mem_get_info
+    return torch.cuda.cudart().cudaMemGetInfo(device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

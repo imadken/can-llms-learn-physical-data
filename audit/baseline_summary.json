@@ -1,0 +1,148 @@
+{
+  "status": "complete",
+  "checkpoint_updates": 5000,
+  "training_seed": 303,
+  "independent_training_seeds": 1,
+  "tasks": [
+    {
+      "task_id": 0,
+      "task_name": "open_the_middle_drawer_of_the_cabinet",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 17,
+      "success_rate_valid": 0.85,
+      "wilson95_valid_episodes": [
+        0.6395811352592431,
+        0.9476312541037835
+      ]
+    },
+    {
+      "task_id": 1,
+      "task_name": "put_the_bowl_on_the_stove",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 20,
+      "success_rate_valid": 1.0,
+      "wilson95_valid_episodes": [
+        0.8388748419471806,
+        1.0
+      ]
+    },
+    {
+      "task_id": 2,
+      "task_name": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 19,
+      "success_rate_valid": 0.95,
+      "wilson95_valid_episodes": [
+        0.763868806553258,
+        0.9911185511992047
+      ]
+    },
+    {
+      "task_id": 3,
+      "task_name": "open_the_top_drawer_and_put_the_bowl_inside",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 7,
+      "success_rate_valid": 0.35,
+      "wilson95_valid_episodes": [
+        0.18119182410108206,
+        0.5671457233147638
+      ]
+    },
+    {
+      "task_id": 4,
+      "task_name": "put_the_bowl_on_top_of_the_cabinet",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 20,
+      "success_rate_valid": 1.0,
+      "wilson95_valid_episodes": [
+        0.8388748419471806,
+        1.0
+      ]
+    },
+    {
+      "task_id": 5,
+      "task_name": "push_the_plate_to_the_front_of_the_stove",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 16,
+      "success_rate_valid": 0.8,
+      "wilson95_valid_episodes": [
+        0.5839825677481064,
+        0.919342337420202
+      ]
+    },
+    {
+      "task_id": 6,
+      "task_name": "put_the_cream_cheese_in_the_bowl",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 10,
+      "success_rate_valid": 0.5,
+      "wilson95_valid_episodes": [
+        0.2992980081982123,
+        0.7007019918017877
+      ]
+    },
+    {
+      "task_id": 7,
+      "task_name": "turn_on_the_stove",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 20,
+      "success_rate_valid": 1.0,
+      "wilson95_valid_episodes": [
+        0.8388748419471806,
+        1.0
+      ]
+    },
+    {
+      "task_id": 8,
+      "task_name": "put_the_bowl_on_the_plate",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 18,
+      "success_rate_valid": 0.9,
+      "wilson95_valid_episodes": [
+        0.6989663547715128,
+        0.9721335187862319
+      ]
+    },
+    {
+      "task_id": 9,
+      "task_name": "put_the_wine_bottle_on_the_rack",
+      "attempts": 20,
+      "valid_episodes": 20,
+      "invalid_episodes": 0,
+      "successes": 11,
+      "success_rate_valid": 0.55,
+      "wilson95_valid_episodes": [
+        0.34208534245034233,
+        0.7418021417443759
+      ]
+    }
+  ],
+  "total_attempts": 200,
+  "valid_episodes": 200,
+  "successes": 158,
+  "equal_task_mean_valid": 0.7899999999999999,
+  "pooled_wilson95_valid_episodes": [
+    0.7283538314009754,
+    0.8407158793002101
+  ],
+  "wall_seconds": 6404.681610403117,
+  "uncertainty_limit": "Descriptive episode intervals conditional on one trained seed; no training-seed uncertainty or benchmark-ceiling claim"
+}

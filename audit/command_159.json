@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-11-21T15:38:41.653840+00:00",
+  "cwd": "/home/imad/Desktop/repos/can-llms-learn-physical-data",
+  "argv": [
+    "uv",
+    "run",
+    "--no-project",
+    "--no-config",
+    "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/bin/python",
+    "-m",
+    "ruff",
+    "format",
+    "--check",
+    "src",
+    "tests",
+    "scripts"
+  ],
+  "environment_overrides": {
+    "PYTHONPATH": "/home/imad/Desktop/repos/can-llms-learn-physical-data/src:/home/imad/Desktop/repos/can-llms-learn-physical-data/.runtime/dependencies",
+    "LIBERO_CONFIG_PATH": "/home/imad/Desktop/repos/can-llms-learn-physical-data/.runtime/libero_config",
+    "MUJOCO_GL": "osmesa",
+    "LD_LIBRARY_PATH": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/osmesa/root/usr/lib/aarch64-linux-gnu",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "TOKENIZERS_PARALLELISM": "false",
+    "MPLBACKEND": "Agg"
+  },
+  "code_commit": "f3d5b541f9e4ef73ca46a077bc42519f646c297e",
+  "log_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/audit/command_159.log",
+  "finished_utc": "2026-11-21T15:38:41.700581+00:00",
+  "returncode": 0
+}

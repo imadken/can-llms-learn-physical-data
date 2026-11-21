@@ -1,0 +1,192 @@
+{
+  "status": "complete",
+  "common_completed_updates": 1000,
+  "fits": {
+    "P_101": {
+      "completed_updates": 1000,
+      "checkpoints": [
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u0250.pt",
+          "sha256": "ca468f5c34efa309e0b20e1800926b3e93ebf2c1922f133dd22ee62263b19fd0",
+          "size_bytes": 1198469427,
+          "completed_updates": 250
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u0500.pt",
+          "sha256": "4ff1605a5c3c597abe323e75a59ed588c78851068ff8d052cc318e91341fd364",
+          "size_bytes": 1198469427,
+          "completed_updates": 500
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u0750.pt",
+          "sha256": "0071a6da45b109ee3e00a9854f5c21edee65cea985183b732e003c37088931da",
+          "size_bytes": 1198469427,
+          "completed_updates": 750
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u1000.pt",
+          "sha256": "f52bdb342bb8b1d8df6989cc9822879c5405e95698f67b28f1be42c674eb89ca",
+          "size_bytes": 1198469427,
+          "completed_updates": 1000
+        }
+      ],
+      "initialization_sha256": "5234ca4f2cd0e2a4d44e93ebf5fa7aa8095023b65bc1e9a79739fdf31dd34595"
+    },
+    "K_101": {
+      "completed_updates": 1000,
+      "checkpoints": [
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u0250.pt",
+          "sha256": "678f293ab059a1c3babca3b552713ee4a9d95ede9d1b7d48ad9f0020a6ce1989",
+          "size_bytes": 1198469427,
+          "completed_updates": 250
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u0500.pt",
+          "sha256": "68051260531fd963596a12c85a63dc201bc9e5a7467bea048d6935f86387a6e1",
+          "size_bytes": 1198469427,
+          "completed_updates": 500
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u0750.pt",
+          "sha256": "120ae855a57dad34d444463cbd3f391e14e5f9732392ce99b9ad439a136f7468",
+          "size_bytes": 1198469427,
+          "completed_updates": 750
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u1000.pt",
+          "sha256": "b530c2493adbe43f94d0270792ac3f02604ff8195718c3850273ae0868c4222c",
+          "size_bytes": 1198469427,
+          "completed_updates": 1000
+        }
+      ],
+      "initialization_sha256": "5234ca4f2cd0e2a4d44e93ebf5fa7aa8095023b65bc1e9a79739fdf31dd34595"
+    },
+    "D_101": {
+      "completed_updates": 1000,
+      "checkpoints": [
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u0250.pt",
+          "sha256": "ef4d5fe6fac3335136286e0e11bb52eb53b763ef632a9f4d8945e6bd9b7a8383",
+          "size_bytes": 1198469427,
+          "completed_updates": 250
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u0500.pt",
+          "sha256": "445dba6cfdfe1fd9be5a471879f27852b4f1c3f537b369310d6c46666367bcad",
+          "size_bytes": 1198469427,
+          "completed_updates": 500
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u0750.pt",
+          "sha256": "3d65fe31e86a23287f72c9632815e229b70217ea99945b4ab92ef3ab9c5edcfb",
+          "size_bytes": 1198469427,
+          "completed_updates": 750
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u1000.pt",
+          "sha256": "c1422a24b39c5fd2b013d35cc72826edb0349c2548024f7e43ec719057e8a193",
+          "size_bytes": 1198469427,
+          "completed_updates": 1000
+        }
+      ],
+      "initialization_sha256": "5234ca4f2cd0e2a4d44e93ebf5fa7aa8095023b65bc1e9a79739fdf31dd34595"
+    },
+    "P_202": {
+      "completed_updates": 1000,
+      "checkpoints": [
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u0250.pt",
+          "sha256": "e55d2ff24d2190461365308ced3239bd944282967f5f9051ba804a14d260b6bd",
+          "size_bytes": 1198469427,
+          "completed_updates": 250
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u0500.pt",
+          "sha256": "10c651f949cd1124c30a05b588257f726307c89cb55e5b0cf47f1b35f1dc480a",
+          "size_bytes": 1198469427,
+          "completed_updates": 500
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u0750.pt",
+          "sha256": "950db7cb47dee629e42e58b3583c5f7074d965f06c9983e837ed2f5a64427abc",
+          "size_bytes": 1198469427,
+          "completed_updates": 750
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u1000.pt",
+          "sha256": "c84719e93da97a1a85b6c30af7d357ac882fcce6f7fd684d0f8ea66b3dbda4ce",
+          "size_bytes": 1198469427,
+          "completed_updates": 1000
+        }
+      ],
+      "initialization_sha256": "f766da37b73b9fa26015d52d22eae1ab1bde84e7cef15b53725f3499abe65173"
+    },
+    "K_202": {
+      "completed_updates": 1000,
+      "checkpoints": [
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u0250.pt",
+          "sha256": "513d0c5ff7a60cf95d808a0a6f9ef9acd55e1cffbf7708fbc6bc675781f77c65",
+          "size_bytes": 1198469427,
+          "completed_updates": 250
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u0500.pt",
+          "sha256": "918ae8eb6798ed8d90b601c87a6753f1257639ad819201856a1272fd83aa19f9",
+          "size_bytes": 1198469427,
+          "completed_updates": 500
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u0750.pt",
+          "sha256": "8ff055d61c5e6bb0d35d54a4188b9bc8e7231cb0c80aaac0b6e24425311eb9d9",
+          "size_bytes": 1198469427,
+          "completed_updates": 750
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u1000.pt",
+          "sha256": "0d387954592804abb8731c85a93464c456240827b721f7de7c93c323d8a95df0",
+          "size_bytes": 1198469427,
+          "completed_updates": 1000
+        }
+      ],
+      "initialization_sha256": "f766da37b73b9fa26015d52d22eae1ab1bde84e7cef15b53725f3499abe65173"
+    },
+    "D_202": {
+      "completed_updates": 1000,
+      "checkpoints": [
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u0250.pt",
+          "sha256": "e11e639dab48c3760f044ef4b2d9c5b51f6ac1bbe700de795caefaf069d15dd5",
+          "size_bytes": 1198469427,
+          "completed_updates": 250
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u0500.pt",
+          "sha256": "36dc4c8ba0e6575cd1ff8b1ad6b17ca167951eb11a41c3d1012024b8a3a61240",
+          "size_bytes": 1198469427,
+          "completed_updates": 500
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u0750.pt",
+          "sha256": "2558a558ac4ff0da0cf78b6cba9cc3f2c69df2a08f04e2d4015d8e22d510fdd9",
+          "size_bytes": 1198469427,
+          "completed_updates": 750
+        },
+        {
+          "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u1000.pt",
+          "sha256": "1c7bbb41327f0d9db960be395657027cc3919e8d5f116ae66f2d47eafd039604",
+          "size_bytes": 1198469427,
+          "completed_updates": 1000
+        }
+      ],
+      "initialization_sha256": "f766da37b73b9fa26015d52d22eae1ab1bde84e7cef15b53725f3499abe65173"
+    }
+  },
+  "rounds": [
+    250,
+    500,
+    750,
+    1000
+  ]
+}

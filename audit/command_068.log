@@ -1,0 +1,36 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+{
+  "profile_status": "complete",
+  "projected_seconds": {
+    "numerical_update_seconds": 0.3999915555352345,
+    "multimodal_update_seconds": 2.2237707510357723,
+    "acquisition_full_fit_seconds": 2399.949333211407,
+    "common_250_round_seconds": 599.9873333028518,
+    "acquisition_evaluation_seconds": 294.6255577647686,
+    "baseline_fit_seconds": 11118.853755178861,
+    "baseline_evaluation_seconds_at_max_horizon": 10863.643566844985,
+    "contingency_fraction": 0.25,
+    "checkpoint_report_reserve_seconds": 600
+  },
+  "actual_profile_job_budget": {
+    "profiling_started_utc": "2026-11-21T10:44:24.465932Z",
+    "accelerator_seconds_used": 129.4583250847645,
+    "unavailable_wait_seconds": 0.0,
+    "unavailable_wait_started_utc": null,
+    "accelerator_limit_seconds": 28800,
+    "execution_limit_seconds": 43200,
+    "cutoff_utc": "2026-11-28T17:00:00Z"
+  },
+  "rollout_sample": {
+    "task_id": 0,
+    "official_initial_state_index": 20,
+    "control_actions": 8,
+    "replans": 2,
+    "complete_task_rollout": false,
+    "seconds": 1.4484858089126647,
+    "mean_replan_generation_seconds": 0.11310239415615797,
+    "outcomes_scored": false
+  }
+}

@@ -1,0 +1,102 @@
+E501 Line too long (108 > 100)
+  --> src/effect_pretraining/plots.py:59:101
+   |
+57 |         "uncertainty": (
+58 |             "95% t intervals over the ten episode means, with nine degrees of freedom; "
+59 |             "descriptive fixed-scene sampling uncertainty, not training variability or transfer uncertainty"
+   |                                                                                                     ^^^^^^^^
+60 |         ),
+61 |     }
+   |
+
+E501 Line too long (112 > 100)
+  --> src/effect_pretraining/plots.py:84:101
+   |
+82 |     summary["interpretation_limits"] = [
+83 |         "No actual contact was achieved by the fixed collector; no contact contrast is estimable.",
+84 |         "Residuals include ideal-map/controller tracking differences; the ridge does not identify their cause.",
+   |                                                                                                     ^^^^^^^^^^^^
+85 |         "A residual observation does not establish acquisition, downstream utility, equivalence or an RSS decision.",
+86 |     ]
+   |
+
+E501 Line too long (117 > 100)
+  --> src/effect_pretraining/plots.py:85:101
+   |
+83 |         "No actual contact was achieved by the fixed collector; no contact contrast is estimable.",
+84 |         "Residuals include ideal-map/controller tracking differences; the ridge does not identify their cause.",
+85 |         "A residual observation does not establish acquisition, downstream utility, equivalence or an RSS decision.",
+   |                                                                                                     ^^^^^^^^^^^^^^^^^
+86 |     ]
+87 |     (audit / "residual_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+   |
+
+F401 [*] `effect_pretraining.coordinates.NumericalCoordinates` imported but unused
+  --> src/effect_pretraining/training.py:17:44
+   |
+16 | from effect_pretraining.checks import parameter_digest
+17 | from effect_pretraining.coordinates import NumericalCoordinates
+   |                                            ^^^^^^^^^^^^^^^^^^^^
+18 | from effect_pretraining.integrity import sha256_file, verify_release
+19 | from effect_pretraining.native_flow import NumericalFlow, load_native_policy
+   |
+help: Remove unused import: `effect_pretraining.coordinates.NumericalCoordinates`
+   |
+16 | from effect_pretraining.checks import parameter_digest
+   - from effect_pretraining.coordinates import NumericalCoordinates
+17 | from effect_pretraining.integrity import sha256_file, verify_release
+   |
+
+F401 [*] `effect_pretraining.profiling.multimodal_loss` imported but unused
+  --> src/effect_pretraining/training.py:20:42
+   |
+18 | from effect_pretraining.integrity import sha256_file, verify_release
+19 | from effect_pretraining.native_flow import NumericalFlow, load_native_policy
+20 | from effect_pretraining.profiling import multimodal_loss, optimizer_for, prepare_baseline
+   |                                          ^^^^^^^^^^^^^^^
+21 | from effect_pretraining.resources import accelerator_job, read_budget
+22 | from effect_pretraining.schedule import learning_rate
+   |
+help: Remove unused import
+   |
+19 | from effect_pretraining.native_flow import NumericalFlow, load_native_policy
+   - from effect_pretraining.profiling import multimodal_loss, optimizer_for, prepare_baseline
+20 + from effect_pretraining.profiling import optimizer_for
+21 | from effect_pretraining.resources import accelerator_job, read_budget
+   |
+
+F401 [*] `effect_pretraining.profiling.prepare_baseline` imported but unused
+  --> src/effect_pretraining/training.py:20:74
+   |
+18 | from effect_pretraining.integrity import sha256_file, verify_release
+19 | from effect_pretraining.native_flow import NumericalFlow, load_native_policy
+20 | from effect_pretraining.profiling import multimodal_loss, optimizer_for, prepare_baseline
+   |                                                                          ^^^^^^^^^^^^^^^^
+21 | from effect_pretraining.resources import accelerator_job, read_budget
+22 | from effect_pretraining.schedule import learning_rate
+   |
+help: Remove unused import
+   |
+19 | from effect_pretraining.native_flow import NumericalFlow, load_native_policy
+   - from effect_pretraining.profiling import multimodal_loss, optimizer_for, prepare_baseline
+20 + from effect_pretraining.profiling import optimizer_for
+21 | from effect_pretraining.resources import accelerator_job, read_budget
+   |
+
+F401 [*] `effect_pretraining.training_data.DemonstrationSampler` imported but unused
+  --> src/effect_pretraining/training.py:23:46
+   |
+21 | from effect_pretraining.resources import accelerator_job, read_budget
+22 | from effect_pretraining.schedule import learning_rate
+23 | from effect_pretraining.training_data import DemonstrationSampler, paired_update
+   |                                              ^^^^^^^^^^^^^^^^^^^^
+help: Remove unused import: `effect_pretraining.training_data.DemonstrationSampler`
+   |
+22 | from effect_pretraining.schedule import learning_rate
+   - from effect_pretraining.training_data import DemonstrationSampler, paired_update
+23 + from effect_pretraining.training_data import paired_update
+24 |
+   |
+
+Found 7 errors.
+[*] 4 fixable with `--fix`.

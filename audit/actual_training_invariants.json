@@ -1,0 +1,266 @@
+{
+  "common_checkpoint_updates": 1000,
+  "seeds": {
+    "101": {
+      "paired_updates_checked": 1000,
+      "initialization_sha256": "5234ca4f2cd0e2a4d44e93ebf5fa7aa8095023b65bc1e9a79739fdf31dd34595",
+      "logged_update_counts": {
+        "P": 1000,
+        "K": 1000,
+        "D": 1000
+      }
+    },
+    "202": {
+      "paired_updates_checked": 1000,
+      "initialization_sha256": "f766da37b73b9fa26015d52d22eae1ab1bde84e7cef15b53725f3499abe65173",
+      "logged_update_counts": {
+        "P": 1000,
+        "K": 1000,
+        "D": 1000
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "fit": "P_101",
+      "updates": 250,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u0250.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3068695040,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "P_101",
+      "updates": 500,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u0500.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3462486528,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "P_101",
+      "updates": 750,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u0750.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3468379648,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "P_101",
+      "updates": 1000,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_101_u1000.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3471216128,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "K_101",
+      "updates": 250,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u0250.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3073786368,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "K_101",
+      "updates": 500,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u0500.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3462955520,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "K_101",
+      "updates": 750,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u0750.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3470462464,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "K_101",
+      "updates": 1000,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_101_u1000.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3468523008,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_101",
+      "updates": 250,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u0250.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3074159104,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_101",
+      "updates": 500,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u0500.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3466668544,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_101",
+      "updates": 750,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u0750.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3470708224,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_101",
+      "updates": 1000,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_101_u1000.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3469833728,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "P_202",
+      "updates": 250,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u0250.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3076215296,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "P_202",
+      "updates": 500,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u0500.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3465940480,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "P_202",
+      "updates": 750,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u0750.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3470115328,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "P_202",
+      "updates": 1000,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/P_202_u1000.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3468451328,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": false
+    },
+    {
+      "fit": "K_202",
+      "updates": 250,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u0250.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3076236800,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "K_202",
+      "updates": 500,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u0500.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3464573440,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "K_202",
+      "updates": 750,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u0750.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3469030912,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "K_202",
+      "updates": 1000,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/K_202_u1000.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3471170048,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_202",
+      "updates": 250,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u0250.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3077198336,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_202",
+      "updates": 500,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u0500.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3469480448,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_202",
+      "updates": 750,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u0750.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3469833728,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    },
+    {
+      "fit": "D_202",
+      "updates": 1000,
+      "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/D_202_u1000.pt",
+      "code_commit": "4dcce17ba52d99a8825a7561321949d4c4b53d86",
+      "peak_allocated_bytes": 3471364608,
+      "frozen_sha256": "339b11accc2f26103ea5dbdb2eca4b387c180c5b14b88c9250b9cef73913760d",
+      "float32_trainable_masters_and_adam_moments": true,
+      "effect_projector_weight_changed": true
+    }
+  ],
+  "status": "passed_final"
+}

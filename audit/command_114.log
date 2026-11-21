@@ -1,0 +1,410 @@
+F401 [*] `subprocess` imported but unused
+ --> src/effect_pretraining/reporting.py:5:8
+  |
+3 | import csv
+4 | import json
+5 | import subprocess
+  |        ^^^^^^^^^^
+6 | from datetime import UTC, datetime
+7 | from pathlib import Path
+  |
+help: Remove unused import: `subprocess`
+  |
+4 | import json
+  - import subprocess
+5 | from datetime import UTC, datetime
+  |
+
+F401 [*] `effect_pretraining.integrity.sha256_file` imported but unused
+  --> src/effect_pretraining/reporting.py:9:42
+   |
+ 7 | from pathlib import Path
+ 8 |
+ 9 | from effect_pretraining.integrity import sha256_file, verify_release
+   |                                          ^^^^^^^^^^^
+10 | from effect_pretraining.resources import read_budget
+   |
+help: Remove unused import: `effect_pretraining.integrity.sha256_file`
+   |
+8  |
+   - from effect_pretraining.integrity import sha256_file, verify_release
+9  + from effect_pretraining.integrity import verify_release
+10 | from effect_pretraining.resources import read_budget
+   |
+
+E501 Line too long (120 > 100)
+   --> src/effect_pretraining/reporting.py:114:101
+    |
+112 |         "",
+113 |         f"Repository: {resolved['repository_url']}",
+114 |         f"Local branch: `{resolved['branch']}`. The repository is public; no branch was pushed or public release made.",
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+115 |         "The bundle's delivery.json binds the exact final implementation/results commits without a self-referential commit hash.",
+116 |         f"Execution revisions: `{json.dumps(phase_commits, sort_keys=True)}`.",
+    |
+
+E501 Line too long (130 > 100)
+   --> src/effect_pretraining/reporting.py:115:101
+    |
+113 |         f"Repository: {resolved['repository_url']}",
+114 |         f"Local branch: `{resolved['branch']}`. The repository is public; no branch was pushed or public release made.",
+115 |         "The bundle's delivery.json binds the exact final implementation/results commits without a self-referential commit hash.",
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+116 |         f"Execution revisions: `{json.dumps(phase_commits, sort_keys=True)}`.",
+117 |         "",
+    |
+
+E501 Line too long (128 > 100)
+   --> src/effect_pretraining/reporting.py:120:101
+    |
+118 | …     "| Preliminary | Status | Actual scope |",
+119 | …     "| --- | --- | --- |",
+120 | …     f"| 1. Residuals | {status['preliminary_1']} | 100 attempts; 20,000 retained transitions; 100 snapshots; 400 replays |",
+    |                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+121 | …     f"| 2. Acquisition | {status['preliminary_2']} | P/K/D, seeds 101/202; common checkpoint {training.get('common_completed_update…
+122 | …     f"| 3. S baseline | {status['preliminary_3']} | {baseline_training.get('completed_updates', 0)} updates; {baseline.get('total_a…
+    |
+
+E501 Line too long (146 > 100)
+   --> src/effect_pretraining/reporting.py:121:101
+    |
+119 | …
+120 | …0 attempts; 20,000 retained transitions; 100 snapshots; 400 replays |",
+121 | …P/K/D, seeds 101/202; common checkpoint {training.get('common_completed_updates', 0)} |",
+    |                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+122 | …baseline_training.get('completed_updates', 0)} updates; {baseline.get('total_attempts', 0)} task rollouts |",
+123 | …
+    |
+
+E501 Line too long (166 > 100)
+   --> src/effect_pretraining/reporting.py:122:101
+    |
+120 | …; 20,000 retained transitions; 100 snapshots; 400 replays |",
+121 | …ds 101/202; common checkpoint {training.get('common_completed_updates', 0)} |",
+122 | …raining.get('completed_updates', 0)} updates; {baseline.get('total_attempts', 0)} task rollouts |",
+    |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+123 | …
+124 | …
+    |
+
+E501 Line too long (108 > 100)
+   --> src/effect_pretraining/reporting.py:129:101
+    |
+127 |         "The 14,800 complete TRAIN windows alone fit the effect transform and ridge features. "
+128 |         "The 1,000 warm-up and 4,000 contact-setup actions are excluded from training windows. "
+129 |         "Collection timing includes the user-requested storage-cleanup pause before accelerator profiling.",
+    |                                                                                                     ^^^^^^^^
+130 |         "",
+131 |         "No recorded robot–movable-object contact occurred in the 20,000 retained transitions or fixed replays. "
+    |
+
+E501 Line too long (113 > 100)
+   --> src/effect_pretraining/reporting.py:131:101
+    |
+129 |         "Collection timing includes the user-requested storage-cleanup pause before accelerator profiling.",
+130 |         "",
+131 |         "No recorded robot–movable-object contact occurred in the 20,000 retained transitions or fixed replays. "
+    |                                                                                                     ^^^^^^^^^^^^^
+132 |         "The contact flag covers movable scene objects; fixture/table and self contacts are outside that flag. "
+133 |         "The contact stratum is empty. The prescribed collector was not retried or tuned.",
+    |
+
+E501 Line too long (112 > 100)
+   --> src/effect_pretraining/reporting.py:132:101
+    |
+130 |         "",
+131 |         "No recorded robot–movable-object contact occurred in the 20,000 retained transitions or fixed replays. "
+132 |         "The contact flag covers movable scene objects; fixture/table and self contacts are outside that flag. "
+    |                                                                                                     ^^^^^^^^^^^^
+133 |         "The contact stratum is empty. The prescribed collector was not retried or tuned.",
+134 |         "",
+    |
+
+E501 Line too long (118 > 100)
+   --> src/effect_pretraining/reporting.py:135:101
+    |
+133 |         "The contact stratum is empty. The prescribed collector was not retried or tuned.",
+134 |         "",
+135 |         "| Channel | Mean | Descriptive 95% episode-mean t interval | Ridge RMSE | TRAIN-mean RMSE | SSE reduction |",
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^
+136 |         "| --- | ---: | --- | ---: | ---: | ---: |",
+137 |     ]
+    |
+
+E501 Line too long (107 > 100)
+   --> src/effect_pretraining/reporting.py:142:101
+    |
+140 |         interval = item["episode_mean_95pct_t_interval"]
+141 |         lines.append(
+142 |             f"| {channel} ({item['units']}) | {item['mean']:.4f} | [{interval[0]:.4f}, {interval[1]:.4f}] "
+    |                                                                                                     ^^^^^^^
+143 |             f"| {diagnostic['ridge_rmse']:.4f} | {diagnostic['training_mean_rmse']:.4f} "
+144 |             f"| {100 * diagnostic['squared_error_reduction']:.3f}% |"
+    |
+
+E501 Line too long (104 > 100)
+   --> src/effect_pretraining/reporting.py:150:101
+    |
+148 | …     "All 200 duplicate pairs were bit-identical in full integration state. "
+149 | …     "The 400 replay records represent 200 unique chunks from ten source episodes. "
+150 | …     "Intervals concern this fixed scene's episode means; they do not measure training variability. "
+    |                                                                                                   ^^^^
+151 | …     "Predictable discrepancy does not identify controller calibration as its cause, acquisition, downstream utility or equivalence.…
+152 | …     "",
+    |
+
+E501 Line too long (137 > 100)
+   --> src/effect_pretraining/reporting.py:151:101
+    |
+149 | …chunks from ten source episodes. "
+150 | … means; they do not measure training variability. "
+151 | …ntroller calibration as its cause, acquisition, downstream utility or equivalence.",
+    |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+152 | …
+153 | …ure.png)",
+    |
+
+E501 Line too long (104 > 100)
+   --> src/effect_pretraining/reporting.py:161:101
+    |
+159 |         for arm in ("K", "D"):
+160 |             lines.append(
+161 |                 f"**{arm}: {acquisition[arm]['label']}** ({acquisition[arm]['domain']} endpoint space)."
+    |                                                                                                     ^^^^
+162 |             )
+163 |             lines += [
+    |
+
+E501 Line too long (105 > 100)
+   --> src/effect_pretraining/reporting.py:165:101
+    |
+163 |             lines += [
+164 |                 "",
+165 |                 "| Seed | Mode | Joint attainment | Translation error (mm) | Rotation error (degrees) |",
+    |                                                                                                     ^^^^^
+166 |                 "| --- | --- | ---: | ---: | ---: |",
+167 |             ]
+    |
+
+E501 Line too long (114 > 100)
+   --> src/effect_pretraining/reporting.py:172:101
+    |
+170 |                     lines.append(
+171 |                         f"| {seed} | {mode} | {item['joint_attainment_percent']:.3f}% "
+172 |                         f"| {item['mean_translation_error_mm']:.4f} | {item['mean_rotation_error_degrees']:.4f} |"
+    |                                                                                                     ^^^^^^^^^^^^^^
+173 |                     )
+174 |             lines.append("")
+    |
+
+E501 Line too long (104 > 100)
+   --> src/effect_pretraining/reporting.py:176:101
+    |
+174 |             lines.append("")
+175 |         lines += [
+176 |             "K's native score is analytic nominal attainment. The separate common physical-goal scores "
+    |                                                                                                     ^^^^
+177 |             "are in acquisition_evidence.json and acquisition_plot_source.csv. "
+178 |             "Each seed has 64 targets from 32 snapshots drawn from four episodes. "
+    |
+
+E501 Line too long (114 > 100)
+   --> src/effect_pretraining/reporting.py:179:101
+    |
+177 |             "are in acquisition_evidence.json and acquisition_plot_source.csv. "
+178 |             "Each seed has 64 targets from 32 snapshots drawn from four episodes. "
+179 |             "P/masked outputs and paired goal outputs are reused for scoring; these are not independent samples. "
+    |                                                                                                     ^^^^^^^^^^^^^^
+180 |             "Two training seeds support descriptive results, not equivalence or training-seed significance.",
+181 |             "",
+    |
+
+E501 Line too long (109 > 100)
+   --> src/effect_pretraining/reporting.py:180:101
+    |
+178 |             "Each seed has 64 targets from 32 snapshots drawn from four episodes. "
+179 |             "P/masked outputs and paired goal outputs are reused for scoring; these are not independent samples. "
+180 |             "Two training seeds support descriptive results, not equivalence or training-seed significance.",
+    |                                                                                                     ^^^^^^^^^
+181 |             "",
+182 |             "![Acquisition](acquisition.png)",
+    |
+
+E501 Line too long (118 > 100)
+   --> src/effect_pretraining/reporting.py:195:101
+    |
+193 |         for task in baseline["tasks"]:
+194 |             lines.append(
+195 |                 f"| {task['task_name']} | {task['successes']}/{task['valid_episodes']} | {task['invalid_episodes']} |"
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^
+196 |             )
+197 |         lines += [
+    |
+
+E501 Line too long (150 > 100)
+   --> src/effect_pretraining/reporting.py:202:101
+    |
+200 | …alid']}. "
+201 | …riability or a benchmark ceiling. "
+202 | …ished, so this is an exploratory diagnostic rather than an independent leaderboard claim.",
+    |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+203 | …
+204 | …
+    |
+
+E501 Line too long (110 > 100)
+   --> src/effect_pretraining/reporting.py:209:101
+    |
+207 |     else:
+208 |         lines += [
+209 |             f"Status: {status['preliminary_3']}. No unperformed task outcome is represented as a zero score.",
+    |                                                                                                     ^^^^^^^^^^
+210 |             "",
+211 |         ]
+    |
+
+E501 Line too long (101 > 100)
+   --> src/effect_pretraining/reporting.py:215:101
+    |
+213 |         "## Correctness and provenance",
+214 |         "",
+215 |         "The exact 2.2 scientific release remains hash-verified. Native mapping/inverse transforms, "
+    |                                                                                                     ^
+216 |         "serialized full-state replay, padding/flow sign, projector gradients through the frozen decoder, "
+217 |         "masked-effect invariance, frozen hashes, transfer cleanup and paired streams are checked. "
+    |
+
+E501 Line too long (107 > 100)
+   --> src/effect_pretraining/reporting.py:216:101
+    |
+214 |         "",
+215 |         "The exact 2.2 scientific release remains hash-verified. Native mapping/inverse transforms, "
+216 |         "serialized full-state replay, padding/flow sign, projector gradients through the frozen decoder, "
+    |                                                                                                     ^^^^^^^
+217 |         "masked-effect invariance, frozen hashes, transfer cleanup and paired streams are checked. "
+218 |         "Actual checkpoint master parameters and Adam moments are FP32 under BF16 autocast.",
+    |
+
+E501 Line too long (107 > 100)
+   --> src/effect_pretraining/reporting.py:222:101
+    |
+220 |         "Both projectors used 512 distinct evenly spaced TRAIN windows. State RMS was 0.219354522; "
+221 |         "absorbed alpha was 1.980329311 (seed 101) and 1.969732337 (seed 202). "
+222 |         "K and D share nominal-TRAIN means/scales with 1 mm/1 degree floors. P receives transformed zero. "
+    |                                                                                                     ^^^^^^^
+223 |         "No evaluation/demonstration data fit those constants.",
+224 |         "",
+    |
+
+E501 Line too long (104 > 100)
+   --> src/effect_pretraining/reporting.py:225:101
+    |
+223 |         "No evaluation/demonstration data fit those constants.",
+224 |         "",
+225 |         "The ten official raw demonstration files are revision/hash pinned. Each task has ten selected "
+    |                                                                                                     ^^^^
+226 |         "training and five separate held-out validation trajectories. Source-verified post-action "
+227 |         "observations are paired with the following action chunk, excluding one extra terminal candidate "
+    |
+
+E501 Line too long (106 > 100)
+   --> src/effect_pretraining/reporting.py:227:101
+    |
+225 |         "The ten official raw demonstration files are revision/hash pinned. Each task has ten selected "
+226 |         "training and five separate held-out validation trajectories. Source-verified post-action "
+227 |         "observations are paired with the following action chunk, excluding one extra terminal candidate "
+    |                                                                                                     ^^^^^^
+228 |         "window per selected trajectory. Native camera rotation and processing are preserved. "
+229 |         "No validation-based checkpoint selection occurs.",
+    |
+
+E501 Line too long (102 > 100)
+   --> src/effect_pretraining/reporting.py:232:101
+    |
+230 |         "",
+231 |         "Early CUDA context failures occurred before update 0. The user performed the approved "
+232 |         "one-time cache flush/compaction after sudo required a local password. The original failures "
+    |                                                                                                     ^^
+233 |         "and both measured image microbatches are retained. A persistent CUDA context and an owned-process "
+234 |         "hard-limit guard preserve the original ceilings. No other job was terminated or shared software upgraded.",
+    |
+
+E501 Line too long (108 > 100)
+   --> src/effect_pretraining/reporting.py:233:101
+    |
+231 |         "Early CUDA context failures occurred before update 0. The user performed the approved "
+232 |         "one-time cache flush/compaction after sudo required a local password. The original failures "
+233 |         "and both measured image microbatches are retained. A persistent CUDA context and an owned-process "
+    |                                                                                                     ^^^^^^^^
+234 |         "hard-limit guard preserve the original ceilings. No other job was terminated or shared software upgraded.",
+235 |         "",
+    |
+
+E501 Line too long (116 > 100)
+   --> src/effect_pretraining/reporting.py:234:101
+    |
+232 |         "one-time cache flush/compaction after sudo required a local password. The original failures "
+233 |         "and both measured image microbatches are retained. A persistent CUDA context and an owned-process "
+234 |         "hard-limit guard preserve the original ceilings. No other job was terminated or shared software upgraded.",
+    |                                                                                                     ^^^^^^^^^^^^^^^^
+235 |         "",
+236 |         "## Budget and artifacts",
+    |
+
+E501 Line too long (130 > 100)
+   --> src/effect_pretraining/reporting.py:240:101
+    |
+238 |         f"Accelerator reservation time used: {budget.accelerator_seconds_used:.3f} seconds "
+239 |         f"({budget.accelerator_seconds_used / 3600:.5f} hours), ceiling 8 hours. "
+240 |         f"Execution wall time since profiling: {status['execution_wall_seconds_since_profiling']:.3f} seconds, ceiling 12 hours. "
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+241 |         "The calendar cutoff remains 28 November 2026 at 18:00 Europe/Paris.",
+242 |         "",
+    |
+
+E501 Line too long (104 > 100)
+   --> src/effect_pretraining/reporting.py:245:101
+    |
+243 |         f"Campaign running at report time: {is_running}. Full local artifacts: `{artifacts}`. "
+244 |         "Datasets, full snapshots, model/optimizer checkpoints and caches are outside Git. "
+245 |         "The compressed review bundle includes five pre-existing replay examples and a SHA256 manifest "
+    |                                                                                                     ^^^^
+246 |         "of all retained full artifacts. Its SHA256 is in an external checksum file; delivery.json supplies revisions.",
+247 |         "",
+    |
+
+E501 Line too long (120 > 100)
+   --> src/effect_pretraining/reporting.py:246:101
+    |
+244 |         "Datasets, full snapshots, model/optimizer checkpoints and caches are outside Git. "
+245 |         "The compressed review bundle includes five pre-existing replay examples and a SHA256 manifest "
+246 |         "of all retained full artifacts. Its SHA256 is in an external checksum file; delivery.json supplies revisions.",
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+247 |         "",
+248 |         "The public repository was not pushed. The user's unrelated .gitignore edit, original source ZIP "
+    |
+
+E501 Line too long (106 > 100)
+   --> src/effect_pretraining/reporting.py:248:101
+    |
+246 |         "of all retained full artifacts. Its SHA256 is in an external checksum file; delivery.json supplies revisions.",
+247 |         "",
+248 |         "The public repository was not pushed. The user's unrelated .gitignore edit, original source ZIP "
+    |                                                                                                     ^^^^^^
+249 |         "and PGX documentation are preserved. No Stage 2 campaign, optional extension, manuscript conclusion "
+250 |         "change, public release or scheduled continuation was performed.",
+    |
+
+E501 Line too long (110 > 100)
+   --> src/effect_pretraining/reporting.py:249:101
+    |
+247 |         "",
+248 |         "The public repository was not pushed. The user's unrelated .gitignore edit, original source ZIP "
+249 |         "and PGX documentation are preserved. No Stage 2 campaign, optional extension, manuscript conclusion "
+    |                                                                                                     ^^^^^^^^^^
+250 |         "change, public release or scheduled continuation was performed.",
+251 |         "",
+    |
+
+Found 36 errors.
+[*] 2 fixable with `--fix`.

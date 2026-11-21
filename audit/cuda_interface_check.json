@@ -1,0 +1,21 @@
+{
+  "memory_before": [
+    36797812736,
+    128451948544
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": null,
+    "PYTORCH_CUDA_ALLOC_CONF": null,
+    "PYTORCH_ALLOC_CONF": null,
+    "CUDA_MODULE_LOADING": null
+  },
+  "rlimit_memlock": [
+    16056492032,
+    16056492032
+  ],
+  "minimal_tensor_value": [
+    1.0
+  ],
+  "memory_allocated": 512,
+  "memory_reserved": 2097152
+}

@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "episode_attempts": 100,
+  "retained_transitions": 20000,
+  "warmup_control_steps": 1000,
+  "contact_setup_control_steps": 4000,
+  "invalid_collection_attempts": 0,
+  "actual_robot_object_contact_steps": 0,
+  "reference_snapshots": 100,
+  "reference_replays": 400,
+  "unique_reference_chunks": 200,
+  "evaluation_source_episodes": 10,
+  "neural_training_seeds": 0,
+  "ridge_predictors": 1,
+  "duplicate_integration_max_abs_difference": 0.0,
+  "contact_stratum": "empty; contact-conditional residual estimates unavailable",
+  "uncertainty": "95% t intervals over the ten episode means, with nine degrees of freedom; descriptive fixed-scene sampling uncertainty; training variability and transfer uncertainty remain unmeasured",
+  "translation": {
+    "mean": 44.135212249376934,
+    "median": 42.452102253229256,
+    "p10": 23.89951682112037,
+    "p90": 67.50305445597544,
+    "episode_mean_95pct_t_interval": [
+      41.084042171300965,
+      47.18638232745293
+    ],
+    "units": "mm"
+  },
+  "rotation": {
+    "mean": 12.538881983143648,
+    "median": 11.97676299226001,
+    "p10": 5.815132469505961,
+    "p90": 19.545967010145407,
+    "episode_mean_95pct_t_interval": [
+      11.971025808402073,
+      13.106738157885216
+    ],
+    "units": "degrees"
+  },
+  "interpretation_limits": [
+    "No actual contact was achieved by the fixed collector; no contact contrast is estimable.",
+    "Residuals include ideal-map/controller tracking differences; the ridge does not identify their cause.",
+    "A residual observation does not establish acquisition, downstream utility, equivalence or an RSS decision."
+  ]
+}

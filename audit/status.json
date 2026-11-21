@@ -1,0 +1,85 @@
+{
+  "protocol_version": "2.2-locked",
+  "as_of_utc": "2026-11-21T15:38:10.551681+00:00",
+  "repository_url": "https://github.com/imadken/can-llms-learn-physical-data.git",
+  "branch": "research/effect-pretraining-stage1-v2",
+  "remote_publication_performed": false,
+  "preliminary_1": "complete",
+  "preliminary_2": "complete",
+  "preliminary_3": "complete",
+  "campaign_process_running": false,
+  "accelerator_seconds_used": 14940.987879970577,
+  "execution_wall_seconds_since_profiling": 17626.085749,
+  "limits": {
+    "accelerator_seconds": 28800,
+    "execution_wall_seconds": 43200,
+    "cutoff": "2026-11-28T18:00:00+01:00"
+  },
+  "artifacts": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121",
+  "protected_hashes": {
+    "README.md": "018d3a159d599c497878efa955d7d8814086b4cf399346f082e381ba8eec255e",
+    "research/STAGE1_SCOPE_AND_CLAIMS.md": "f038be131cfd5abe92afd44708b32389bc88004e7c99537d9ba59607467a367a",
+    "research/PRELIMINARY_PROTOCOL.md": "2833e970c0750457f817463b06b13e9d40003ec6253ba96375e23f6b4d249c51",
+    "research/REVIEWER_OBJECTIONS.md": "97bb025f13816d9126fa000e73e38e1952034f638b284a88ec9624b126e716a1",
+    "configs/preliminary_locked.json": "2595203623e1d584517b9cf6428d4e4af3f4c19f8a062cc9ce051f64fee17edb",
+    "prompts/CODEX_PRELIMINARIES.txt": "fcd7c3f71b44f8791d83115d54e2af47317974350cf1fb5d946c4bc1424a19c2"
+  },
+  "actual_run_counts": [
+    {
+      "arm": "P",
+      "planned_seed": 101,
+      "actual_updates": 1000,
+      "effective_batch": 128,
+      "window_presentations": 128000,
+      "last_common_checkpoint_updates": 1000
+    },
+    {
+      "arm": "K",
+      "planned_seed": 101,
+      "actual_updates": 1000,
+      "effective_batch": 128,
+      "window_presentations": 128000,
+      "last_common_checkpoint_updates": 1000
+    },
+    {
+      "arm": "D",
+      "planned_seed": 101,
+      "actual_updates": 1000,
+      "effective_batch": 128,
+      "window_presentations": 128000,
+      "last_common_checkpoint_updates": 1000
+    },
+    {
+      "arm": "P",
+      "planned_seed": 202,
+      "actual_updates": 1000,
+      "effective_batch": 128,
+      "window_presentations": 128000,
+      "last_common_checkpoint_updates": 1000
+    },
+    {
+      "arm": "K",
+      "planned_seed": 202,
+      "actual_updates": 1000,
+      "effective_batch": 128,
+      "window_presentations": 128000,
+      "last_common_checkpoint_updates": 1000
+    },
+    {
+      "arm": "D",
+      "planned_seed": 202,
+      "actual_updates": 1000,
+      "effective_batch": 128,
+      "window_presentations": 128000,
+      "last_common_checkpoint_updates": 1000
+    },
+    {
+      "arm": "S",
+      "planned_seed": 303,
+      "actual_updates": 5000,
+      "effective_batch": 32,
+      "window_presentations": 160000,
+      "last_common_checkpoint_updates": ""
+    }
+  ]
+}

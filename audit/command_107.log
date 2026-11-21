@@ -1,0 +1,7 @@
+{
+  "status": "campaign_ended_without_limit_intervention",
+  "owned_pid": 1921734,
+  "reservation_monotonic_started": 2514564.15551121,
+  "scope": "current owned campaign only; exits when it ends; no scheduled continuation",
+  "finished_utc": "2026-11-21T15:35:47.173558+00:00"
+}
