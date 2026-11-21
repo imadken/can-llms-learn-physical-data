@@ -1,0 +1,12 @@
+E501 Line too long (111 > 100)
+  --> src/effect_pretraining/checks.py:92:101
+   |
+90 |         "masked_generated_actions_bit_identical": True,
+91 |         "ordinary_post_cleanup_inference": "finite_H16_native_shape",
+92 |         "ordinary_inference_limit": "image-free language/state smoke; actual image profiling remains required",
+   |                                                                                                     ^^^^^^^^^^^
+93 |         "action_generation_parameter_count": sum(p.numel() for _, p in trainable),
+94 |         "transfer_keys": sorted(transferred),
+   |
+
+Found 1 error.

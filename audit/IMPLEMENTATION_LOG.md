@@ -18,3 +18,15 @@ The user selected https://github.com/imadken/can-llms-learn-physical-data.git at
 - Hardware discovery found ARM Cortex-X925/Cortex-A725 CPU cores and NVIDIA GB10. Another process held approximately 66 GB of GPU memory. It was not modified.
 - Existing environments and cached assets elsewhere are inspected as reusable installed dependencies only. No other project's checkout, scientific decisions, observations or datasets are substituted for this study.
 - Locked files remain read-only. Verified runtime facts and calibration constants will be recorded separately.
+
+## Verified implementation choices before collection
+
+- Reused the existing Python 3.11.15 environment without installing or modifying shared packages. Official installed LeRobot 0.3.3 source and official LIBERO at 8f1084e3132a39270c3a13ebe37270a43ece2a01 are referenced through ignored local dependency pointers. The AxisGuide model fork is not used. The official LIBERO tracked worktree is clean.
+- The public SmolVLA checkpoint revision and cached LFS weight hash were cross-checked via the public API. Strict loading matches all 450,046,176 parameters.
+- Fixed headless CPU rendering discovery by selecting already-present user-space OSMesa libraries; no system libraries changed. Corrected two import/configuration entry-point mistakes before experiments.
+- The independent SciPy float64 nominal rotation agrees with the controller's float32 quaternion implementation to 5e-8 absolute matrix tolerance; the initially tighter relative-only assertion was inappropriate near small entries. This is numerical validation tolerance, not an effect or attainment threshold.
+- The geometry approach uses the compiled plate collision-box bounds and closed finger-pad midpoint, 1 mm fixed waypoint arrival tolerance, the prescribed +100 mm waypoint, +10 mm edge target, and at most 80 setup steps.
+- Full integration snapshots include controller state, gripper persistent action, RNG, observation cache, robot buffers and control timing. Numeric JSON/NPZ serialization avoids executable pickle. A serialized snapshot produced a bit-identical 16-action replay in a separate engineering stream.
+- Contacts will be recorded at every physics substep, not only at action endpoints. Native reset failures are not retried by the public wrapper.
+- CPU native-model checks passed: nonzero effect-projector gradient through the frozen decoder, unchanged frozen parameter hashes after one disposable optimizer step, bit-identical actions after changing a masked effect, and finite ordinary language/state inference after removing the effect wrapper. This is not a production acquisition fit or multimodal profile.
+- Current storage is insufficient for six ordinary uncompressed resumable checkpoints (7,189,150,464 bytes before overhead). Additional artifact storage was requested asynchronously; no shared files or jobs are deleted.

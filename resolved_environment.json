@@ -1,0 +1,132 @@
+{
+  "status": "source_interfaces_verified_before_collection",
+  "runtime_paths": {
+    "python": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/bin/python",
+    "lerobot_source": "/home/imad/Desktop/repos/TRACE_RSS2027/experiments/pusht_pretrained_evidence/.venv/lib/python3.11/site-packages/lerobot",
+    "libero_source": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official",
+    "osmesa_library_dir": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/osmesa/root/usr/lib/aarch64-linux-gnu",
+    "checkpoint": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/raw/models/smolvla",
+    "vlm_assets": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/raw/models/vlm",
+    "artifacts": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121"
+  },
+  "research_lock_version": "2.2-locked",
+  "repository_url": "https://github.com/imadken/can-llms-learn-physical-data.git",
+  "base_commit": "6af52ba",
+  "branch": "research/effect-pretraining-stage1-v2",
+  "hardware": {
+    "architecture": "aarch64",
+    "cpu": "10 Cortex-X925 plus 10 Cortex-A725 cores",
+    "gpu": "NVIDIA GB10",
+    "driver": "580.159.03",
+    "other_jobs_modified": false
+  },
+  "model": {
+    "id": "lerobot/smolvla_base",
+    "revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
+    "weight_sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+    "parameter_count": 450046176,
+    "native_action_parameter_count": 99849312,
+    "strict_state_dict_load": "passed",
+    "provenance": "cached bytes match LFS SHA256 from public API at immutable revision"
+  },
+  "dependencies": {
+    "python": "3.11.15",
+    "torch": "2.10.0+cu130",
+    "transformers": "4.57.3",
+    "mujoco": "3.3.7",
+    "robosuite": "1.4.1",
+    "numpy": "1.26.4",
+    "scipy": "1.17.1",
+    "pydantic": "2.14.1",
+    "matplotlib": "3.11.2",
+    "pytest": "9.1.1",
+    "ruff": "0.17.1",
+    "lerobot": "0.3.3 official installed source; imported using project-local dependency pointer"
+  },
+  "libero": {
+    "repository": "https://github.com/Lifelong-Robot-Learning/LIBERO.git",
+    "revision": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+    "tracked_worktree_modifications": []
+  },
+  "interface": {
+    "control_frequency_hz": 20,
+    "state_order": [
+      "eef_x",
+      "eef_y",
+      "eef_z",
+      "axis_angle_x",
+      "axis_angle_y",
+      "axis_angle_z",
+      "finger_joint_1",
+      "finger_joint_2"
+    ],
+    "state_dim": 8,
+    "action_dim": 7,
+    "effect_dim": 6,
+    "native_padding_dim": 32,
+    "gripper_absolute_joint_limits_m": [
+      0.04,
+      0.04
+    ],
+    "translation_command_scale_m": 0.05,
+    "rotation_command_scale_rad": 0.5,
+    "action_input_range": [
+      -1,
+      1
+    ],
+    "position_limits": null,
+    "orientation_limits": null,
+    "rotation_composition": "R_next=Exp(world_command)*R_ideal_previous",
+    "future_measured_states_in_nominal_map": false,
+    "second_normalization": false
+  },
+  "engineering_numerical_tolerances": {
+    "source_rotation_matrix_absolute": 5e-08,
+    "full_snapshot_replay": "bit-identical integration state in disposable serialized replay check"
+  },
+  "storage": {
+    "free_bytes_before_collection": 5210570752,
+    "six_uncompressed_resumable_action_checkpoint_bytes": 7189150464,
+    "calculation": "99,849,312 native action parameters * 4 bytes * (weight plus two Adam moments) * 6; excludes temporary projectors and atomic-write reserve",
+    "additional_storage_location_requested": true
+  },
+  "effect_transform": {
+    "status": "pending_complete_training_windows",
+    "fitted": false
+  },
+  "projector_calibration": {
+    "status": "pending_training_window_reference_subset",
+    "calibrated": false
+  },
+  "profiling": {
+    "status": "not_started",
+    "accelerator_seconds": 0,
+    "execution_clock_started": false
+  },
+  "source_hashes": [
+    {
+      "path": "/home/imad/Desktop/repos/TRACE_RSS2027/experiments/pusht_pretrained_evidence/.venv/lib/python3.11/site-packages/lerobot/policies/smolvla/modeling_smolvla.py",
+      "sha256": "84749a5d1e01211c16315f58cc647dcd66c1593de86fdd6d23a685beb5fdd63f"
+    },
+    {
+      "path": "/home/imad/Desktop/repos/TRACE_RSS2027/experiments/pusht_pretrained_evidence/.venv/lib/python3.11/site-packages/lerobot/policies/smolvla/smolvlm_with_expert.py",
+      "sha256": "0178ae64a804031cc99f109ab5ab4d00ebe3e5bbaae86d5e529884ed2ffb4d1d"
+    },
+    {
+      "path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/envs/env_wrapper.py",
+      "sha256": "a782fb76c9792268d28979474fe72849e1e98ada49c8e997a65359a8d6b6acd0"
+    },
+    {
+      "path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/libero/assets/stable_scanned_objects/plate/plate.xml",
+      "sha256": "72b4de23b2daa3169843b784998c0c3c30a6559c6c85917c6b86e3d39fa241e6"
+    },
+    {
+      "path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/controllers/osc.py",
+      "sha256": "cfa62a0e719bc53ef0c701efa66f7b3e2272d4fca2150ec73c05bb145eba85cb"
+    },
+    {
+      "path": "/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/models/assets/grippers/panda_gripper.xml",
+      "sha256": "d9d68123909d6910488310d0fae4e358ed4ac831c6d0957f3e30893a5412baac"
+    }
+  ]
+}
