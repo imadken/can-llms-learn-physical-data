@@ -2,6 +2,7 @@
 
 import csv
 import json
+import textwrap
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -178,10 +179,127 @@ def build_residual_figure(root: Path, artifacts: Path) -> dict:
     return summary
 
 
+def build_acquisition_figure(root: Path) -> None:
+    audit = root / "audit"
+    evidence = json.loads((audit / "acquisition_evidence.json").read_text())
+    figure, axes = plt.subplots(1, 3, figsize=(13, 4), constrained_layout=True)
+    source = []
+    modes = ["matched", "masked", "P", "alternate"]
+    for axis, arm, title in [
+        (axes[0], "K", "Native K: nominal endpoints"),
+        (axes[1], "D", "Native D: measured endpoints"),
+    ]:
+        for seed, color, marker in [(101, "#146b9c", "o"), (202, "#d26726", "s")]:
+            groups = evidence[arm]["seeds"][str(seed)]["groups"]
+            values = [groups[mode]["joint_attainment_percent"] for mode in modes]
+            axis.plot(range(4), values, marker=marker, color=color, label=f"Seed {seed}")
+            for mode in modes:
+                source.append(
+                    {
+                        "panel": f"native_{arm}",
+                        "seed": seed,
+                        "arm": arm,
+                        "mode": mode,
+                        **groups[mode],
+                    }
+                )
+        axis.set_xticks(range(4), ["Matched", "Masked", "P", "Alternate"], rotation=25)
+        axis.set_title(title)
+    for seed, color, marker in [(101, "#146b9c", "o"), (202, "#d26726", "s")]:
+        groups = evidence["common_physical_goal"][str(seed)]
+        axes[2].plot(
+            range(3),
+            [groups[arm]["joint_attainment_percent"] for arm in ("P", "K", "D")],
+            marker=marker,
+            color=color,
+            label=f"Seed {seed}",
+        )
+        for arm in ("P", "K", "D"):
+            source.append(
+                {
+                    "panel": "common_physical",
+                    "seed": seed,
+                    "arm": arm,
+                    "mode": "matched" if arm != "P" else "P",
+                    **groups[arm],
+                }
+            )
+    axes[2].set_xticks(range(3), ["P", "K", "D"])
+    axes[2].set_title("Common measured physical goals")
+    for axis in axes:
+        axis.set_ylim(-2, 102)
+        axis.set_ylabel("Joint attainment (%)")
+        axis.grid(axis="y", alpha=0.2)
+    axes[2].legend(frameon=False)
+    figure.suptitle(
+        f"Exploratory acquisition · common checkpoint u{evidence['checkpoint_updates']} "
+        "· 10 mm and 5°",
+        fontsize=12,
+    )
+    figure.supxlabel(
+        "Each seed shown separately; 64 targets from 32 snapshots / 4 episodes; "
+        "no seed-significance claim",
+        fontsize=9,
+    )
+    figure.savefig(audit / "acquisition.png", dpi=180)
+    figure.savefig(audit / "acquisition.pdf")
+    plt.close(figure)
+    write_csv(audit / "acquisition_plot_source.csv", source)
+
+
+def build_baseline_figure(root: Path) -> None:
+    audit = root / "audit"
+    summary = json.loads((audit / "baseline_summary.json").read_text())
+    tasks = summary["tasks"]
+    figure, axis = plt.subplots(figsize=(10, 6.5), constrained_layout=True)
+    values, lower, upper = [], [], []
+    for task in tasks:
+        value = task["success_rate_valid"]
+        interval = task["wilson95_valid_episodes"]
+        values.append(100 * value if value is not None else np.nan)
+        lower.append(100 * (value - interval[0]) if interval else 0)
+        upper.append(100 * (interval[1] - value) if interval else 0)
+    axis.barh(range(len(tasks)), values, xerr=[lower, upper], capsize=3, color="#16817a")
+    axis.set_yticks(
+        range(len(tasks)),
+        [textwrap.fill(task["task_name"].replace("_", " "), 44) for task in tasks],
+    )
+    axis.invert_yaxis()
+    axis.set_xlim(0, 105)
+    axis.set_xlabel("Success (%) · descriptive 95% Wilson episode intervals")
+    axis.set_title(f"S exploratory baseline · seed 303 · {summary['checkpoint_updates']} updates")
+    for index, task in enumerate(tasks):
+        axis.text(
+            101, index, f"{task['successes']}/{task['valid_episodes']}", va="center", fontsize=9
+        )
+    figure.supxlabel(
+        "One trained seed; intervals do not estimate training variability or a benchmark ceiling",
+        fontsize=9,
+    )
+    figure.savefig(audit / "baseline.png", dpi=180)
+    figure.savefig(audit / "baseline.pdf")
+    plt.close(figure)
+    rows = []
+    for task in tasks:
+        interval = task["wilson95_valid_episodes"] or [None, None]
+        rows.append(
+            {key: value for key, value in task.items() if key != "wilson95_valid_episodes"}
+            | {"wilson95_low": interval[0], "wilson95_high": interval[1]}
+        )
+    write_csv(audit / "baseline_plot_source.csv", rows)
+
+
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifacts", type=Path, required=True)
+    parser.add_argument("--component", choices=["residual", "neural", "all"], default="residual")
     args = parser.parse_args()
-    build_residual_figure(Path.cwd(), args.artifacts.resolve())
+    if args.component in ("residual", "all"):
+        build_residual_figure(Path.cwd(), args.artifacts.resolve())
+    if args.component in ("neural", "all"):
+        if Path("audit/acquisition_evidence.json").exists():
+            build_acquisition_figure(Path.cwd())
+        if Path("audit/baseline_summary.json").exists():
+            build_baseline_figure(Path.cwd())
