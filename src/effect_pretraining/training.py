@@ -112,7 +112,11 @@ def profiles_and_projection(root: Path, artifacts: Path) -> dict:
 def acquisition_rounds(root: Path, artifacts: Path) -> dict:
     protected = verify_release(root)
     projection = profiles_and_projection(root, artifacts)
-    paths = json.loads((root / "resolved_environment.json").read_text())["runtime_paths"]
+    resolved = json.loads((root / "resolved_environment.json").read_text())
+    paths = resolved["runtime_paths"]
+    arrays_sha = sha256_file(artifacts / "training_arrays.npz")
+    if arrays_sha != resolved["projector_calibration"]["training_arrays_sha256"]:
+        raise ValueError("Frozen numerical training arrays changed after calibration")
     arrays = load_arrays(artifacts)
     status_path = root / "audit/acquisition_training.json"
     if status_path.exists():
@@ -140,6 +144,7 @@ def acquisition_rounds(root: Path, artifacts: Path) -> dict:
                     key = f"{arm}_{seed}"
                     fit_status = status["fits"][key]
                     model = numerical_model(paths, artifacts, seed).cuda()
+                    torch.cuda.reset_peak_memory_stats()
                     optimizer = optimizer_for(model)
                     initial_update = 0
                     if fit_status["checkpoints"]:
@@ -151,6 +156,20 @@ def acquisition_rounds(root: Path, artifacts: Path) -> dict:
                         (name, p) for name, p in model.named_parameters() if not p.requires_grad
                     ]
                     frozen_before = parameter_digest(frozen)
+                    if initial_update == 0:
+                        initial_sha = parameter_digest(
+                            [(name, p) for name, p in model.named_parameters() if p.requires_grad]
+                        )
+                        for other in ("P", "K", "D"):
+                            other_sha = status["fits"][f"{other}_{seed}"].get(
+                                "initialization_sha256"
+                            )
+                            if other_sha is not None and initial_sha != other_sha:
+                                raise ValueError(
+                                    "Paired native/projector initialization differs across arms"
+                                )
+                        fit_status["initialization_sha256"] = initial_sha
+                        status_path.write_text(json.dumps(status, indent=2) + "\n")
                     meta = {
                         "arm": arm,
                         "seed": seed,
@@ -160,6 +179,14 @@ def acquisition_rounds(root: Path, artifacts: Path) -> dict:
                         "microbatch": 16,
                         "accumulation": 8,
                         "projector_stream": 800000 + seed,
+                        "training_arrays_sha256": arrays_sha,
+                        "initialization_sha256": fit_status["initialization_sha256"],
+                        "projector_file_sha256": resolved["projector_calibration"]["seeds"][
+                            str(seed)
+                        ]["file_sha256"],
+                        "evaluation_bank_sha256": sha256_file(
+                            root / "audit/acquisition_bank_manifest.json"
+                        ),
                         "pristine_checkpoint_revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
                     }
                     log_path = root / "audit" / f"acquisition_{key}.jsonl"
