@@ -61,6 +61,7 @@ def audit(root: Path, *, require_final: bool = False) -> dict:
                         "updates": checkpoint["completed_updates"],
                         "path": checkpoint["path"],
                         "code_commit": meta["code_commit"],
+                        "peak_allocated_bytes": meta["peak_allocated_bytes"],
                         "frozen_sha256": meta["frozen_sha256_after"],
                         "float32_trainable_masters_and_adam_moments": True,
                         "effect_projector_weight_changed": current != initial,
@@ -87,10 +88,55 @@ def audit(root: Path, *, require_final: bool = False) -> dict:
     return result
 
 
+def audit_baseline(root: Path, *, require_final: bool = False) -> dict:
+    """Inspect the one S fit without generating actions or updating weights."""
+    status = json.loads((root / "audit/baseline_training.json").read_text())
+    log = root / "audit/baseline_loss.jsonl"
+    rows = [json.loads(line) for line in log.read_text().splitlines()] if log.exists() else []
+    if [row["update"] for row in rows] != list(range(1, len(rows) + 1)) or len(rows) > 5000:
+        raise ValueError("Missing, repeated or excess S updates")
+    if require_final and (len(rows) != 5000 or status["completed_updates"] != 5000):
+        raise ValueError("The final S audit requires exactly 5000 completed updates")
+    result = {"logged_update_count": len(rows), "training_status": status["status"]}
+    if "checkpoint" in status:
+        payload = torch.load(
+            status["checkpoint"]["path"], map_location="cpu", weights_only=True, mmap=True
+        )
+        if payload["completed_updates"] != status["completed_updates"]:
+            raise ValueError("S checkpoint update count differs from the training log")
+        meta = payload["metadata"]
+        if meta["frozen_sha256_before"] != meta["frozen_sha256_after"]:
+            raise ValueError("Frozen VLM parameters changed during S")
+        if any(value.dtype != torch.float32 for value in payload["trainable"].values()):
+            raise ValueError("An S trainable master parameter is not float32")
+        for values in payload["optimizer"]["state"].values():
+            if any(values[key].dtype != torch.float32 for key in ("exp_avg", "exp_avg_sq")):
+                raise ValueError("S Adam moment precision changed")
+        result.update(
+            completed_updates=payload["completed_updates"],
+            code_commit=meta["code_commit"],
+            peak_allocated_bytes=meta["peak_allocated_bytes"],
+            frozen_sha256=meta["frozen_sha256_after"],
+            float32_trainable_masters_and_adam_moments=True,
+            metadata_status_note=(
+                "The metadata copy retains fit-start status; the checkpoint's top-level "
+                "completed_updates and baseline_training.json record actual completion."
+            ),
+        )
+        del payload
+    elif require_final:
+        raise ValueError("A completed S checkpoint is required")
+    result["status"] = "passed_final" if require_final else "passed_available_prefix"
+    (root / "audit/actual_baseline_invariants.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result, indent=2))
+    return result
+
+
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--require-final", action="store_true")
+    parser.add_argument("--baseline", action="store_true")
     args = parser.parse_args()
-    audit(Path.cwd(), require_final=args.require_final)
+    (audit_baseline if args.baseline else audit)(Path.cwd(), require_final=args.require_final)

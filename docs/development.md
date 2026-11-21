@@ -51,10 +51,12 @@ diagnostic; `effect_pretraining.plots` renders its two-panel figure and source C
 These programs take the same `--artifacts` directory.
 
 The acquisition runner, `effect_pretraining.training`, admits only complete measured
-profiles and balanced six-fit 250-update rounds. It has not run a production update.
-The S fit and final neural evaluation remain unvalidated integration work. The actual
-image profile, production GPU behavior and resource projections must pass before any
-neural campaign can be represented as ready. CPU checks do not replace those requirements.
+profiles and balanced six-fit 250-update rounds. The persistent entry point
+`effect_pretraining.campaign` keeps one CUDA context alive through those rounds,
+the fixed acquisition evaluation and the admitted S fit/evaluation. The full reservation,
+including CPU replay between accelerator phases, counts once against the ceiling.
+Actual completion is recorded in `audit/status.json` and the per-component JSON/CSV
+outputs; successful CPU checks alone do not establish production completion.
 
 The initial CUDA profile failed before its first update. Its failed record and platform
 diagnostics are retained. After the prerequisite is repaired, an explicit
@@ -67,3 +69,31 @@ with actions[j+1:j+17] and excludes the final incomplete window. Both camera ima
 the source-verified native 180-degree rotation and native SmolVLA resize/pixel processing.
 Trainable action/state master parameters and Adam moments stay FP32 under BF16 autocast;
 the frozen VLM keeps its native dtypes.
+
+The final read-only checkpoint and paired-stream audits are:
+
+```bash
+python3 scripts/run.py -m effect_pretraining.training_audit --require-final
+python3 scripts/run.py -m effect_pretraining.training_audit --baseline --require-final
+python3 scripts/run.py -m effect_pretraining.plots --artifacts ARTIFACT_DIRECTORY --component neural
+python3 scripts/run.py -m effect_pretraining.reporting --artifacts ARTIFACT_DIRECTORY
+```
+
+The baseline audit is used only if S completed; partial or deferred components must
+retain their actual status. Reporting can summarize an interrupted evaluation's
+existing episode CSV without additional rollouts, and distinguishes unperformed
+episodes from measured failures.
+
+`scripts/watch_campaign.py` is an immediate, one-shot backup for the active campaign's
+hard deadline. It verifies the owned process and reservation identity, exits when the
+campaign exits, and creates no scheduled continuation. It does not control unrelated
+processes. The internal reserve guard also refuses a new phase within the final
+180 seconds; the external guard covers the already-loaded campaign revision.
+
+After committing implementation and small results, run `scripts/package_review.py`
+directly through the existing `uv run --no-project --no-config` interpreter with
+`PYTHONPATH=src`. Do not wrap packaging with `scripts/run.py`, because that logger
+would create an uncommitted command record during the clean-result check. The bundle
+records committed code/results revisions and full-artifact hashes, includes the five
+fixed replay examples, and receives an external SHA256 file. Unrelated worktree files
+are preserved. No remote push is part of this workflow.

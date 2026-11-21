@@ -1,6 +1,7 @@
 """Package the committed release plus five existing replay examples and external hashes."""
 
 import argparse
+import hashlib
 import io
 import json
 import subprocess
@@ -16,7 +17,23 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
     results_commit = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=root, text=True
     ).strip()
-    if subprocess.check_output(["git", "status", "--porcelain"], cwd=root, text=True).strip():
+    owned_paths = [
+        "src",
+        "tests",
+        "scripts",
+        "docs",
+        "audit",
+        "research",
+        "configs",
+        "README.md",
+        "RESEARCH_LOCK.json",
+        "PACKAGE_MANIFEST.json",
+        "resolved_environment.json",
+        "pyproject.toml",
+    ]
+    if subprocess.check_output(
+        ["git", "status", "--porcelain", "--", *owned_paths], cwd=root, text=True
+    ).strip():
         raise RuntimeError("Commit auditable code/results before building the final bundle")
     destination = root / "bundles"
     destination.mkdir(exist_ok=True)
@@ -42,6 +59,27 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
                         "sha256": sha256_file(path),
                     }
                 )
+    runtime_inputs = [Path(item["path"]) for item in resolved["source_hashes"]]
+    bank_path = root / "audit/downstream_evaluation_bank.json"
+    if bank_path.exists():
+        bank = json.loads(bank_path.read_text())
+        for task in bank["tasks"]:
+            for prefix in ("initial_states", "bddl"):
+                path = Path(task[f"{prefix}_path"])
+                if sha256_file(path) != task[f"{prefix}_sha256"]:
+                    raise ValueError(f"Pinned downstream input changed: {path}")
+                runtime_inputs.append(path)
+    recorded_paths = {item["path"] for item in artifact_rows}
+    for path in runtime_inputs:
+        if str(path.resolve()) not in recorded_paths:
+            artifact_rows.append(
+                {
+                    "path": str(path.resolve()),
+                    "size_bytes": path.stat().st_size,
+                    "sha256": sha256_file(path),
+                }
+            )
+            recorded_paths.add(str(path.resolve()))
     original = root / "RSS_2027_Codex_Supervision_Package.zip"
     artifact_rows.append(
         {
@@ -78,6 +116,9 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
         "branch": resolved["branch"],
         "implementation_commit": implementation_commit,
         "results_commit": results_commit,
+        "unrelated_worktree_state_preserved": subprocess.check_output(
+            ["git", "status", "--porcelain"], cwd=root, text=True
+        ).splitlines(),
         "remote_push_performed": False,
         "protected_hashes": verified,
         "retained_artifacts_manifest_sha256": sha256_file(retained),
@@ -85,6 +126,43 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
         "example_selection": "first five evaluation episode IDs, offset 0, chunk 0",
         "artifact_root": str(artifacts),
         "status_path": "repository/audit/status.json",
+    }
+    # Preserve the exact historical execution source as well as final review code.
+    revisions = {implementation_commit}
+    for name in ("collection_run.json", "residual_run.json"):
+        record_path = artifacts / name
+        if record_path.exists():
+            revisions.add(json.loads(record_path.read_text())["code_commit"])
+    for path in (root / "audit").glob("command_*.json"):
+        command = json.loads(path.read_text())
+        if "effect_pretraining.campaign" in command["argv"]:
+            revisions.add(command["code_commit"])
+    baseline_audit = root / "audit/actual_baseline_invariants.json"
+    if baseline_audit.exists():
+        revision = json.loads(baseline_audit.read_text()).get("code_commit")
+        if revision:
+            revisions.add(revision)
+    execution_archives = {}
+    for revision in sorted(revisions):
+        content = subprocess.check_output(
+            [
+                "git",
+                "archive",
+                "--format=tar.gz",
+                revision,
+                "--",
+                "src",
+                "scripts",
+                "tests",
+                "pyproject.toml",
+                "resolved_environment.json",
+            ],
+            cwd=root,
+        )
+        execution_archives[f"execution_source/{revision}.tar.gz"] = content
+    delivery["execution_source_archives"] = {
+        name: {"size_bytes": len(content), "sha256": hashlib.sha256(content).hexdigest()}
+        for name, content in execution_archives.items()
     }
     delivery_path = destination / "delivery.json"
     delivery_path.write_text(json.dumps(delivery, indent=2) + "\n")
@@ -102,6 +180,10 @@ def package(root: Path, artifacts: Path, implementation_commit: str) -> dict:
                 output.addfile(member, stream)
         output.add(delivery_path, arcname="delivery.json")
         output.add(retained, arcname="retained_artifacts.json")
+        for name, content in execution_archives.items():
+            member = tarfile.TarInfo(name)
+            member.size = len(content)
+            output.addfile(member, io.BytesIO(content))
         for example in examples:
             for item in example["files"]:
                 path = Path(item["path"])

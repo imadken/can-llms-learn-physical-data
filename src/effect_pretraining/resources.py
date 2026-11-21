@@ -59,7 +59,10 @@ def accelerator_job(artifacts: Path, name: str):
         phase_start = time.monotonic()
         phase_status = "complete"
         try:
-            yield read_budget(artifacts / "resource_budget.json")
+            live_budget = read_budget(artifacts / "resource_budget.json")
+            if not live_budget.permits(datetime.now(UTC), 0, 180):
+                raise BudgetExpired("A new phase cannot consume the checkpoint/report reserve")
+            yield live_budget
         except BaseException:
             phase_status = "interrupted_or_fault"
             raise

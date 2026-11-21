@@ -257,8 +257,8 @@ def build_baseline_figure(root: Path) -> None:
         value = task["success_rate_valid"]
         interval = task["wilson95_valid_episodes"]
         values.append(100 * value if value is not None else np.nan)
-        lower.append(100 * (value - interval[0]) if interval else 0)
-        upper.append(100 * (interval[1] - value) if interval else 0)
+        lower.append(100 * max(0, value - interval[0]) if interval else 0)
+        upper.append(100 * max(0, interval[1] - value) if interval else 0)
     axis.barh(range(len(tasks)), values, xerr=[lower, upper], capsize=3, color="#16817a")
     axis.set_yticks(
         range(len(tasks)),
