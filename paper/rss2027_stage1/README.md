@@ -25,7 +25,7 @@ The current submission candidate was preview-compiled with the system IEEEtran *
 - `main.tex`: full anonymous draft, entry point for compilation.
 - `figures/transfer.tex`: editable vector thesis/transfer figure.
 - `figures/acquisition.tex`: editable vector pilot figure.
-- `references.bib`: structured citation metadata for future bibliography edits. The current manuscript includes a compact manual reference list to reserve exactly one reference page.
+- `references.bib`: citation database used by `plainnat.bst`; the manuscript uses the RSS kit's required `natbib` + `plainnat` workflow. BibTeX is invoked automatically by `latexmk`.
 - `FIGURE_REDRAW_GUIDE.md`: precise scientific specification of both figures.
 - `SUBMISSION_CHECKLIST.md`: production and anonymity checks.
 
