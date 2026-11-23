@@ -1,0 +1,47 @@
+% Audited exploratory acquisition results. Native measured-goal attainment for D;
+% K on common measured goals is distribution shifted relative to its nominal training.
+% X values are explicitly separated by seed for grayscale-safe grouped bars.
+\begingroup
+\pgfplotsset{every axis/.append style={
+ font=\scriptsize,
+ width=.455\textwidth,height=3.35cm,
+ ymin=0,ymax=100,ytick={0,25,50,75,100},
+ ylabel={Joint goal attainment (\%)},
+ xmin=.45,xmax=3.55,
+ xtick={1,2,3},
+ axis y line*=left,axis x line*=bottom,
+ ymajorgrids=true,grid style={draw=black!12},
+ tick label style={font=\scriptsize},
+ label style={font=\scriptsize},
+ title style={font=\footnotesize\bfseries},
+ bar width=9pt,
+ mark=none,
+ xtick style={draw=none},
+}}
+\begin{tikzpicture}
+\begin{axis}[
+ at={(0,0)},anchor=south west,
+ xticklabels={Matched,Masked,Alternative},
+ title={(a) Goal sensitivity of $D$}
+]
+\addplot+[ybar,mark=none,fill=black!74,draw=black,bar shift=0pt] coordinates {(.84,89.0625)(1.84,12.5)(2.84,6.25)};
+\addplot+[ybar,mark=none,fill=white,pattern=north east lines,pattern color=black!65,draw=black!85,bar shift=0pt] coordinates {(1.16,78.125)(2.16,20.3125)(3.16,1.5625)};
+\end{axis}
+\begin{axis}[
+ at={(.50\textwidth,0)},anchor=south west,
+ xticklabels={$P$,$K$,$D$},
+ title={(b) Common measured-goal test}
+]
+\addplot+[ybar,mark=none,fill=black!74,draw=black,bar shift=0pt] coordinates {(.84,14.0625)(1.84,51.5625)(2.84,89.0625)};
+\addplot+[ybar,mark=none,fill=white,pattern=north east lines,pattern color=black!65,draw=black!85,bar shift=0pt] coordinates {(1.16,20.3125)(2.16,50.0)(3.16,78.125)};
+\draw[densely dashed,thick] (axis cs:.60,29.6875) -- (axis cs:3.41,29.6875);
+\node[fill=white,inner sep=.8pt,anchor=west,font=\tiny] at (axis cs:.66,34.8) {Zero displacement: 29.7\%};
+\end{axis}
+\begin{scope}[shift={(.31\textwidth,-.77cm)}]
+  \fill[black!74] (0,0) rectangle (.19,.115);
+  \node[anchor=west,font=\scriptsize] at (.25,.057) {Seed 101};
+  \path[fill=white,pattern=north east lines,pattern color=black!65,draw=black!85] (1.58,0) rectangle (1.77,.115);
+  \node[anchor=west,font=\scriptsize] at (1.83,.057) {Seed 202};
+\end{scope}
+\end{tikzpicture}
+\endgroup
