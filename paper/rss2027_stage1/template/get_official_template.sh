@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+CLASS="$ROOT/template/IEEEtran.cls"
 ARCHIVE="$ROOT/template/paper-template-latex.tar.gz"
 URL="https://roboticsconference.org/docs/paper-template-latex.tar.gz"
-EXPECTED="ffc8b8053bd218ba9be4c93a569de4c2f36c7f70ae8d2245c747611bed697271"
-mkdir -p "$ROOT/template"
-if [ ! -s "$ARCHIVE" ]; then
-  echo 'Downloading official RSS LaTeX template...'
-  curl --fail --location --retry 3 --silent --show-error "$URL" -o "$ARCHIVE"
+EXPECTED_ARCHIVE="ffc8b8053bd218ba9be4c93a569de4c2f36c7f70ae8d2245c747611bed697271"
+EXPECTED_CLASS="d63d4bf27f29603a733d06e27ba5fbb40488acf9d1d696354a88b886758f70a7"
+if [ ! -f "$CLASS" ]; then
+  if [ ! -s "$ARCHIVE" ]; then
+    curl --fail --location --retry 3 --silent --show-error "$URL" -o "$ARCHIVE"
+  fi
+  ACTUAL_ARCHIVE="$(sha256sum "$ARCHIVE" | awk '{print $1}')"
+  if [ "$ACTUAL_ARCHIVE" != "$EXPECTED_ARCHIVE" ]; then
+    echo "RSS template archive checksum mismatch: $ACTUAL_ARCHIVE" >&2
+    exit 1
+  fi
+  tar -xzf "$ARCHIVE" -C "$ROOT/template" IEEEtran.cls
 fi
-ACTUAL="$(sha256sum "$ARCHIVE" | awk '{print $1}')"
-if [ "$ACTUAL" != "$EXPECTED" ]; then
-  echo "ERROR: RSS template archive checksum changed: $ACTUAL" >&2
-  echo 'Inspect the current conference website and update the pinned checksum after verification.' >&2
+ACTUAL_CLASS="$(sha256sum "$CLASS" | awk '{print $1}')"
+if [ "$ACTUAL_CLASS" != "$EXPECTED_CLASS" ]; then
+  echo "RSS IEEEtran.cls checksum mismatch: $ACTUAL_CLASS" >&2
   exit 1
 fi
-tar -xzf "$ARCHIVE" -C "$ROOT/template" IEEEtran.cls
-if ! grep -q '2007/03/05 version V1.7a' "$ROOT/template/IEEEtran.cls"; then
-  echo 'ERROR: unexpected IEEEtran class version.' >&2; exit 1
-fi
-echo "Verified RSS IEEEtran.cls: $ROOT/template/IEEEtran.cls"
+grep -q '2007/03/05 version V1.7a' "$CLASS"
+echo "Verified official RSS IEEEtran.cls V1.7a"
