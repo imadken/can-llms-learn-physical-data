@@ -11,6 +11,4 @@
 *.bcf
 *.dvi
 *.ps
-# Local official template download is reproducible from URL and pinned checksum.
-template/IEEEtran.cls
 template/paper-template-latex.tar.gz
