@@ -18,7 +18,7 @@ make check
 
 `make` uses `TEXINPUTS` to load the committed official class, *not* your TeX installation's potentially newer IEEEtran class. No Internet access is needed if the committed class is present. Do not modify the class, paper size, font sizes, margins, or spacing.
 
-The current submission candidate was preview-compiled with the system IEEEtran **V1.8b** in the assistant's environment, which did not have the official V1.7a installed locally. **You must rebuild once with `make` in this directory and verify the resulting page count and layout before submission.** The preview PDF is not a verified official-class build.
+GitHub Actions builds with the pinned official **V1.7a** class on `main`, the paper branch, and pull requests targeting `main`. It verifies the class checksum and compiled version banner, requires five pages with resolved citations/references and no overfull horizontal boxes, and uploads the PDF and build log. Download the artifact for the exact commit being reviewed, then inspect its layout before submission. Local builds use the same committed class.
 
 ## Editing
 

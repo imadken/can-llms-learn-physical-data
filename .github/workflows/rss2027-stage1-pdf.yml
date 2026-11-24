@@ -2,7 +2,14 @@ name: RSS 2027 official template PDF build
 on:
   push:
     branches:
+      - main
       - paper/rss2027-stage1-official
+    paths:
+      - paper/rss2027_stage1/**
+      - .github/workflows/rss2027-stage1-pdf.yml
+  pull_request:
+    branches:
+      - main
     paths:
       - paper/rss2027_stage1/**
       - .github/workflows/rss2027-stage1-pdf.yml
@@ -26,11 +33,12 @@ jobs:
         working-directory: paper/rss2027_stage1
         run: |
           TEXINPUTS="$PWD/template:$PWD/figures:" latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex
-          grep -F '2007/03/05 version V1.7a' main.log
+          grep -F 'Document Class: IEEEtran 2007/03/05 V1.7a' main.log
           test "$(pdfinfo main.pdf | sed -n 's/^Pages:[[:space:]]*//p')" -eq 5
           ! grep -E 'LaTeX Warning: (Citation|Reference)|There were undefined citations|There were undefined references|Overfull \\hbox' main.log
           pdffonts main.pdf
       - name: Upload final PDF and build log
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: RSS2027_Stage1_Official_Class_PDF
