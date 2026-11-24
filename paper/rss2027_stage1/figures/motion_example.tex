@@ -1,0 +1,15 @@
+% Illustrative thesis figure: source of the two conditioning signals.
+% Not intended to depict a measured trajectory or infer object dynamics.
+\begin{tikzpicture}[font=\sffamily\scriptsize,>=Stealth]
+  \node[anchor=west,font=\bfseries\scriptsize] at (0,1.75) {One action sequence, two descriptions};
+  \draw[thin,black!30] (0.5,.35) -- (6.8,.35);
+  \fill[black] (0.7,.53) circle (0.085);
+  \node[anchor=east,align=right,font=\tiny] at (.55,.57) {Start};
+  \draw[-{Stealth[length=2mm]},line width=1pt,draw=blue!65!black] (.7,.53) -- (3.2,1.27);
+  \draw[-{Stealth[length=2mm]},line width=.95pt,dashed,draw=black!70] (.7,.53) -- (6.05,.53);
+  \fill[blue!65!black] (3.2,1.27) circle (0.065);
+  \fill[black!70] (6.05,.53) circle (0.065);
+  \node[anchor=west,align=left,text=blue!65!black] at (3.35,1.26) {Observed motion};
+  \node[anchor=south,align=center] at (4.95,.57) {Commanded motion};
+  \node[anchor=west,font=\tiny,text=black!75] at (.7,.02) {Same commands; distinct training conditions};
+\end{tikzpicture}
