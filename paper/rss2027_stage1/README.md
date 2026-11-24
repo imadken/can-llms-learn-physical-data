@@ -1,8 +1,8 @@
 # RSS 2027 Stage 1 anonymous manuscript
 
-## Scientific-writing revision v5.3
+## Stage 1 scientific-writing revision v5.4
 
-This branch is an editorial alternative to the previous locked v5.2 manuscript. It does not revise the scientific design or the selected empirical findings. The original remains on `paper/rss2027-stage1-official`.
+This branch retains the locked Stage 1 scientific design and all displayed pilot results. It sharpens introductory positioning, defines the endpoint-effect terminology and the rotation logarithm, explains the conditional flow objective, and removes colored hyperlink boxes. The earlier scientific submission and v5.3 editorial versions remain available on their original branches.
 
 The revised PDF uses three figures: **Fig. 1** an opening commanded-versus-observed example (`figures/motion_example.tex`), **Fig. 2** the numerical-to-multimodal transfer pathway (`figures/transfer.tex`), and **Fig. 3** the exploratory goal-acquisition evidence (`figures/acquisition.tex`). See `SCIENTIFIC_WRITING_AUDIT.md` and `FIGURE_REDRAW_GUIDE.md` for editorial and redraw details.
 
