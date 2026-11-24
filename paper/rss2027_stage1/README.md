@@ -1,5 +1,14 @@
 # RSS 2027 Stage 1 anonymous manuscript
 
+## Scientific-writing revision v5.3
+
+This branch is an editorial alternative to the previous locked v5.2 manuscript. It does not revise the scientific design or the selected empirical findings. The original remains on `paper/rss2027-stage1-official`.
+
+The revised PDF uses three figures: **Fig. 1** an opening commanded-versus-observed example (`figures/motion_example.tex`), **Fig. 2** the numerical-to-multimodal transfer pathway (`figures/transfer.tex`), and **Fig. 3** the exploratory goal-acquisition evidence (`figures/acquisition.tex`). See `SCIENTIFIC_WRITING_AUDIT.md` and `FIGURE_REDRAW_GUIDE.md` for editorial and redraw details.
+
+The local editorial preview was compiled with the system IEEEtran v1.8b. **Build with the committed official IEEEtran v1.7a class using `make` before uploading the conference PDF.**
+
+
 **Title:** What Transfers from Effect-Conditioned Action Pretraining to Vision-Language-Action Policies?
 
 This folder contains the paper only. Experimental code, datasets and private audit artifacts remain outside it.
