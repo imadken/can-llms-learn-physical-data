@@ -1,39 +1,27 @@
-# Scientific figure redraw guide (PowerPoint)
+# RSS 2027 v5.3: Scientific figure redraw guide
 
-The accompanying `figures_powerpoint/RSS2027_Editable_Figure_Sketches.pptx` contains **native PowerPoint shapes, lines and editable text**, not flattened screenshots. It is a sketch and not part of the anonymous submission unless you export it and replace the current vector figure sources.
+The paper contains **three visual roles**, rather than treating every figure as an architecture or reporting chart. All figure sources are editable TikZ and can be redrawn as PowerPoint vector shapes.
 
-## Figure 1. Supervision choice and the retained action generator
+## Figure 1: An intuitive example on the opening page
 
-**Scientific question:** Which numerical supervision, rather than which architecture, creates reusable action-generation parameters?
+**Message:** The same action sequence produces a command-defined nominal motion and a realized measured motion. These are distinct candidate signals for intermediate learning.
 
-1. Draw two horizontally aligned regions, **(a) Numerical intermediate training** and **(b) Multimodal task fine-tuning**.
-2. In (a), start from the **same robot observation** `r_t` and **action chunk** `A_t`. Split into three explicit conditioning cases: `P` = neutral effect input, `K` = nominal endpoint effect `e_t^K`, `D` = measured endpoint effect `e_t^D`. These are alternatives, not three sequential stages.
-3. Let the three alternatives join the **same temporary effect projector** `h_η`, feeding the **native flow-matching action expert** `v_θ`. The training target is the action chunk `A_t` under the native flow objective, not a forward-dynamics prediction head.
-4. Across the two halves, show **retained action-generation parameters** transferred; **discard the temporary projector and effect token**. It is the parameters that transfer, not measured endpoints and not an additional module deployed at test time.
-5. In (b), show **image and instruction** passing through the frozen vision-language encoder; **current robot state** through the native state projector. Both condition the retained expert, which outputs an action chunk. There is **no measured future endpoint** at deployment.
-6. Add one miniature explanatory inset: for a fixed action chunk, the commanded ideal endpoint and the observed endpoint can differ. The inset is schematic, not a drawn-to-scale empirical measurement. Consistent labels: K = command-derived, D = observed.
-7. Avoid imagery suggesting K and D are different controllers or robot embodiments. The action expert, robot, action format, numerical windows, training objective, and deployed policy are controlled.
+Draw a start-point marker at the left. From that marker, show (i) a dashed grayscale arrow to the nominal requested endpoint and (ii) a solid blue/black arrow to the observed endpoint. Label the arrows *Commanded motion* and *Observed motion*. Put the sentence *One action sequence, two motion descriptions* above the panel. The drawing is illustrative, not an empirical trajectory; avoid inserting fabricated displacement values. Keep the caption to one explanatory sentence.
 
-**Suggested paper caption:** “Controlled numerical supervision and transfer. Action prior (P), nominal endpoint (K), and measured endpoint (D) conditions share trajectories and the native action generator. Only temporary numerical conditioning differs. The projector is discarded and the trained action-generating weights initialize ordinary multimodal fine-tuning.”
+## Figure 2: What is transferred and what is removed
 
-## Figure 2. Numerical goal acquisition
+**Message:** Three alternative numerical supervision regimes train a common native action expert, but only its action-generation parameters transfer to the standard multimodal task policy.
 
-**Scientific question:** Does the numerical conditioning objective produce behavior responsive to the supplied endpoint, and how do the defined training regimes behave on a common goal test?
+Use two regions. Left: numerical observations and action chunks → three alternative endpoint inputs P, K, D → temporary effect projector → native action expert. Distinguish this as alternatives, not sequential stages. Right: images and instruction → frozen vision-language encoder; robot state → native state projector; both condition the retained action expert → action chunk. A single transfer arrow should link the trained action expert to itself across the panels. Mark the temporary projector as discarded. Draw neither a physical parameter predictor nor an additional deployed module. Use labels and symbols consistent with Section III and Eq. (4).
 
-1. Two plots with a shared percent scale **0–100%**, jointly requiring **10 mm translation and 5° rotation** accuracy. Plot **two distinct seed markers**, not a pooled bar.
-2. Panel (a) D acquisition on measured targets: matched goals **89.1 / 78.1%**, masked **12.5 / 20.3%**, alternative target **6.3 / 1.6%**, seeds 101/202.
-3. Panel (b), common **measured** targets: P **14.1 / 20.3%**, K **51.6 / 50.0%**, D **89.1 / 78.1%**, seeds 101/202. State next to panel (b) that **K was trained on nominal targets**, so this is a distribution-shifted test for K.
-4. Include **29.7% zero-displacement reference** as a dashed line in panel (b), clearly labeled **analytic, not executed**. Do not include it in panel (a).
-5. Caption includes **64 targets per seed from four source episodes**, and “exploratory acquisition, not a downstream VLA transfer comparison.”
-6. Use identical glyphs for both seeds across panels, grayscale-safe (filled dot / open circle). Do not interpret panel (b) as a comparative estimate of task success after pretraining.
+## Figure 3: What the acquisition evidence establishes
 
-**Suggested paper caption:** “Exploratory numerical goal acquisition. (a) Matched, masked and alternative effect conditioning for D. (b) P, K and D evaluated on common measured goals; K was pretrained on nominal goals. Symbols denote two seeds (64 targets each, four episodes). Dashed line: analytic zero-displacement reference. Joint accuracy requires 10 mm and 5°; no downstream transfer is evaluated.”
+**Message:** Measured-effect pretraining produces goal-sensitive actions in the numerical pilot; the plot is not a downstream VLA transfer ranking.
 
-## PowerPoint and export details
+Panel (a): D's joint endpoint attainment on matched (89.1%, 78.1%), masked (12.5%, 20.3%), and alternative (6.3%, 1.6%) goals for seeds 101 and 202.
 
-- Use a **wide two-panel layout** suitable for a full-width `figure*` in a two-column paper.
-- Keep every label in the figure consistent with manuscript symbols; do not switch between `G` and `g`, `A_t` and `a_t`, or `e^D` and `e_t^D` without defining the difference.
-- Use at least 9 pt text in the final *printed* figure. The sketches are larger than their final paper scale, so simplify rather than shrinking all labels.
-- Avoid heavy gradients and stock robot pictures. One action→goal illustration with simple arrows communicates the hypothesis better.
-- Prefer vector output **PDF/EPS** and embedded fonts accepted by RSS. Inspect `pdffonts` after integrating new figures; screenshot images should not replace the main scientific result.
-- The current paper includes compact fully editable TikZ figure sources. Replace them only after verifying the redraw against the science and the final page limit.
+Panel (b): shared measured goals: P (14.1%, 20.3%), K (51.6%, 50.0%), and D (89.1%, 78.1%). Show the 29.7% analytic zero-displacement reference as a dashed line, marked **not an executed policy**. Label K's input as out of its nominal-goal training distribution. Use the same seed encodings across both panels. State that each seed covers 64 goals and that joint attainment requires 10 mm translation and 5 degrees rotation accuracy.
+
+### Presentation checks
+
+Keep the figures vector-editable; ensure that grayscale printing retains dashed/solid differentiation. Test font size at the final paper scale. Every figure and table is referenced in the manuscript text. Avoid code names, file paths, GPU details, and training logs in figure labels or captions.
