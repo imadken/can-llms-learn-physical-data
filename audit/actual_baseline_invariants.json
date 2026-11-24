@@ -1,0 +1,11 @@
+{
+  "logged_update_count": 5000,
+  "training_status": "complete",
+  "completed_updates": 5000,
+  "code_commit": "5f9ec82f4fa4c215a0633bc3a594029d5294aa21",
+  "peak_allocated_bytes": 4180489728,
+  "frozen_sha256": "0c0f563fdbc566d8f9d7dd542776678eabd0ed9eb112ee4a8e3e9f7437dc4f5e",
+  "float32_trainable_masters_and_adam_moments": true,
+  "metadata_status_note": "The metadata copy retains fit-start status; the checkpoint's top-level completed_updates and baseline_training.json record actual completion.",
+  "status": "passed_final"
+}

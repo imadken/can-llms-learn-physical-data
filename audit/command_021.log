@@ -1,0 +1,12 @@
+E501 Line too long (116 > 100)
+   --> src/effect_pretraining/demonstrations.py:125:101
+    |
+123 |                     "rollout_limit_control_steps": 300,
+124 |                     "warmup_steps": 10,
+125 |                     "provenance_limit": "official exploratory resets; demonstration/reset disjointness not assumed",
+    |                                                                                                     ^^^^^^^^^^^^^^^^
+126 |                 }
+127 |             )
+    |
+
+Found 1 error.

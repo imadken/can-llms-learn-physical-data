@@ -1,0 +1,35 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+{"status": "pinned_before_S", "tasks": 10, "maximum_rollouts": 200, "shapes": [[50, 79], [50, 79], [50, 79], [50, 79], [50, 79], [50, 79], [50, 79], [50, 79], [50, 79], [50, 79]]}

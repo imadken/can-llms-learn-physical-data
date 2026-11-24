@@ -1,0 +1,16 @@
+{
+  "cuda_memory_free_and_total_bytes": [
+    36919504896,
+    128451948544
+  ],
+  "torch_current_allocated_bytes": 0,
+  "torch_current_reserved_bytes": 0,
+  "system_meminfo": {
+    "MemTotal": "125441356 kB",
+    "MemFree": "36054204 kB",
+    "MemAvailable": "45273928 kB",
+    "Cached": "9121912 kB",
+    "SwapFree": "6903240 kB",
+    "SReclaimable": "1604404 kB"
+  }
+}

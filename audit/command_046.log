@@ -1,0 +1,12 @@
+E501 Line too long (101 > 100)
+  --> src/effect_pretraining/native_flow.py:39:101
+   |
+37 |         self.native = native
+38 |         self.effect_projector = projector
+39 |         # AutoModel may honor a BF16 checkpoint config even outside autocast. Keep masters/Adam FP32.
+   |                                                                                                     ^
+40 |         native.vlm_with_expert.lm_expert.float()
+41 |         for name in (
+   |
+
+Found 1 error.

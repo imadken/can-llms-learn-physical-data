@@ -1,0 +1,23 @@
+E501 Line too long (114 > 100)
+   --> src/effect_pretraining/residuals.py:321:101
+    |
+319 |     contacts = np.array([row["actual_robot_object_contact"] for row in rows])
+320 |     ridge = {
+321 |         "objective": "mean squared error over all training windows and six targets + 0.001 * sum(coefficient**2)",
+    |                                                                                                     ^^^^^^^^^^^^^^
+322 |         "training_window_count": len(train_x),
+323 |         "feature_count": train_x.shape[1],
+    |
+
+E501 Line too long (120 > 100)
+   --> src/effect_pretraining/residuals.py:326:101
+    |
+324 |         "intercept_penalized": False,
+325 |         "hyperparameter_search": False,
+326 |         "heldout_source": "fixed reference replays from evaluation episodes only; repeats and snapshots are correlated",
+    |                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+327 |         "overall": summarize_ridge(residuals, predictions, fit["target_mean"]),
+328 |         "contact": summarize_ridge(residuals[contacts], predictions[contacts], fit["target_mean"]),
+    |
+
+Found 2 errors.

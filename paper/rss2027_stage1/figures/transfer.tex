@@ -1,0 +1,41 @@
+% Fully editable scientific thesis figure. All paths correspond to the paper's transfer mechanism.
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize, >=Stealth,
+  input/.style={draw=black!52, fill=black!2, rounded corners=1.6pt, align=center,
+     inner sep=3pt, minimum height=8.5mm},
+  learned/.style={input, draw=blue!55!black, fill=blue!8},
+  expert/.style={input, draw=teal!65!black, fill=teal!9, line width=.7pt},
+  frozen/.style={input, fill=black!6},
+  arr/.style={-{Stealth[length=2.2mm,width=1.4mm]},line width=.65pt},
+  transfer/.style={-{Stealth[length=2.6mm,width=1.7mm]},line width=1.0pt,draw=teal!65!black}
+]
+% Section divider. Keep the logic explicit and the arrows non-crossing.
+\node[anchor=west,font=\bfseries\footnotesize] at (0.12,3.08) {(a) Numerical intermediate training};
+\node[anchor=west,font=\bfseries\footnotesize] at (8.20,3.08) {(b) Multimodal task training};
+\draw[black!23] (7.80,.22) -- (7.80,3.10);
+% Left: numerical trajectories, three interventions, same trained expert.
+\node[input,text width=2.08cm] (data) at (1.20,1.97) {Robot state $r_t$\\Action chunk $A_t$\\Observed effect};
+\node[learned,text width=2.55cm] (choice) at (4.18,1.97) {$P$: no endpoint\\$K$: nominal effect\\$D$: measured effect};
+\node[learned,text width=1.93cm] (expertinput) at (6.79,1.97) {Temporary\\effect token};
+\draw[arr] (data.east) -- (choice.west);
+\draw[arr] (choice.east) -- (expertinput.west);
+\node[expert,text width=4.42cm] (pre) at (4.67,.78) {Native flow action expert $v_\theta$\\Train action-generating weights};
+\draw[arr] (expertinput.south) |- (pre.east);
+\draw[arr] (data.south) |- (pre.west);
+% Right: native modalities merged into same expert, no numerical-goal input at deployment.
+\node[input,text width=1.34cm] (vl) at (8.95,2.17) {Images $I_t$\\Instruction $\ell$};
+\node[frozen,text width=1.54cm] (encoder) at (11.08,2.17) {Frozen\\vision-language\\encoder};
+\node[input,text width=1.34cm] (state) at (8.95,.95) {Robot\\state $r_t$};
+\node[frozen,text width=1.54cm] (stateproj) at (11.08,.95) {Native\\state projector};
+\node[expert,text width=1.83cm] (post) at (13.77,1.62) {Native flow\\action expert\\$v_\theta$};
+\node[input,text width=1.36cm] (act) at (16.21,1.62) {Task actions\\$A_t$};
+\draw[arr] (vl.east) -- (encoder.west);
+\draw[arr] (state.east) -- (stateproj.west);
+\draw[arr] (encoder.east) -- (post.155);
+\draw[arr] (stateproj.east) -- (post.205);
+\draw[arr] (post.east) -- (act.west);
+% Transfer arrow under both halves; not connected to frozen backbone.
+\draw[transfer] (6.92,.46) -- (8.05,.13) -- (13.79,.13) -- (post.south);
+\node[font=\scriptsize,fill=white,inner sep=1.2pt,text=teal!65!black] at (10.17,.13) {retain action-generation weights};
+\node[font=\scriptsize,text=black!70,anchor=west] at (.20,.02) {Discard effect token and projector before task training};
+\end{tikzpicture}

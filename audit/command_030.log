@@ -1,0 +1,21 @@
+B007 Loop control variable `replan` not used within loop body
+   --> src/effect_pretraining/profiling.py:242:29
+    |
+240 |                         started = time.monotonic()
+241 |                         generation_times = []
+242 |                         for replan in range(2):
+    |                             ^^^^^^
+243 |                             generation_start = time.monotonic()
+244 |                             with torch.autocast("cuda", dtype=torch.bfloat16):
+    |
+help: Rename unused `replan` to `_replan`
+    |
+241 |                         generation_times = []
+    -                         for replan in range(2):
+242 +                         for _replan in range(2):
+243 |                             generation_start = time.monotonic()
+    |
+note: This is an unsafe fix and may change runtime behavior
+
+Found 1 error.
+1 unsafe fix available with `--fix --unsafe-fixes`.

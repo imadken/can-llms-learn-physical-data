@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/imad/Desktop/repos/can-llms-learn-physical-data/scripts/watch_campaign.py", line 93, in <module>
+    watch(Path.cwd().resolve(), args.artifacts.resolve())
+  File "/home/imad/Desktop/repos/can-llms-learn-physical-data/scripts/watch_campaign.py", line 35, in watch
+    pid = owned_campaign(root)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/home/imad/Desktop/repos/can-llms-learn-physical-data/scripts/watch_campaign.py", line 30, in owned_campaign
+    raise RuntimeError(f"Expected one owned campaign process, found {matches}")
+RuntimeError: Expected one owned campaign process, found [1921643, 1921734]

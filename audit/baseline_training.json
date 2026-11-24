@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "completed_updates": 5000,
+  "training_seed": 303,
+  "effective_batch": 32,
+  "microbatch": 8,
+  "accumulation": 4,
+  "checkpoint": {
+    "path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/artifacts/stage1-v2-20261121/checkpoints/S_303_u5000.pt",
+    "sha256": "4d6324fc0fc53f479ac5ee803652032f60182bcaa90c8d59cee705233c407c21",
+    "size_bytes": 1198768499,
+    "completed_updates": 5000
+  }
+}

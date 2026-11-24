@@ -1,0 +1,11 @@
+{
+  "numerical_update_seconds": 0.3999915555352345,
+  "multimodal_update_seconds": 1.0094354719854892,
+  "acquisition_full_fit_seconds": 2399.949333211407,
+  "common_250_round_seconds": 599.9873333028518,
+  "acquisition_evaluation_seconds": 294.6255577647686,
+  "baseline_fit_seconds": 5047.177359927446,
+  "baseline_evaluation_seconds_at_max_horizon": 10863.643566844985,
+  "contingency_fraction": 0.25,
+  "checkpoint_report_reserve_seconds": 600
+}

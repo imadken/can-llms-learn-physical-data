@@ -1,0 +1,8 @@
+{"name": "acquisition_common_round_250", "elapsed_phase_seconds": 720.1526693231426, "status": "complete", "included_in_parent_reservation": true}
+{"name": "acquisition_common_round_500", "elapsed_phase_seconds": 719.084957446903, "status": "complete", "included_in_parent_reservation": true}
+{"name": "acquisition_common_round_750", "elapsed_phase_seconds": 719.9877372388728, "status": "complete", "included_in_parent_reservation": true}
+{"name": "acquisition_common_round_1000", "elapsed_phase_seconds": 1006.6627623690292, "status": "complete", "included_in_parent_reservation": true}
+{"name": "fixed_acquisition_generation", "elapsed_phase_seconds": 63.72564775776118, "status": "complete", "included_in_parent_reservation": true}
+{"name": "fixed_acquisition_complete_chunk_replays", "elapsed_phase_seconds": 42.767999874893576, "status": "complete", "included_in_parent_reservation": true}
+{"name": "single_S_multitask_fit", "elapsed_phase_seconds": 5082.660630886909, "status": "complete", "included_in_parent_reservation": true}
+{"name": "fixed_S_200_task_rollouts", "elapsed_phase_seconds": 6404.676141901873, "status": "complete", "included_in_parent_reservation": true}

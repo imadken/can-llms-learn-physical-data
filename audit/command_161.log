@@ -1,0 +1,38 @@
+{
+  "source_commit": "f3d5b541f9e4ef73ca46a077bc42519f646c297e",
+  "checks": {
+    "pytest": {
+      "command_record": "audit/command_160.json",
+      "returncode": 0,
+      "log_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/audit/command_160.log",
+      "passed_tests": 23,
+      "dependency_warnings": 4
+    },
+    "ruff_lint": {
+      "command_record": "audit/command_158.json",
+      "returncode": 0,
+      "log_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/audit/command_158.log"
+    },
+    "ruff_format": {
+      "command_record": "audit/command_159.json",
+      "returncode": 0,
+      "log_path": "/home/imad/Desktop/repos/can-llms-learn-physical-data/audit/command_159.log"
+    }
+  },
+  "protected_hashes": {
+    "README.md": "018d3a159d599c497878efa955d7d8814086b4cf399346f082e381ba8eec255e",
+    "research/STAGE1_SCOPE_AND_CLAIMS.md": "f038be131cfd5abe92afd44708b32389bc88004e7c99537d9ba59607467a367a",
+    "research/PRELIMINARY_PROTOCOL.md": "2833e970c0750457f817463b06b13e9d40003ec6253ba96375e23f6b4d249c51",
+    "research/REVIEWER_OBJECTIONS.md": "97bb025f13816d9126fa000e73e38e1952034f638b284a88ec9624b126e716a1",
+    "configs/preliminary_locked.json": "2595203623e1d584517b9cf6428d4e4af3f4c19f8a062cc9ce051f64fee17edb",
+    "prompts/CODEX_PRELIMINARIES.txt": "fcd7c3f71b44f8791d83115d54e2af47317974350cf1fb5d946c4bc1424a19c2"
+  },
+  "actual_fit_audits": [
+    "audit/actual_training_invariants.json",
+    "audit/actual_baseline_invariants.json"
+  ],
+  "saved_episode_audit": "audit/episode_artifact_completeness.json",
+  "all_three_preliminaries": "complete",
+  "campaign_and_watchdog": "ended; no limit intervention"
+}
+resolved top-level status: source_interfaces_verified_before_collection

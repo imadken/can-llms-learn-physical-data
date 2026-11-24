@@ -1,0 +1,32 @@
+{
+  "task_id": 0,
+  "trajectory": "demo_11",
+  "records": [
+    {
+      "row": 0,
+      "same_recorded_state_position_error_m": 0.0030124847545209953,
+      "next_recorded_state_position_error_m": 0.0001282502446683939
+    },
+    {
+      "row": 1,
+      "same_recorded_state_position_error_m": 0.0033385809134495524,
+      "next_recorded_state_position_error_m": 0.0001425279822419169
+    },
+    {
+      "row": 2,
+      "same_recorded_state_position_error_m": 0.003774787550121028,
+      "next_recorded_state_position_error_m": 0.0001630089891927214
+    },
+    {
+      "row": 3,
+      "same_recorded_state_position_error_m": 0.004482114314514512,
+      "next_recorded_state_position_error_m": 0.00019763983403304157
+    },
+    {
+      "row": 4,
+      "same_recorded_state_position_error_m": 0.005568680804675686,
+      "next_recorded_state_position_error_m": 0.00024673993059265263
+    }
+  ],
+  "source_observation_timing": "official create_dataset.py records obs after action j; actions and states retain index j"
+}

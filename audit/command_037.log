@@ -1,0 +1,22 @@
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  queued_call()
+{
+  "cuda_memory_free_and_total_bytes": [
+    36919504896,
+    128451948544
+  ],
+  "torch_current_allocated_bytes": 0,
+  "torch_current_reserved_bytes": 0,
+  "system_meminfo": {
+    "MemTotal": "125441356 kB",
+    "MemFree": "36054204 kB",
+    "MemAvailable": "45273928 kB",
+    "Cached": "9121912 kB",
+    "SwapFree": "6903240 kB",
+    "SReclaimable": "1604404 kB"
+  }
+}

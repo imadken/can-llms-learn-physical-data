@@ -1,0 +1,51 @@
+{
+  "package_version": "2.2-locked",
+  "status": "scientific_plan_locked_execution_not_started",
+  "files": [
+    {
+      "path": "README.md",
+      "size_bytes": 4039,
+      "sha256": "018d3a159d599c497878efa955d7d8814086b4cf399346f082e381ba8eec255e"
+    },
+    {
+      "path": "RESEARCH_LOCK.json",
+      "size_bytes": 1630,
+      "sha256": "a1e95419a036e60d84fbf23da294d1e2ecf844c5ad186d3f337ac889522b44d3"
+    },
+    {
+      "path": "archive/RESEARCH_PLAN_V1.md",
+      "size_bytes": 56032,
+      "sha256": "bf317fd2ea8d580cc41f592bc4cc3f489b3c30f2f9d0f55c178ef2b1e4424eb1"
+    },
+    {
+      "path": "configs/preliminary_locked.json",
+      "size_bytes": 6771,
+      "sha256": "2595203623e1d584517b9cf6428d4e4af3f4c19f8a062cc9ce051f64fee17edb"
+    },
+    {
+      "path": "figures/transfer_pathway.png",
+      "size_bytes": 251571,
+      "sha256": "95a05fd25eae572f0cae644120187d095ef6a7c81ca49c6fbde2f6ac3aac3581"
+    },
+    {
+      "path": "prompts/CODEX_PRELIMINARIES.txt",
+      "size_bytes": 8596,
+      "sha256": "fcd7c3f71b44f8791d83115d54e2af47317974350cf1fb5d946c4bc1424a19c2"
+    },
+    {
+      "path": "research/PRELIMINARY_PROTOCOL.md",
+      "size_bytes": 26175,
+      "sha256": "2833e970c0750457f817463b06b13e9d40003ec6253ba96375e23f6b4d249c51"
+    },
+    {
+      "path": "research/REVIEWER_OBJECTIONS.md",
+      "size_bytes": 8090,
+      "sha256": "97bb025f13816d9126fa000e73e38e1952034f638b284a88ec9624b126e716a1"
+    },
+    {
+      "path": "research/STAGE1_SCOPE_AND_CLAIMS.md",
+      "size_bytes": 21583,
+      "sha256": "f038be131cfd5abe92afd44708b32389bc88004e7c99537d9ba59607467a367a"
+    }
+  ]
+}

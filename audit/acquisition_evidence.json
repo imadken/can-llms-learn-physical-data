@@ -1,0 +1,197 @@
+{
+  "K": {
+    "domain": "nominal",
+    "seeds": {
+      "101": {
+        "groups": {
+          "matched": {
+            "targets": 64,
+            "mean_translation_error_mm": 25.80264172131005,
+            "mean_rotation_error_degrees": 10.836873179579783,
+            "joint_attainment_percent": 1.5625
+          },
+          "masked": {
+            "targets": 64,
+            "mean_translation_error_mm": 59.97315362562157,
+            "mean_rotation_error_degrees": 19.094404980008512,
+            "joint_attainment_percent": 0.0
+          },
+          "alternate": {
+            "targets": 64,
+            "mean_translation_error_mm": 84.17339767823208,
+            "mean_rotation_error_degrees": 25.908084948424317,
+            "joint_attainment_percent": 0.0
+          },
+          "P": {
+            "targets": 64,
+            "mean_translation_error_mm": 62.27406863482277,
+            "mean_rotation_error_degrees": 19.699333768022793,
+            "joint_attainment_percent": 0.0
+          }
+        },
+        "joint_margin_over_masked_pp": 1.5625,
+        "joint_margin_over_P_pp": 1.5625,
+        "target_following": true,
+        "criterion_met": false
+      },
+      "202": {
+        "groups": {
+          "matched": {
+            "targets": 64,
+            "mean_translation_error_mm": 23.627905974227147,
+            "mean_rotation_error_degrees": 10.837346641436481,
+            "joint_attainment_percent": 0.0
+          },
+          "masked": {
+            "targets": 64,
+            "mean_translation_error_mm": 57.3023209990789,
+            "mean_rotation_error_degrees": 19.261706916411818,
+            "joint_attainment_percent": 0.0
+          },
+          "alternate": {
+            "targets": 64,
+            "mean_translation_error_mm": 84.22631694934279,
+            "mean_rotation_error_degrees": 26.149716080827332,
+            "joint_attainment_percent": 0.0
+          },
+          "P": {
+            "targets": 64,
+            "mean_translation_error_mm": 58.70985156931741,
+            "mean_rotation_error_degrees": 19.669024425158305,
+            "joint_attainment_percent": 0.0
+          }
+        },
+        "joint_margin_over_masked_pp": 0.0,
+        "joint_margin_over_P_pp": 0.0,
+        "target_following": true,
+        "criterion_met": false
+      }
+    },
+    "label": "acquisition not demonstrated within this pilot budget"
+  },
+  "D": {
+    "domain": "physical",
+    "seeds": {
+      "101": {
+        "groups": {
+          "matched": {
+            "targets": 64,
+            "mean_translation_error_mm": 6.761878684780139,
+            "mean_rotation_error_degrees": 2.745384961074645,
+            "joint_attainment_percent": 89.0625
+          },
+          "masked": {
+            "targets": 64,
+            "mean_translation_error_mm": 13.940962682061016,
+            "mean_rotation_error_degrees": 4.455338288281656,
+            "joint_attainment_percent": 12.5
+          },
+          "alternate": {
+            "targets": 64,
+            "mean_translation_error_mm": 18.03153020449177,
+            "mean_rotation_error_degrees": 5.909494444268164,
+            "joint_attainment_percent": 6.25
+          },
+          "P": {
+            "targets": 64,
+            "mean_translation_error_mm": 14.470532283199496,
+            "mean_rotation_error_degrees": 4.495646063902667,
+            "joint_attainment_percent": 14.0625
+          }
+        },
+        "joint_margin_over_masked_pp": 76.5625,
+        "joint_margin_over_P_pp": 75.0,
+        "target_following": true,
+        "criterion_met": true
+      },
+      "202": {
+        "groups": {
+          "matched": {
+            "targets": 64,
+            "mean_translation_error_mm": 6.945274291216988,
+            "mean_rotation_error_degrees": 2.6092307608249703,
+            "joint_attainment_percent": 78.125
+          },
+          "masked": {
+            "targets": 64,
+            "mean_translation_error_mm": 13.280915751433366,
+            "mean_rotation_error_degrees": 4.440691999942359,
+            "joint_attainment_percent": 20.3125
+          },
+          "alternate": {
+            "targets": 64,
+            "mean_translation_error_mm": 18.852106939170096,
+            "mean_rotation_error_degrees": 5.971365493250955,
+            "joint_attainment_percent": 1.5625
+          },
+          "P": {
+            "targets": 64,
+            "mean_translation_error_mm": 13.499209657347894,
+            "mean_rotation_error_degrees": 4.543772558641996,
+            "joint_attainment_percent": 20.3125
+          }
+        },
+        "joint_margin_over_masked_pp": 57.8125,
+        "joint_margin_over_P_pp": 57.8125,
+        "target_following": true,
+        "criterion_met": true
+      }
+    },
+    "label": "positive exploratory acquisition evidence"
+  },
+  "status": "complete",
+  "checkpoint_updates": 1000,
+  "common_physical_goal": {
+    "101": {
+      "P": {
+        "targets": 64,
+        "mean_translation_error_mm": 14.470532283199496,
+        "mean_rotation_error_degrees": 4.495646063902667,
+        "joint_attainment_percent": 14.0625
+      },
+      "K": {
+        "targets": 64,
+        "mean_translation_error_mm": 9.761053041432175,
+        "mean_rotation_error_degrees": 3.065509777991677,
+        "joint_attainment_percent": 51.5625
+      },
+      "D": {
+        "targets": 64,
+        "mean_translation_error_mm": 6.761878684780139,
+        "mean_rotation_error_degrees": 2.745384961074645,
+        "joint_attainment_percent": 89.0625
+      }
+    },
+    "202": {
+      "P": {
+        "targets": 64,
+        "mean_translation_error_mm": 13.499209657347894,
+        "mean_rotation_error_degrees": 4.543772558641996,
+        "joint_attainment_percent": 20.3125
+      },
+      "K": {
+        "targets": 64,
+        "mean_translation_error_mm": 9.70359723811183,
+        "mean_rotation_error_degrees": 3.4053274941495175,
+        "joint_attainment_percent": 50.0
+      },
+      "D": {
+        "targets": 64,
+        "mean_translation_error_mm": 6.945274291216988,
+        "mean_rotation_error_degrees": 2.6092307608249703,
+        "joint_attainment_percent": 78.125
+      }
+    }
+  },
+  "unique_generations": 576,
+  "physical_chunk_replays": 448,
+  "source_episode_ids": [
+    90,
+    91,
+    92,
+    93
+  ],
+  "replay_wall_seconds": 40.951218801084906,
+  "independent_training_seeds": 2,
+  "uncertainty_limit": "Two training seeds, with repeated snapshots/targets from four source episodes; no equivalence or training-seed significance claim"
+}

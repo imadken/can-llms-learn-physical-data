@@ -1,0 +1,9 @@
+{"name": "required_disposable_profiles", "started_utc": "2026-11-21T10:44:24.465932+00:00", "finished_utc": "2026-11-21T10:44:34.890106+00:00", "elapsed_job_seconds": 10.423635583836585, "status": "interrupted_or_fault"}
+{"name": "read_only_cuda_memory_diagnosis", "started_utc": "2026-11-21T10:46:53.507789+00:00", "finished_utc": "2026-11-21T10:46:53.743042+00:00", "elapsed_job_seconds": 0.23489266587421298, "status": "complete"}
+{"name": "minimal_cuda_interface_check", "started_utc": "2026-11-21T10:47:47.097676+00:00", "finished_utc": "2026-11-21T10:47:47.330425+00:00", "elapsed_job_seconds": 0.23242107080295682, "status": "complete"}
+{"name": "native_checkpoint_cuda_transfer_diagnosis", "started_utc": "2026-11-21T10:48:05.484868+00:00", "finished_utc": "2026-11-21T10:48:16.530364+00:00", "elapsed_job_seconds": 11.044961628038436, "status": "interrupted_or_fault"}
+{"name": "cuda_model_allocation_path_diagnosis", "started_utc": "2026-11-21T10:50:00.549849+00:00", "finished_utc": "2026-11-21T10:50:13.462434+00:00", "elapsed_job_seconds": 12.912167920265347, "status": "complete"}
+{"name": "required_disposable_profiles", "started_utc": "2026-11-21T11:07:32.919068+00:00", "finished_utc": "2026-11-21T11:09:07.532520+00:00", "elapsed_job_seconds": 94.61024621594697, "status": "complete"}
+{"name": "multimodal_microbatch_optimization", "started_utc": "2026-11-21T11:13:21.786367+00:00", "finished_utc": "2026-11-21T11:14:00.529248+00:00", "elapsed_job_seconds": 38.74013837426901, "status": "complete"}
+{"name": "acquisition_common_round_250", "started_utc": "2026-11-21T11:16:05.434360+00:00", "finished_utc": "2026-11-21T11:16:17.577192+00:00", "elapsed_job_seconds": 12.142360637895763, "status": "interrupted_or_fault"}
+{"name": "persistent_bounded_stage1_campaign", "started_utc": "2026-11-21T11:29:41.719081+00:00", "finished_utc": "2026-11-21T15:35:42.366498+00:00", "elapsed_job_seconds": 14760.647055873647, "status": "complete"}

@@ -1,0 +1,18 @@
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Reducing the number of VLM layers to 16 ...
+{
+  "status": "passed",
+  "device": "cpu",
+  "data": "synthetic_engineering_inputs_only",
+  "production_updates": 0,
+  "trainable_parameters_and_adam_moments_float32": true,
+  "disposable_optimizer_steps": 1,
+  "effect_projector_gradient_norm": 1.2429876327514648,
+  "frozen_parameter_sha256_before": "cb1ec4c56902bbb98a2df54275539d31bcb199e813df8d2f98d19a027f1ac3a7",
+  "frozen_parameter_sha256_after": "cb1ec4c56902bbb98a2df54275539d31bcb199e813df8d2f98d19a027f1ac3a7",
+  "masked_generated_actions_bit_identical": true,
+  "ordinary_post_cleanup_inference": "finite_H16_native_shape",
+  "ordinary_inference_limit": "image-free language/state smoke; actual image profiling remains required",
+  "action_generation_parameter_count": 99849312
+}

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "baseline_ordered_episodes": 200,
+  "baseline_initial_snapshots": 200,
+  "baseline_control_actions": 30135,
+  "baseline_warmup_actions": 2000,
+  "baseline_invalid_episodes": 0,
+  "baseline_logged_updates": 5000,
+  "baseline_training_presentations": 160000,
+  "baseline_unique_training_windows_observed": 11258,
+  "baseline_unique_training_trajectories_observed": 100,
+  "baseline_task_training_draws": {
+    "2": 15945,
+    "0": 16129,
+    "7": 16011,
+    "5": 16141,
+    "3": 15931,
+    "1": 16183,
+    "4": 15946,
+    "8": 16021,
+    "6": 15761,
+    "9": 15932
+  },
+  "acquisition_physical_chunks": 448,
+  "acquisition_physical_actions": 7168,
+  "residual_replay_records": 400,
+  "ledger_sum_matches_budget": true,
+  "owned_campaign_processes_running": [],
+  "active_reservation": false
+}

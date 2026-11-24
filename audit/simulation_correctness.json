@@ -1,0 +1,47 @@
+{
+  "serialized_full_snapshot_replay": "bit_identical",
+  "physics_steps_compared": 16,
+  "max_abs_integration_state_difference": 0.0,
+  "mapping_source_comparison": "passed",
+  "numerical_inverse_transform": "passed",
+  "contact_geometry_resolved": {
+    "plate_collision_min_m": [
+      -0.024203937975762174,
+      -0.07577208363304021,
+      0.8999840603318211
+    ],
+    "plate_collision_max_m": [
+      0.11326596997341651,
+      0.06184913426920073,
+      0.9189365411061404
+    ],
+    "negative_x_edge_m": [
+      -0.024203937975762174,
+      -0.006961474681919738,
+      0.9094603007189808
+    ],
+    "closed_pad_offset_local_m": [
+      -1.674176397451983e-16,
+      -5.680330298447265e-17,
+      -0.0036000000000001283
+    ],
+    "closed_gripper_joint_configuration_m": [
+      0.0,
+      0.0
+    ],
+    "finger_pad_geoms": [
+      "gripper0_finger1_pad_collision",
+      "gripper0_finger2_pad_collision"
+    ],
+    "table_support": [
+      {
+        "name": "table_collision",
+        "top_z_m": 0.9
+      },
+      {
+        "name": "table_visual",
+        "top_z_m": 0.9
+      }
+    ]
+  }
+}

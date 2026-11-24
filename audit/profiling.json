@@ -1,0 +1,362 @@
+{
+  "status": "complete",
+  "precision": "bf16_autocast_float32_trainable_masters_and_optimizer_native_frozen_dtypes",
+  "paths": {
+    "numerical": {
+      "effective_batch": 128,
+      "microbatch": 16,
+      "accumulation": 8,
+      "warmup_updates": 5,
+      "measured_updates": 20,
+      "mean_update_seconds": 0.3999915555352345,
+      "max_update_seconds": 0.4121725158765912,
+      "peak_allocated_bytes": 3068695040,
+      "peak_reserved_bytes": 3309305856,
+      "updates": [
+        {
+          "update": 0,
+          "phase": "warmup",
+          "seconds": 1.1939126821234822,
+          "loss": 2.1286162436008453
+        },
+        {
+          "update": 1,
+          "phase": "warmup",
+          "seconds": 0.4167997599579394,
+          "loss": 1.530568704009056
+        },
+        {
+          "update": 2,
+          "phase": "warmup",
+          "seconds": 0.4107647412456572,
+          "loss": 1.1794634610414505
+        },
+        {
+          "update": 3,
+          "phase": "warmup",
+          "seconds": 0.4097522418014705,
+          "loss": 0.7049772441387177
+        },
+        {
+          "update": 4,
+          "phase": "warmup",
+          "seconds": 0.4104180042631924,
+          "loss": 0.765448197722435
+        },
+        {
+          "update": 5,
+          "phase": "measured",
+          "seconds": 0.4088770882226527,
+          "loss": 0.6943699419498444
+        },
+        {
+          "update": 6,
+          "phase": "measured",
+          "seconds": 0.40959701035171747,
+          "loss": 0.5901489481329918
+        },
+        {
+          "update": 7,
+          "phase": "measured",
+          "seconds": 0.4118789336644113,
+          "loss": 0.5823481902480125
+        },
+        {
+          "update": 8,
+          "phase": "measured",
+          "seconds": 0.41036648163571954,
+          "loss": 0.5595987178385258
+        },
+        {
+          "update": 9,
+          "phase": "measured",
+          "seconds": 0.40986646618694067,
+          "loss": 0.46827277168631554
+        },
+        {
+          "update": 10,
+          "phase": "measured",
+          "seconds": 0.40887587098404765,
+          "loss": 0.4531339630484581
+        },
+        {
+          "update": 11,
+          "phase": "measured",
+          "seconds": 0.4097207048907876,
+          "loss": 0.5448679812252522
+        },
+        {
+          "update": 12,
+          "phase": "measured",
+          "seconds": 0.40644631488248706,
+          "loss": 0.46418284997344017
+        },
+        {
+          "update": 13,
+          "phase": "measured",
+          "seconds": 0.40992825711145997,
+          "loss": 0.446907676756382
+        },
+        {
+          "update": 14,
+          "phase": "measured",
+          "seconds": 0.4094980643130839,
+          "loss": 0.4075537919998169
+        },
+        {
+          "update": 15,
+          "phase": "measured",
+          "seconds": 0.4121725158765912,
+          "loss": 0.37064893543720245
+        },
+        {
+          "update": 16,
+          "phase": "measured",
+          "seconds": 0.40963870380073786,
+          "loss": 0.3672270178794861
+        },
+        {
+          "update": 17,
+          "phase": "measured",
+          "seconds": 0.4090798869729042,
+          "loss": 0.3613911271095276
+        },
+        {
+          "update": 18,
+          "phase": "measured",
+          "seconds": 0.41109808115288615,
+          "loss": 0.38515692576766014
+        },
+        {
+          "update": 19,
+          "phase": "measured",
+          "seconds": 0.3927685930393636,
+          "loss": 0.3657907359302044
+        },
+        {
+          "update": 20,
+          "phase": "measured",
+          "seconds": 0.3752772016450763,
+          "loss": 0.34488268941640854
+        },
+        {
+          "update": 21,
+          "phase": "measured",
+          "seconds": 0.3784184060059488,
+          "loss": 0.3422582112252712
+        },
+        {
+          "update": 22,
+          "phase": "measured",
+          "seconds": 0.3778317659161985,
+          "loss": 0.36469458043575287
+        },
+        {
+          "update": 23,
+          "phase": "measured",
+          "seconds": 0.3685092688538134,
+          "loss": 0.3300679959356785
+        },
+        {
+          "update": 24,
+          "phase": "measured",
+          "seconds": 0.3699814951978624,
+          "loss": 0.30949926003813744
+        }
+      ]
+    },
+    "multimodal": {
+      "effective_batch": 32,
+      "microbatch": 8,
+      "accumulation": 4,
+      "warmup_updates": 5,
+      "measured_updates": 20,
+      "mean_update_seconds": 1.0094354719854892,
+      "max_update_seconds": 1.0194772779941559,
+      "peak_allocated_bytes": 4187442176,
+      "peak_reserved_bytes": 4292870144,
+      "updates": [
+        {
+          "update": 0,
+          "phase": "warmup",
+          "seconds": 1.982452870812267,
+          "loss": 1.562806487083435
+        },
+        {
+          "update": 1,
+          "phase": "warmup",
+          "seconds": 1.0890679331496358,
+          "loss": 2.1434744000434875
+        },
+        {
+          "update": 2,
+          "phase": "warmup",
+          "seconds": 1.0325071918778121,
+          "loss": 0.797525942325592
+        },
+        {
+          "update": 3,
+          "phase": "warmup",
+          "seconds": 1.009101411793381,
+          "loss": 0.8665092587471008
+        },
+        {
+          "update": 4,
+          "phase": "warmup",
+          "seconds": 1.0085023711435497,
+          "loss": 0.6083906590938568
+        },
+        {
+          "update": 5,
+          "phase": "measured",
+          "seconds": 1.006049983203411,
+          "loss": 0.5237250626087189
+        },
+        {
+          "update": 6,
+          "phase": "measured",
+          "seconds": 1.0121517507359385,
+          "loss": 0.623321458697319
+        },
+        {
+          "update": 7,
+          "phase": "measured",
+          "seconds": 1.0178620787337422,
+          "loss": 0.4740097001194954
+        },
+        {
+          "update": 8,
+          "phase": "measured",
+          "seconds": 1.0106478268280625,
+          "loss": 0.5017663240432739
+        },
+        {
+          "update": 9,
+          "phase": "measured",
+          "seconds": 1.010872466955334,
+          "loss": 0.5302099138498306
+        },
+        {
+          "update": 10,
+          "phase": "measured",
+          "seconds": 1.0102356332354248,
+          "loss": 0.5063556432723999
+        },
+        {
+          "update": 11,
+          "phase": "measured",
+          "seconds": 1.0084404139779508,
+          "loss": 0.4822041019797325
+        },
+        {
+          "update": 12,
+          "phase": "measured",
+          "seconds": 1.0194772779941559,
+          "loss": 0.512860395014286
+        },
+        {
+          "update": 13,
+          "phase": "measured",
+          "seconds": 1.0005654566921294,
+          "loss": 0.5288852453231812
+        },
+        {
+          "update": 14,
+          "phase": "measured",
+          "seconds": 1.0044903587549925,
+          "loss": 0.4612800180912018
+        },
+        {
+          "update": 15,
+          "phase": "measured",
+          "seconds": 0.9997467016801238,
+          "loss": 0.4124698266386986
+        },
+        {
+          "update": 16,
+          "phase": "measured",
+          "seconds": 1.0023407069966197,
+          "loss": 0.3797202408313751
+        },
+        {
+          "update": 17,
+          "phase": "measured",
+          "seconds": 1.0186504740267992,
+          "loss": 0.37106360495090485
+        },
+        {
+          "update": 18,
+          "phase": "measured",
+          "seconds": 1.0076750651933253,
+          "loss": 0.4063809961080551
+        },
+        {
+          "update": 19,
+          "phase": "measured",
+          "seconds": 1.0100488918833435,
+          "loss": 0.36324042081832886
+        },
+        {
+          "update": 20,
+          "phase": "measured",
+          "seconds": 1.0031297449022532,
+          "loss": 0.30294519662857056
+        },
+        {
+          "update": 21,
+          "phase": "measured",
+          "seconds": 1.0073297349736094,
+          "loss": 0.3355981409549713
+        },
+        {
+          "update": 22,
+          "phase": "measured",
+          "seconds": 1.0094638490118086,
+          "loss": 0.35685785859823227
+        },
+        {
+          "update": 23,
+          "phase": "measured",
+          "seconds": 1.0188834466971457,
+          "loss": 0.34798961877822876
+        },
+        {
+          "update": 24,
+          "phase": "measured",
+          "seconds": 1.0106475772336125,
+          "loss": 0.3023673892021179
+        }
+      ]
+    }
+  },
+  "production_updates": 0,
+  "gpu_name": "NVIDIA GB10",
+  "capability": [
+    12,
+    1
+  ],
+  "torch_architectures": [
+    "sm_80",
+    "sm_90",
+    "sm_100",
+    "sm_110",
+    "sm_120",
+    "compute_120"
+  ],
+  "numerical_chunk_seconds": 0.11294615501537919,
+  "numerical_chunk_development_source": {
+    "episode_id": 80,
+    "offset": 0
+  },
+  "task_rollout_sample": {
+    "task_id": 0,
+    "official_initial_state_index": 20,
+    "control_actions": 8,
+    "replans": 2,
+    "complete_task_rollout": false,
+    "seconds": 1.4484858089126647,
+    "mean_replan_generation_seconds": 0.11310239415615797,
+    "outcomes_scored": false
+  },
+  "microbatch_optimization": "multimodal only; effective batch 32, microbatch 8, accumulation 4"
+}

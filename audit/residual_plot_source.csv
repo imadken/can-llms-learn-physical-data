@@ -1,0 +1,11 @@
+panel,channel,category,p10,median,p90,normalized_sse
+residual,translation,native_free_motion_attempt,24.192741404359694,41.23553760179546,62.316208407504774,
+residual,translation,contact_attempt,21.66248631519881,43.89105807093638,70.10892249761537,
+residual,rotation,native_free_motion_attempt,5.873028613144879,12.692930144519845,18.893095566525844,
+residual,rotation,contact_attempt,5.815132469505961,11.342608936497424,20.172087223043395,
+structure,translation,TRAIN mean,,,,1.0
+structure,translation,Zero residual,,,,1.0049240809023718
+structure,translation,Fixed ridge,,,,0.009521274344827736
+structure,rotation,TRAIN mean,,,,1.0
+structure,rotation,Zero residual,,,,0.9937700812468618
+structure,rotation,Fixed ridge,,,,0.035123057665538415

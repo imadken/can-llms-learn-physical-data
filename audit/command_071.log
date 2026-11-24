@@ -1,0 +1,37 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  queued_call()
+/srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Reducing the number of VLM layers to 16 ...
+{"path": "multimodal", "update": 0, "phase": "warmup", "seconds": 1.982452870812267, "loss": 1.562806487083435}
+{"path": "multimodal", "update": 1, "phase": "warmup", "seconds": 1.0890679331496358, "loss": 2.1434744000434875}
+{"path": "multimodal", "update": 2, "phase": "warmup", "seconds": 1.0325071918778121, "loss": 0.797525942325592}
+{"path": "multimodal", "update": 3, "phase": "warmup", "seconds": 1.009101411793381, "loss": 0.8665092587471008}
+{"path": "multimodal", "update": 4, "phase": "warmup", "seconds": 1.0085023711435497, "loss": 0.6083906590938568}
+{"path": "multimodal", "update": 5, "phase": "measured", "seconds": 1.006049983203411, "loss": 0.5237250626087189}
+{"path": "multimodal", "update": 6, "phase": "measured", "seconds": 1.0121517507359385, "loss": 0.623321458697319}
+{"path": "multimodal", "update": 7, "phase": "measured", "seconds": 1.0178620787337422, "loss": 0.4740097001194954}
+{"path": "multimodal", "update": 8, "phase": "measured", "seconds": 1.0106478268280625, "loss": 0.5017663240432739}
+{"path": "multimodal", "update": 9, "phase": "measured", "seconds": 1.010872466955334, "loss": 0.5302099138498306}
+{"path": "multimodal", "update": 10, "phase": "measured", "seconds": 1.0102356332354248, "loss": 0.5063556432723999}
+{"path": "multimodal", "update": 11, "phase": "measured", "seconds": 1.0084404139779508, "loss": 0.4822041019797325}
+{"path": "multimodal", "update": 12, "phase": "measured", "seconds": 1.0194772779941559, "loss": 0.512860395014286}
+{"path": "multimodal", "update": 13, "phase": "measured", "seconds": 1.0005654566921294, "loss": 0.5288852453231812}
+{"path": "multimodal", "update": 14, "phase": "measured", "seconds": 1.0044903587549925, "loss": 0.4612800180912018}
+{"path": "multimodal", "update": 15, "phase": "measured", "seconds": 0.9997467016801238, "loss": 0.4124698266386986}
+{"path": "multimodal", "update": 16, "phase": "measured", "seconds": 1.0023407069966197, "loss": 0.3797202408313751}
+{"path": "multimodal", "update": 17, "phase": "measured", "seconds": 1.0186504740267992, "loss": 0.37106360495090485}
+{"path": "multimodal", "update": 18, "phase": "measured", "seconds": 1.0076750651933253, "loss": 0.4063809961080551}
+{"path": "multimodal", "update": 19, "phase": "measured", "seconds": 1.0100488918833435, "loss": 0.36324042081832886}
+{"path": "multimodal", "update": 20, "phase": "measured", "seconds": 1.0031297449022532, "loss": 0.30294519662857056}
+{"path": "multimodal", "update": 21, "phase": "measured", "seconds": 1.0073297349736094, "loss": 0.3355981409549713}
+{"path": "multimodal", "update": 22, "phase": "measured", "seconds": 1.0094638490118086, "loss": 0.35685785859823227}
+{"path": "multimodal", "update": 23, "phase": "measured", "seconds": 1.0188834466971457, "loss": 0.34798961877822876}
+{"path": "multimodal", "update": 24, "phase": "measured", "seconds": 1.0106475772336125, "loss": 0.3023673892021179}

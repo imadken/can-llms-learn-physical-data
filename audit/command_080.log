@@ -1,0 +1,42 @@
+E501 Line too long (112 > 100)
+  --> src/effect_pretraining/baseline.py:47:101
+   |
+45 |             "completed_updates": 0,
+46 |             "training_seed": None,
+47 |             "reason": "fixed schedule and maximum-horizon evaluation with 25% contingency exceed remaining cap",
+   |                                                                                                     ^^^^^^^^^^^^
+48 |         }
+49 |         result_path.write_text(json.dumps(status, indent=2) + "\n")
+   |
+
+E501 Line too long (150 > 100)
+   --> src/effect_pretraining/baseline.py:337:101
+    |
+335 | …uccesses, len(valid)),
+336 | …
+337 | … conditional on one trained seed; no training-seed uncertainty or benchmark-ceiling claim",
+    |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+338 | …
+339 | …dumps(summary, indent=2) + "\n")
+    |
+
+F821 Undefined name `marker`
+   --> src/effect_pretraining/resources.py:98:5
+    |
+ 96 |     path.write_text(budget.model_dump_json(indent=2) + "\n")
+ 97 |     clock = time.monotonic()
+ 98 |     marker.write_text(
+    |     ^^^^^^
+ 99 |         json.dumps({"name": name, "started_utc": started.isoformat(), "monotonic_started": clock})
+100 |         + "\n"
+    |
+
+F821 Undefined name `marker`
+   --> src/effect_pretraining/resources.py:136:9
+    |
+134 |                 + "\n"
+135 |             )
+136 |         marker.unlink(missing_ok=True)
+    |         ^^^^^^
+
+Found 4 errors.

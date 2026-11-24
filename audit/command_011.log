@@ -1,0 +1,179 @@
+[robosuite WARNING] No private macro file found! (macros.py:53)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:54)
+[robosuite WARNING] To setup, run: python /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/environments/m1/.venv/lib/python3.11/site-packages/robosuite/scripts/setup_macros.py (macros.py:55)
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[Warning]: datasets path /srv/pgx/users/imad/work/axisguide-rss2027/experiments/axisguide_causal/external/libero-official/libero/datasets does not exist!
+{"episode": 90, "offset": 0, "completed_replays": 4}
+{"episode": 90, "offset": 16, "completed_replays": 8}
+{"episode": 90, "offset": 32, "completed_replays": 12}
+{"episode": 90, "offset": 48, "completed_replays": 16}
+{"episode": 90, "offset": 64, "completed_replays": 20}
+{"episode": 90, "offset": 80, "completed_replays": 24}
+{"episode": 90, "offset": 96, "completed_replays": 28}
+{"episode": 90, "offset": 112, "completed_replays": 32}
+{"episode": 90, "offset": 128, "completed_replays": 36}
+{"episode": 90, "offset": 144, "completed_replays": 40}
+{"episode": 91, "offset": 0, "completed_replays": 44}
+{"episode": 91, "offset": 16, "completed_replays": 48}
+{"episode": 91, "offset": 32, "completed_replays": 52}
+{"episode": 91, "offset": 48, "completed_replays": 56}
+{"episode": 91, "offset": 64, "completed_replays": 60}
+{"episode": 91, "offset": 80, "completed_replays": 64}
+{"episode": 91, "offset": 96, "completed_replays": 68}
+{"episode": 91, "offset": 112, "completed_replays": 72}
+{"episode": 91, "offset": 128, "completed_replays": 76}
+{"episode": 91, "offset": 144, "completed_replays": 80}
+{"episode": 92, "offset": 0, "completed_replays": 84}
+{"episode": 92, "offset": 16, "completed_replays": 88}
+{"episode": 92, "offset": 32, "completed_replays": 92}
+{"episode": 92, "offset": 48, "completed_replays": 96}
+{"episode": 92, "offset": 64, "completed_replays": 100}
+{"episode": 92, "offset": 80, "completed_replays": 104}
+{"episode": 92, "offset": 96, "completed_replays": 108}
+{"episode": 92, "offset": 112, "completed_replays": 112}
+{"episode": 92, "offset": 128, "completed_replays": 116}
+{"episode": 92, "offset": 144, "completed_replays": 120}
+{"episode": 93, "offset": 0, "completed_replays": 124}
+{"episode": 93, "offset": 16, "completed_replays": 128}
+{"episode": 93, "offset": 32, "completed_replays": 132}
+{"episode": 93, "offset": 48, "completed_replays": 136}
+{"episode": 93, "offset": 64, "completed_replays": 140}
+{"episode": 93, "offset": 80, "completed_replays": 144}
+{"episode": 93, "offset": 96, "completed_replays": 148}
+{"episode": 93, "offset": 112, "completed_replays": 152}
+{"episode": 93, "offset": 128, "completed_replays": 156}
+{"episode": 93, "offset": 144, "completed_replays": 160}
+{"episode": 94, "offset": 0, "completed_replays": 164}
+{"episode": 94, "offset": 16, "completed_replays": 168}
+{"episode": 94, "offset": 32, "completed_replays": 172}
+{"episode": 94, "offset": 48, "completed_replays": 176}
+{"episode": 94, "offset": 64, "completed_replays": 180}
+{"episode": 94, "offset": 80, "completed_replays": 184}
+{"episode": 94, "offset": 96, "completed_replays": 188}
+{"episode": 94, "offset": 112, "completed_replays": 192}
+{"episode": 94, "offset": 128, "completed_replays": 196}
+{"episode": 94, "offset": 144, "completed_replays": 200}
+{"episode": 95, "offset": 0, "completed_replays": 204}
+{"episode": 95, "offset": 16, "completed_replays": 208}
+{"episode": 95, "offset": 32, "completed_replays": 212}
+{"episode": 95, "offset": 48, "completed_replays": 216}
+{"episode": 95, "offset": 64, "completed_replays": 220}
+{"episode": 95, "offset": 80, "completed_replays": 224}
+{"episode": 95, "offset": 96, "completed_replays": 228}
+{"episode": 95, "offset": 112, "completed_replays": 232}
+{"episode": 95, "offset": 128, "completed_replays": 236}
+{"episode": 95, "offset": 144, "completed_replays": 240}
+{"episode": 96, "offset": 0, "completed_replays": 244}
+{"episode": 96, "offset": 16, "completed_replays": 248}
+{"episode": 96, "offset": 32, "completed_replays": 252}
+{"episode": 96, "offset": 48, "completed_replays": 256}
+{"episode": 96, "offset": 64, "completed_replays": 260}
+{"episode": 96, "offset": 80, "completed_replays": 264}
+{"episode": 96, "offset": 96, "completed_replays": 268}
+{"episode": 96, "offset": 112, "completed_replays": 272}
+{"episode": 96, "offset": 128, "completed_replays": 276}
+{"episode": 96, "offset": 144, "completed_replays": 280}
+{"episode": 97, "offset": 0, "completed_replays": 284}
+{"episode": 97, "offset": 16, "completed_replays": 288}
+{"episode": 97, "offset": 32, "completed_replays": 292}
+{"episode": 97, "offset": 48, "completed_replays": 296}
+{"episode": 97, "offset": 64, "completed_replays": 300}
+{"episode": 97, "offset": 80, "completed_replays": 304}
+{"episode": 97, "offset": 96, "completed_replays": 308}
+{"episode": 97, "offset": 112, "completed_replays": 312}
+{"episode": 97, "offset": 128, "completed_replays": 316}
+{"episode": 97, "offset": 144, "completed_replays": 320}
+{"episode": 98, "offset": 0, "completed_replays": 324}
+{"episode": 98, "offset": 16, "completed_replays": 328}
+{"episode": 98, "offset": 32, "completed_replays": 332}
+{"episode": 98, "offset": 48, "completed_replays": 336}
+{"episode": 98, "offset": 64, "completed_replays": 340}
+{"episode": 98, "offset": 80, "completed_replays": 344}
+{"episode": 98, "offset": 96, "completed_replays": 348}
+{"episode": 98, "offset": 112, "completed_replays": 352}
+{"episode": 98, "offset": 128, "completed_replays": 356}
+{"episode": 98, "offset": 144, "completed_replays": 360}
+{"episode": 99, "offset": 0, "completed_replays": 364}
+{"episode": 99, "offset": 16, "completed_replays": 368}
+{"episode": 99, "offset": 32, "completed_replays": 372}
+{"episode": 99, "offset": 48, "completed_replays": 376}
+{"episode": 99, "offset": 64, "completed_replays": 380}
+{"episode": 99, "offset": 80, "completed_replays": 384}
+{"episode": 99, "offset": 96, "completed_replays": 388}
+{"episode": 99, "offset": 112, "completed_replays": 392}
+{"episode": 99, "offset": 128, "completed_replays": 396}
+{"episode": 99, "offset": 144, "completed_replays": 400}
+{
+  "replays": 400,
+  "training_windows": 14800,
+  "ridge": {
+    "objective": "mean squared error over all training windows and six targets + 0.001 * sum(coefficient**2)",
+    "training_window_count": 14800,
+    "feature_count": 120,
+    "intercept_penalized": false,
+    "hyperparameter_search": false,
+    "heldout_source": "fixed reference replays from evaluation episodes only; repeats and snapshots are correlated",
+    "overall": {
+      "translation": {
+        "count": 400,
+        "ridge_rmse": 4.59683454997771,
+        "zero_rmse": 47.22565172116596,
+        "training_mean_rmse": 47.10980789943741,
+        "squared_error_reduction": 0.9904787256551723,
+        "units": "mm",
+        "undefined_ratio_reason": null
+      },
+      "rotation": {
+        "count": 400,
+        "ridge_rmse": 2.5485612498364367,
+        "zero_rmse": 13.556321998494052,
+        "training_mean_rmse": 13.598747725675826,
+        "squared_error_reduction": 0.9648769423344615,
+        "units": "degrees",
+        "undefined_ratio_reason": null
+      }
+    },
+    "contact": {
+      "translation": {
+        "count": 0,
+        "ridge_rmse": null,
+        "zero_rmse": null,
+        "training_mean_rmse": null,
+        "squared_error_reduction": null,
+        "units": "mm",
+        "undefined_ratio_reason": "empty_or_negligible_training_mean_SSE"
+      },
+      "rotation": {
+        "count": 0,
+        "ridge_rmse": null,
+        "zero_rmse": null,
+        "training_mean_rmse": null,
+        "squared_error_reduction": null,
+        "units": "degrees",
+        "undefined_ratio_reason": "empty_or_negligible_training_mean_SSE"
+      }
+    },
+    "no_contact": {
+      "translation": {
+        "count": 400,
+        "ridge_rmse": 4.59683454997771,
+        "zero_rmse": 47.22565172116596,
+        "training_mean_rmse": 47.10980789943741,
+        "squared_error_reduction": 0.9904787256551723,
+        "units": "mm",
+        "undefined_ratio_reason": null
+      },
+      "rotation": {
+        "count": 400,
+        "ridge_rmse": 2.5485612498364367,
+        "zero_rmse": 13.556321998494052,
+        "training_mean_rmse": 13.598747725675826,
+        "squared_error_reduction": 0.9648769423344615,
+        "units": "degrees",
+        "undefined_ratio_reason": null
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "authorized_by": "user explicit approval in conversation",
+  "performed_by": "user in local terminal after sudo password requirement",
+  "commands": [
+    "sync",
+    "write 3 to /proc/sys/vm/drop_caches",
+    "write 1 to /proc/sys/vm/compact_memory"
+  ],
+  "user_confirmed_completion": true,
+  "pgx_status_observed": {
+    "memory_health_status": "OK",
+    "managed_load_GiB": 0,
+    "preexisting_vllm_pid": 996778,
+    "preexisting_vllm_gpu_memory_MiB": 66019
+  },
+  "other_jobs_terminated": false,
+  "software_upgraded": false,
+  "original_failed_profile_preserved": "audit/profiling_pre_update_fault.json",
+  "retry_result": "complete"
+}

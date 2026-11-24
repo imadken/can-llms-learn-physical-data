@@ -1,0 +1,4 @@
+acquisition_K_101.jsonl {'update': 170, 'seconds': 0.43073489889502525}
+acquisition_P_101.jsonl {'update': 250, 'seconds': 0.4343124907463789}
+COMMON 0 COUNTS {'P_101': 250, 'K_101': 0, 'D_101': 0, 'P_202': 0, 'K_202': 0, 'D_202': 0}
+ACCELERATOR_SECONDS_WITH_ACTIVE_JOB 387.4

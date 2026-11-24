@@ -1,0 +1,24 @@
+{
+  "common_checkpoint_updates": 500,
+  "seeds": {
+    "101": {
+      "paired_updates_checked": 750,
+      "initialization_sha256": "5234ca4f2cd0e2a4d44e93ebf5fa7aa8095023b65bc1e9a79739fdf31dd34595",
+      "logged_update_counts": {
+        "P": 750,
+        "K": 750,
+        "D": 750
+      }
+    },
+    "202": {
+      "paired_updates_checked": 500,
+      "initialization_sha256": "f766da37b73b9fa26015d52d22eae1ab1bde84e7cef15b53725f3499abe65173",
+      "logged_update_counts": {
+        "P": 750,
+        "K": 546,
+        "D": 500
+      }
+    }
+  },
+  "status": "passed_available_prefix"
+}

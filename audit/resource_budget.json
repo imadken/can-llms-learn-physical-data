@@ -1,0 +1,9 @@
+{
+  "profiling_started_utc": "2026-11-21T10:44:24.465932Z",
+  "accelerator_seconds_used": 14940.987879970577,
+  "unavailable_wait_seconds": 0.0,
+  "unavailable_wait_started_utc": null,
+  "accelerator_limit_seconds": 28800,
+  "execution_limit_seconds": 43200,
+  "cutoff_utc": "2026-11-28T17:00:00Z"
+}

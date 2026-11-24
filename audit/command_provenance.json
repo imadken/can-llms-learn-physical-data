@@ -1,0 +1,16 @@
+{
+  "early_inline_inputs_not_retained": [
+    "command_005.json",
+    "command_015.json",
+    "command_022.json",
+    "command_025.json",
+    "command_031.json",
+    "command_037.json",
+    "command_038.json",
+    "command_039.json",
+    "command_040.json"
+  ],
+  "scope": "engineering diagnostics; argv, environment, revision and output retained",
+  "production_commands": "module CLIs with recorded arguments and versioned source",
+  "subsequent_stdin": "source bytes captured with SHA256"
+}

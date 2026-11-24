@@ -1,0 +1,20 @@
+{
+  "status": "fault",
+  "precision": "bf16_autocast_float32_parameters_and_optimizer",
+  "paths": {},
+  "production_updates": 0,
+  "gpu_name": "NVIDIA GB10",
+  "capability": [
+    12,
+    1
+  ],
+  "torch_architectures": [
+    "sm_80",
+    "sm_90",
+    "sm_100",
+    "sm_110",
+    "sm_120",
+    "compute_120"
+  ],
+  "error": "AcceleratorError: CUDA error: out of memory\nSearch for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n"
+}

@@ -1,0 +1,8 @@
+arm,planned_seed,actual_updates,effective_batch,window_presentations,last_common_checkpoint_updates
+P,101,1000,128,128000,1000
+K,101,1000,128,128000,1000
+D,101,1000,128,128000,1000
+P,202,1000,128,128000,1000
+K,202,1000,128,128000,1000
+D,202,1000,128,128000,1000
+S,303,5000,32,160000,

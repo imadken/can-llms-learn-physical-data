@@ -1,0 +1,12 @@
+unformatted: File would be reformatted
+   --> src/effect_pretraining/reporting.py:321:68
+    |
+320 |         pooled_interval = (
+    -             f"[{100 * interval[0]:.2f}%, {100 * interval[1]:.2f}%]"
+    -             if interval
+    -             else "unmeasured"
+321 +             f"[{100 * interval[0]:.2f}%, {100 * interval[1]:.2f}%]" if interval else "unmeasured"
+322 |         )
+    |
+
+1 file would be reformatted

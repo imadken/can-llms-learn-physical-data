@@ -1,0 +1,335 @@
+{
+  "status": "passed",
+  "tasks": [
+    {
+      "task_id": 0,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            127,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.8141746438534
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            127,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 64.01102503463393
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 1,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            104,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.84940783121637
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            104,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 62.78392460065472
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 2,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            114,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.741742054690555
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            114,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 65.14000097633271
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 3,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            188,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.93774588451607
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            188,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 63.56179026724566
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 4,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            103,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.39430313431917
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            103,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 64.37708381212973
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 5,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            206,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.76995842544786
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            206,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 64.04022473602572
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 6,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            110,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.92406268253839
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            110,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 64.33843019431696
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 7,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            90,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.64530646915933
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            90,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 63.47031595020889
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 8,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            95,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.93463765446305
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            95,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 63.6147640797324
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    },
+    {
+      "task_id": 9,
+      "control_frequency_hz": 20,
+      "controller_type": "OSC_POSE",
+      "relative_control": true,
+      "image_convention": "opengl",
+      "images": {
+        "agentview_rgb": {
+          "shape": [
+            162,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 52.75498714444826
+        },
+        "eye_in_hand_rgb": {
+          "shape": [
+            162,
+            128,
+            128,
+            3
+          ],
+          "dtype": "uint8",
+          "first_image_std": 63.41023964375643
+        }
+      },
+      "state_position_dim": 3,
+      "state_axis_angle_dim": 3,
+      "state_gripper_dim": 2,
+      "action_dim": 7
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+E501 Line too long (102 > 100)
+   --> src/effect_pretraining/acquisition.py:211:101
+    |
+209 |                         summary["generation_count"] += count
+210 |                     else:
+211 |                         # K and D receive exactly the same measured physical goals in the common test.
+    |                                                                                                     ^^
+212 |                         effects = transform.apply(bank["measured"]).reshape(count * 2, 6)
+213 |                         values = model.generate(
+    |
+
+E501 Line too long (158 > 100)
+   --> src/effect_pretraining/acquisition.py:467:101
+    |
+465 | …
+466 | …
+467 | …apshots/targets from four source episodes; no equivalence or training-seed significance claim",
+    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+468 | …
+469 | …dumps(evidence, indent=2) + "\n")
+    |
+
+Found 2 errors.

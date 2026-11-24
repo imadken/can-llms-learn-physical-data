@@ -1,0 +1,48 @@
+name: RSS 2027 official template PDF build
+on:
+  push:
+    branches:
+      - main
+      - paper/rss2027-stage1-official
+    paths:
+      - paper/rss2027_stage1/**
+      - .github/workflows/rss2027-stage1-pdf.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - paper/rss2027_stage1/**
+      - .github/workflows/rss2027-stage1-pdf.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX and PDF inspection tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq texlive-latex-extra texlive-publishers texlive-fonts-recommended texlive-bibtex-extra texlive-pictures latexmk poppler-utils
+      - name: Validate official template class
+        run: |
+          echo "d63d4bf27f29603a733d06e27ba5fbb40488acf9d1d696354a88b886758f70a7  paper/rss2027_stage1/template/IEEEtran.cls" | sha256sum --check
+          grep -F "2007/03/05 version V1.7a" paper/rss2027_stage1/template/IEEEtran.cls
+      - name: Compile with official class and BibTeX
+        working-directory: paper/rss2027_stage1
+        run: |
+          TEXINPUTS="$PWD/template:$PWD/figures:" latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex
+          grep -F 'Document Class: IEEEtran 2007/03/05 V1.7a' main.log
+          test "$(pdfinfo main.pdf | sed -n 's/^Pages:[[:space:]]*//p')" -eq 5
+          ! grep -E 'LaTeX Warning: (Citation|Reference)|There were undefined citations|There were undefined references|Overfull \\hbox' main.log
+          pdffonts main.pdf
+      - name: Upload final PDF and build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: RSS2027_Stage1_Official_Class_PDF
+          path: |
+            paper/rss2027_stage1/main.pdf
+            paper/rss2027_stage1/main.log
+          retention-days: 30

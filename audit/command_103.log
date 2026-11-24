@@ -1,0 +1,12 @@
+E501 Line too long (102 > 100)
+  --> scripts/watch_campaign.py:65:101
+   |
+63 |         )
+64 |         if remaining <= 150:
+65 |             # The in-process deadline has a 180-second checkpoint reserve. This is independent backup.
+   |                                                                                                     ^^
+66 |             os.kill(pid, signal.SIGINT)
+67 |             report.update(
+   |
+
+Found 1 error.
