@@ -4,6 +4,7 @@
 \usepackage[numbers]{natbib}
 \usepackage{multicol}
 \usepackage[bookmarks=true]{hyperref}
+\hypersetup{hidelinks}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -30,7 +31,7 @@ Numerical robot trajectories offer an opportunity to prepare a vision-language-a
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-VLA policies learn manipulation from visual observations, language instructions and robot state \citep{black2025pi0,shukor2025smolvla,kim2024openvla}. Task-agnostic pretraining offers a complementary source of experience: numerical state-action trajectories collected without language annotations or successful task demonstrations \citep{shi2026tap,hu2026arvla}. An important question remains unresolved: \emph{which information in those interactions should train the action generator before multimodal task learning?}
+VLA policies learn manipulation from visual observations, language instructions and robot state \citep{black2025pi0,shukor2025smolvla,kim2024openvla}. Task-agnostic and action-expert pretraining show that robot experience can aid later task adaptation \citep{shi2026tap,hu2026arvla}. Yet a numerical trajectory contains distinct supervisory signals. \emph{Which should train the action generator before multimodal task learning?}
 
 \begin{figure}[!b]
 \centering
@@ -61,12 +62,12 @@ The contribution is a controlled formulation of \emph{what transfers} from numer
 
 \section{Problem Formulation}
 \subsection{Numerical interactions and endpoint effects}
-Consider a corpus of robot observations and the action chunks executed between them. A training instance is $(r_t,A_t,r_{t+H})$, where $r_t\in\R^8$ contains end-effector pose and gripper coordinates and $A_t=(a_t,\ldots,a_{t+H-1})\in\R^{H\times7}$ contains $H=16$ Cartesian and gripper commands. Let $p_t\in\R^3$ and $R_t\in\mathrm{SO}(3)$ be the observed end-effector position and orientation. We define the \emph{measured effect} as the translation and relative rotation over the action chunk:
+Consider a corpus of robot observations and the action chunks executed between them. A training instance is $(r_t,A_t,r_{t+H})$, where $r_t\in\R^8$ contains end-effector pose and gripper coordinates and $A_t=(a_t,\ldots,a_{t+H-1})\in\R^{H\times7}$ contains $H=16$ Cartesian and gripper commands. Let $p_t\in\R^3$ and $R_t\in\mathrm{SO}(3)$ be the observed end-effector position and orientation. An \emph{endpoint effect} describes the net translation and rotation over a chunk; when given to the generator, it serves as a numerical motion goal. The \emph{measured effect} is
 \begin{equation}
  e_t^{D}=\begin{bmatrix}p_{t+H}-p_t\\ \operatorname{Log}(R_t^\top R_{t+H})\end{bmatrix}\in\R^6,
  \label{eq:effect}
 \end{equation}
-Here $\operatorname{Log}$ denotes the rotation-vector logarithm of the relative orientation. This measured effect is defined only after the chunk has been executed. In contrast, the \emph{nominal effect}, $e_t^{K}=G(r_t,A_t)$, is computed from the initial pose and the ideal command mapping, with its prescribed scaling, clipping, coordinate conventions and limits. It requires no subsequent observations or realized controller targets. The nominal map thus provides an outcome-free reference for the supervisory information contributed by measurement.
+Here $\operatorname{Log}:\mathrm{SO}(3)\to\R^3$ denotes the rotation-vector form of the matrix logarithm of the relative orientation. This measured effect is defined only after the chunk has been executed. In contrast, the \emph{nominal effect}, $e_t^{K}=G(r_t,A_t)$, is computed from the initial pose and the ideal command mapping, with its prescribed scaling, clipping, coordinate conventions and limits. It requires no subsequent observations or realized controller targets. The nominal map thus provides an outcome-free reference for the supervisory information contributed by measurement.
 
 The three regimes are \emph{action prior} ($P$), which receives no informative effect; \emph{nominal-effect conditioning} ($K$), which receives $e_t^K$; and \emph{measured-effect conditioning} ($D$), which receives $e_t^D$. They share the same initial observations and action targets. In particular, $D$ replaces $K$'s condition rather than adding a measured residual, so the comparison evaluates two supervision procedures, not an isolated representation of hidden physical parameters.
 
@@ -89,7 +90,7 @@ The first contrast, $C_1$, asks whether a nominal effect improves transfer beyon
 \section{Intermediate Pretraining and Transfer}
 The central methodological requirement is to vary \emph{supervision}, not the actions used for learning. Stage 2 therefore uses one fixed corpus of 250,000 numerical transitions from bounded arm and gripper interactions, with free-motion and contact attempts specified before collection. Neither task-success labels nor visual or linguistic inputs inform collection or intermediate training. Episodes are divided into disjoint splits before extracting action windows, and all numerical regimes use identical windows.
 \subsection{Learning actions conditioned on effects}
-Figure~\ref{fig:transfer} shows how the intervention is applied to a shared action expert. From one SmolVLA initialization, the vision-language backbone and robot-state projector remain frozen during intermediate learning. A temporary projector $h_{\eta}$ maps the numerical effect to a conditioning token, while the native action expert and its action-generation projections are trained. Crucially, the expert continues to learn through its own flow-matching objective; a separate dynamics-prediction head is unnecessary.
+Figure~\ref{fig:transfer} shows how the intervention is applied to a shared action expert. From one SmolVLA initialization, the vision-language backbone and robot-state projector remain frozen during intermediate learning. A temporary projector $h_{\eta}$ maps the numerical effect to a conditioning token, while the native action expert and its action-generation projections are trained. Because multiple action chunks can achieve the same endpoint, the native flow-matching objective learns conditional action generation without imposing a unique inverse or adding a dynamics-prediction head.
 
 To make the conditions comparable, $z$ standardizes effects using only the nominal-effect statistics of the numerical training split. We set $q_t^P=0$, $q_t^K=z(e_t^K)$ and $q_t^D=z(e_t^D)$; hence $P$ has a neutral token, and $K$ and $D$ share one coordinate transformation. With Gaussian action noise $\epsilon$ and flow time $\tau\in[0,1]$, let $Z_\tau=(1-\tau)A_t+\tau\epsilon$ and $u_t=\epsilon-A_t$. Each regime $m\in\{P,K,D\}$ minimizes
 \begin{equation}
@@ -141,7 +142,7 @@ Figure~\ref{fig:acquisition}b provides context on the common measured-goal set: 
 
 \section{Stage 2: Testing Transfer}
 \subsection{Does numerical conditioning improve manipulation?}
-The acquisition experiment shows that a numerical goal can shape generated actions. The next question is whether the corresponding action expert helps solve tasks after its conditioning interface changes. We evaluate the same SmolVLA initialization on all ten LIBERO-Goal tasks, using 10 and 40 demonstrations per task with separate validation data. Each paired experiment keeps the numerical corpus, action windows, optimization schedule and deployment interface fixed across $P$, $K$ and $D$. Comparison with $S$ and $E$ then reveals whether the same resources are better used for intermediate numerical experience or additional task training.
+The measured-effect acquisition results establish that a numerical motion goal can shape generated actions. The decisive question is whether the resulting action expert improves task success after its conditioning interface changes. We evaluate the same SmolVLA initialization on all ten LIBERO-Goal tasks, using 10 and 40 demonstrations per task with separate validation data. Each paired experiment keeps the numerical corpus, action windows, optimization schedule and deployment interface fixed across $P$, $K$ and $D$. Comparison with $S$ and $E$ then reveals whether the same resources are better used for intermediate numerical experience or additional task training.
 
 For each regime we evaluate eight paired training seeds and 50 fixed resets per task. Numerical pretraining uses 5,000 updates, and task fine-tuning uses 10,000; a prespecified 5,000-update task checkpoint additionally tests whether any transfer benefit persists through training. To establish acquisition independently of task performance, native $K$ and $D$ goal response is evaluated with matched, masked and alternative goals. The acquisition criterion is a 10-percentage-point improvement in joint attainment over both masked conditioning and $P$, together with reduced translation and rotation error. These tests diagnose the proposed mechanism; they do not select the downstream policy or alter the fixed training schedule.
 
@@ -173,7 +174,7 @@ Table~\ref{tab:outcomes} makes the planned inferences explicit. Attribution to \
 The measured-versus-ideal discrepancy observed in the pilot was largely predictable from robot state and commands. On the full corpus we will separately characterize residual predictability for free-motion and observed contact transitions, where such contacts occur. Accordingly, $C_2$ compares measured outcomes with an \emph{ideal command map}, not with a learned calibrated controller. A positive result would motivate a calibrated-nominal diagnostic, while a precise negligible difference would support the adequacy of nominal supervision within the evaluated regime. The negotiated Extension Charter may include this calibration test or an intermediate-training dose comparison as explanatory diagnostics while retaining the primary five-regime study.
 
 \section{Conclusion}
-The supervision carried by a robot interaction matters because actions, commanded motion and measured motion pose different learning problems for the same action generator. Our matched formulation isolates these choices while preserving the deployed VLA interface, and the preliminary evidence demonstrates that measured numerical effects can guide generated actions. The planned paired transfer study will determine whether that conditional behavior offers a practically meaningful initialization for multimodal manipulation, informing how numerical robot experience should be used before task learning.
+Actions, requested motion, and measured motion pose distinct learning problems for a shared action generator. Our matched formulation and pilot establish goal-responsive numerical pretraining without changing the deployed VLA. Stage 2 will test whether the resulting initialization improves multimodal manipulation and which supervision is worth collecting.
 
 \clearpage
 \bibliographystyle{plainnat}
