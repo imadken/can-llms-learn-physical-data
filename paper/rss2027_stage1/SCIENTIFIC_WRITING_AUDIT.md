@@ -1,4 +1,4 @@
-# RSS 2027 Stage 1 scientific writing audit, v5.5
+# RSS 2027 Stage 1 scientific writing audit, v5.6
 
 ## Scope and narrative
 
@@ -13,7 +13,7 @@ The narrative follows one question: which information from a robot interaction h
 - Generalize the formal problem before instantiating it with six-dimensional end-effector motion. This expresses scope without claiming tested transfer beyond manipulation.
 - Define generic demonstration budget `b` and contrasts `C1(b)` and `C2(b)` in the formulation. Specify the primary ten-demonstration setting in the planned evaluation.
 - Explain retained parameters as the hypothesized carrier of conditional action-generation behavior. Removing the temporary goal token does not itself establish transfer.
-- Move the 250,000-transition collection and training schedule to the planned evaluation. Restore 24 numerical fits, 80 multitask fine-tunes and E's exact resource comparison.
+- Keep the numerical corpus and the training schedule in the planned evaluation. Preserve E's exact compute-matched task-training comparison, while reducing the proposed experimental scale for Stage 2 feasibility.
 - Present the outcome table around interpretable comparisons, including nonpositive C1, unestablished acquisition and unresolved intervals. Avoid treating an interval crossing zero as equivalence.
 - Keep the material pilot facts: no movable-object contact, K's native 1/64 and 0/64 strict attainment, and the common measured-goal distribution shift. Explain their role directly, without speculative failure narratives.
 - Keep the calibration and intermediate-dose diagnostics as possible Extension Charter studies. They are not newly authorized training arms.
@@ -30,13 +30,13 @@ The native state projector is frozen during numerical pretraining and trainable 
 
 The main manuscript now emphasizes effect sizes, paired uncertainty and interpretable outcomes. The following numerical commitments remain in the research protocol, rather than being silently discarded by the style revision.
 
-- Independent unit: one of eight paired pipeline seeds. Task means receive equal weight; evaluation resets do not become independent training replicates.
+- Independent unit: one of six paired pipeline seeds. Task means receive equal weight; evaluation resets do not become independent training replicates.
 - Primary estimates: `C1(10) = J10(K) - J10(P)` and `C2(10) = J10(D) - J10(K)`.
 - Each two-sided paired Student interval has 97.5% marginal coverage. Bonferroni gives at least 95% simultaneous coverage for the two primary contrasts under the paired-seed model.
-- With eight seeds, the half-width is `t(7, 0.9875) * s_d / sqrt(8)`, approximately `1.00453 * s_d`, where `s_d` is the sample standard deviation of paired seed differences.
+- With six seeds, the half-width is `t(5, 0.9875) * s_d / sqrt(6)`, approximately `1.291 * s_d`, where `s_d` is the sample standard deviation of paired seed differences.
 - A positive difference has its interval wholly above zero. This directional statement is distinct from the prespecified practically meaningful gain of five percentage points.
 - The retained practical margin is `delta = 0.05`: a practically meaningful gain requires the lower interval bound above delta; a gain of that size is excluded when the upper bound is below delta; practical equivalence requires the entire interval within `[-delta, delta]`. Other cases remain unresolved for the corresponding question.
-- Consequently there is no universal required 9 to 10 point gap. The practical-gain criterion is the estimated gap exceeding `0.05 + 1.00453 * s_d`. Equivalence requires `abs(estimated gap) + 1.00453 * s_d < 0.05`. At a five-point paired standard deviation, the half-width slightly exceeds five points, so equivalence cannot be established even when the estimated difference is zero.
+- Consequently there is no universal required 9 to 10 point gap. The practical-gain criterion is the estimated gap exceeding `0.05 + 1.291 * s_d`. Equivalence requires `abs(estimated gap) + 1.291 * s_d < 0.05`. At a five-point paired standard deviation, the half-width is about 6.45 percentage points, so equivalence cannot be established even when the estimated difference is zero.
 
 The formal practical margin is not repeated throughout the Stage 1 narrative. It remains recorded here before downstream outcomes are observed. Supported positive effects in the manuscript must not be relabeled as practically meaningful effects unless the retained margin is met.
 
@@ -44,7 +44,7 @@ The formal practical margin is not repeated throughout the Stage 1 narrative. It
 
 The existing pilot contains 20,000 transitions from 100 episodes in one scene. Figure 1 reports the means for 200 distinct start/chunk pairs from 100 restored snapshots in ten held-out episodes, with two replays per pair. These are mean translation magnitudes, not a reconstructed path or a mean endpoint vector. The action-acquisition test uses two seeds and 64 targets per seed; the standard task-training check uses one seed and 200 rollouts. No downstream P/K/D/E transfer result is reported.
 
-The planned counts remain 24 numerical fits, 80 task fine-tunes and 40,000 final-policy rollouts. Approximately 600 DGX Spark device-hours is a throughput extrapolation for these fits and final rollouts, excluding new collection and early-checkpoint evaluation. Repeating the same evaluation at the early checkpoint raises the working estimate to approximately 1,000 device-hours. These are planning estimates, not measured completion times or a guaranteed allocation.
+The Stage 1 proposed scale is now a shared numerical corpus targeting 100,000 transitions, six paired seeds, 18 intermediate fits, 60 multitask fine-tunes and 30 fixed evaluation resets per task (18,000 final-policy rollouts). The five-regime, two-budget comparisons, fixed task suite and intermediate/final training schedules are unchanged. The scientific analysis is prespecified; any additional validation requested by the RSS Extension Charter will be discussed after Stage 1 review. No hardware-specific or projected runtime claim is made in the manuscript.
 
 No additional one-seed run at the Stage 2 schedule was performed for this revision. Such a run could inform schedule feasibility and native K acquisition but would not settle the benchmark ceiling or training-seed variability. The reported S pilot establishes an operational evaluation setting, not convergence or a population-level headroom estimate.
 
