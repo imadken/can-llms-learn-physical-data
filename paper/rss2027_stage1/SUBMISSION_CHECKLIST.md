@@ -1,12 +1,15 @@
-# Final RSS 2027 Stage 1 checks
+# RSS 2027 Stage 1 release checks, v5.5
 
-- [ ] Run `make` with the **official pinned IEEEtran.cls V1.7a**, not system V1.8b.
-- [ ] Verify that exactly one references-only page follows no more than five content pages.
-- [ ] Confirm all fonts in final `main.pdf` are embedded Type 1 via `pdffonts main.pdf`.
-- [ ] Inspect the actual six-or-fewer-page PDF page by page at 100% and grayscale.
-- [ ] Confirm that `main.tex` has no identity, institutional contact, GitHub path, repository link, unpublished previous work identification, or draft stamp.
-- [ ] Update required author list and profiles privately on OpenReview; do not insert names in anonymous PDF.
-- [ ] Cross-check numerical acquisition percentages against the locked pilot archive; no downstream P/K/D success is claimed.
-- [ ] Verify DOI/arXiv references and ensure bibliography is exactly one page.
-- [ ] Confirm no prohibited concurrent submission.
-- [ ] Submit PDF before 4 December 2026 23:59 AoE.
+Completed on 25 November 2026 for the delivered manuscript.
+
+- [x] Unmodified official IEEEtran V1.7a class, verified checksum and build banner.
+- [x] Five content pages followed by exactly one references page.
+- [x] Every PDF font is embedded Type 1; Figure 2 lettering is vector paths.
+- [x] All six pages inspected for layout, legibility and clipping.
+- [x] No undefined citations, cross-references, missing glyphs or overfull boxes.
+- [x] Anonymous author line and PDF metadata; no repository or institutional identifier in manuscript.
+- [x] Audited preliminary values retained; no downstream P/K/D/E transfer result claimed.
+- [x] Thirteen bibliography entries verified against primary records or author sources.
+- [x] Editable Figure 2 PPTX and SVG delivered with publication PDF.
+
+Submission is a separate action. The conference portal author list, conflict information and submission receipt have not been handled by this editing pass. Only the anonymous manuscript PDF belongs in the Stage 1 submission; source packages, walkthroughs and audits are author materials.

@@ -1,27 +1,37 @@
-# RSS 2027 v5.3: Scientific figure redraw guide
+# RSS 2027 v5.5 figure guide
 
-The paper contains **three visual roles**, rather than treating every figure as an architecture or reporting chart. All figure sources are editable TikZ and can be redrawn as PowerPoint vector shapes.
+The three figures serve different scientific purposes: introduce the information difference, explain the transfer mechanism and show numerical acquisition. Keep terminology consistent with the manuscript: action prior P, nominal-effect conditioning K and measured-effect conditioning D.
 
-## Figure 1: An intuitive example on the opening page
+## Figure 1: One interaction, two effect descriptions
 
-**Message:** The same action sequence produces a command-defined nominal motion and a realized measured motion. These are distinct candidate signals for intermediate learning.
+**Source:** `figures/motion_example.tex`.
 
-Draw a start-point marker at the left. From that marker, show (i) a dashed grayscale arrow to the nominal requested endpoint and (ii) a solid blue/black arrow to the observed endpoint. Label the arrows *Commanded motion* and *Observed motion*. Put the sentence *One action sequence, two motion descriptions* above the panel. The drawing is illustrative, not an empirical trajectory; avoid inserting fabricated displacement values. Keep the caption to one explanatory sentence.
+The first-page figure now shows audited empirical means rather than a cartoon: nominal translation magnitude 56.2 mm and measured magnitude 13.1 mm. The population is 200 distinct start/chunk pairs from 100 restored snapshots in ten held-out pilot episodes, each replayed twice. These are scalar magnitudes; the bars do not reconstruct trajectories or depict two mean endpoint positions. The figure makes no contact-effect claim. No movable-object contact occurred in this pilot.
 
-## Figure 2: What is transferred and what is removed
+Keep the labels Nominal and Measured, the common linear millimeter axis, and the numeric values beside the bars. Avoid perspective or decorative lengths that distort their ratio. Retain the caption's reference to the preliminary-evidence section for the sampling context.
 
-**Message:** Three alternative numerical supervision regimes train a common native action expert, but only its action-generation parameters transfer to the standard multimodal task policy.
+## Figure 2: What the action expert learns and retains
 
-Use two regions. Left: numerical observations and action chunks → three alternative endpoint inputs P, K, D → temporary effect projector → native action expert. Distinguish this as alternatives, not sequential stages. Right: images and instruction → frozen vision-language encoder; robot state → native state projector; both condition the retained action expert → action chunk. A single transfer arrow should link the trained action expert to itself across the panels. Mark the temporary projector as discarded. Draw neither a physical parameter predictor nor an additional deployed module. Use labels and symbols consistent with Section III and Eq. (4).
+**Publication source:** `figures/transfer.pdf`. **Editable sources:** `figures/transfer.svg` and `figures/transfer_editable.pptx`.
 
-## Figure 3: What the acquisition evidence establishes
+The architecture keeps two connected phases. Numerical learning supplies a robot observation, an action-training target and one of three alternative conditions. Task learning supplies images, a language instruction and robot state to the retained action generator. The central visual message is the distinction between the temporary effect-conditioning interface and the action-generation parameters that carry across phases.
 
-**Message:** Measured-effect pretraining produces goal-sensitive actions in the numerical pilot; the plot is not a downstream VLA transfer ranking.
+The nominal branch uses the initial observation and command chunk. Only the measured branch uses the subsequent observed outcome. P has a neutral condition. Do not draw future observations entering the native state input or all three regimes. Depict the action-training target through its flow/noise training pathway, rather than as a clean action copied directly to the output.
 
-Panel (a): D's joint endpoint attainment on matched (89.1%, 78.1%), masked (12.5%, 20.3%), and alternative (6.3%, 1.6%) goals for seeds 101 and 202.
+The vision-language backbone stays frozen. The native state projector is frozen during numerical pretraining and trainable during task fine-tuning. The action generator is trainable in both phases. The temporary effect projector is discarded; no effect token or additional effect module remains at deployment. Keep the transfer arrow on retained parameters, not on a claimed learned dynamics model.
 
-Panel (b): shared measured goals: P (14.1%, 20.3%), K (51.6%, 50.0%), and D (89.1%, 78.1%). Show the 29.7% analytic zero-displacement reference as a dashed line, marked **not an executed policy**. Label K's input as out of its nominal-goal training distribution. Use the same seed encodings across both panels. State that each seed covers 64 goals and that joint attainment requires 10 mm translation and 5 degrees rotation accuracy.
+Open the PPTX to edit labels and diagram elements. Use the SVG when working in a vector editor. The manuscript PDF outlines Figure 2 lettering for portable vector rendering, so editing that exported lettering is less convenient than editing the source. After any revision, re-export the publication PDF and inspect it at the final two-column paper width. Icons must clarify inputs, conditions or transfer; avoid decoration that competes with these paths.
 
-### Presentation checks
+## Figure 3: Numerical goals influence generated actions
 
-Keep the figures vector-editable; ensure that grayscale printing retains dashed/solid differentiation. Test font size at the final paper scale. Every figure and table is referenced in the manuscript text. Avoid code names, file paths, GPU details, and training logs in figure labels or captions.
+**Source:** `figures/acquisition.tex`.
+
+Panel (a) reports D's original-target attainment for matched inputs (89.1%, 78.1%), masked inputs (12.5%, 20.3%) and mismatched inputs (6.3%, 1.6%). The mismatched-input test is still scored against the **original target**. Low original-target attainment shows sensitivity to changing the supplied condition; it does not measure successful attainment of the alternative goal.
+
+Panel (b) uses a common measured-goal test: P (14.1%, 20.3%), K (51.6%, 50.0%) and D (89.1%, 78.1%). This changes K's conditioning distribution from its nominal training goals. It is not the downstream task comparison. The 29.7% dashed reference is the analytic zero-displacement reference, not an executed zero-action policy. Each seed has 64 targets; the joint tolerance is 10 mm translation and 5 degrees rotation.
+
+Keep the same seed encodings in both panels, a zero-based percentage axis and labels that remain distinguishable in grayscale. The accompanying text retains K's separate native nominal-goal result, 1/64 and 0/64 at the strict joint tolerance.
+
+## Final checks
+
+Every figure is referenced in the paper. Check label size at paper scale, caption consistency, vector rendering, grayscale legibility and absence of overlaps. Do not replace these evidence plots with generated imagery or add inferred measurements. The v5.5 release passed these checks, including the outlined Figure 2 export and the complete official-class manuscript PDF.

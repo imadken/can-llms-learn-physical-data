@@ -1,43 +1,34 @@
-# RSS 2027 Stage 1 anonymous manuscript
+# RSS 2027 Stage 1 manuscript, revision v5.5
 
-## Stage 1 scientific-writing revision v5.4
+**What Transfers from Effect-Conditioned Action Pretraining to Vision-Language-Action Policies?**
 
-This branch retains the locked Stage 1 scientific design and all displayed pilot results. It sharpens introductory positioning, defines the endpoint-effect terminology and the rotation logarithm, explains the conditional flow objective, and removes colored hyperlink boxes. The earlier scientific submission and v5.3 editorial versions remain available on their original branches.
+This revision develops the scientific narrative from the supervision question through the method, preliminary evidence and planned transfer study. The five regimes, paired comparisons, training schedules and audited pilot observations retain the locked research design. No new training or experimental result is introduced.
 
-The revised PDF uses three figures: **Fig. 1** an opening commanded-versus-observed example (`figures/motion_example.tex`), **Fig. 2** the numerical-to-multimodal transfer pathway (`figures/transfer.tex`), and **Fig. 3** the exploratory goal-acquisition evidence (`figures/acquisition.tex`). See `SCIENTIFIC_WRITING_AUDIT.md` and `FIGURE_REDRAW_GUIDE.md` for editorial and redraw details.
+## Contents
 
-The local editorial preview was compiled with the system IEEEtran v1.8b. **Build with the committed official IEEEtran v1.7a class using `make` before uploading the conference PDF.**
+- `main.tex` and `references.bib`: anonymous Stage 1 manuscript and verified bibliography.
+- `figures/motion_example.tex`: empirical nominal/measured translation comparison for Figure 1.
+- `figures/transfer.pdf`: publication version of Figure 2, with outlined lettering; `transfer.svg` and `transfer_editable.pptx` provide editable versions.
+- `figures/acquisition.tex`: Figure 3, with mismatched goals scored against the original target.
+- `SCIENTIFIC_WRITING_AUDIT.md`: editorial decisions, reference verification and retained analysis commitments.
+- `FIGURE_REDRAW_GUIDE.md`: figure meanings, edit instructions and interpretation constraints.
 
+The audit and figure guide are author-facing working documents. They are not manuscript supplements. RSS Stage 1 accepts no supplementary material, so the PDF contains the scientific essentials.
 
-**Title:** What Transfers from Effect-Conditioned Action Pretraining to Vision-Language-Action Policies?
+## Build
 
-This folder contains the paper only. Experimental code, datasets and private audit artifacts remain outside it.
+Run `make` in `paper/rss2027_stage1/`, with LaTeX, latexmk, BibTeX, natbib, plainnat, TikZ, PGFPlots and the packages imported by `main.tex` installed. The Makefile selects `template/IEEEtran.cls` explicitly through `TEXINPUTS`. The template script checks the official class and obtains it from the conference archive if absent.
 
-## Build with the official RSS class
+The build uses the unmodified RSS class **IEEEtran 2007/03/05 V1.7a**, SHA-256:
 
-The *unmodified* official RSS LaTeX kit's IEEEtran.cls **V1.7a** is committed under `template/`. It was extracted from the RSS conference's official archive at https://roboticsconference.org/docs/paper-template-latex.tar.gz. The archive SHA256 is `ffc8b8053bd218ba9be4c93a569de4c2f36c7f70ae8d2245c747611bed697271`. The exact class SHA256 is `d63d4bf27f29603a733d06e27ba5fbb40488acf9d1d696354a88b886758f70a7`.
-
-From this directory:
-
-```bash
-make template
-make
-make check
+```text
+d63d4bf27f29603a733d06e27ba5fbb40488acf9d1d696354a88b886758f70a7
 ```
 
-`make` uses `TEXINPUTS` to load the committed official class, *not* your TeX installation's potentially newer IEEEtran class. No Internet access is needed if the committed class is present. Do not modify the class, paper size, font sizes, margins, or spacing.
+The current official-class build has **six pages: five content pages and one reference page**. This replaces the earlier system-class preview. Run `make check` for page and font information; it does not replace visual inspection or reference checks.
 
-GitHub Actions builds with the pinned official **V1.7a** class on `main`, the paper branch, and pull requests targeting `main`. It verifies the class checksum and compiled version banner, requires five pages with resolved citations/references and no overfull horizontal boxes, and uploads the PDF and build log. Download the artifact for the exact commit being reviewed, then inspect its layout before submission. Local builds use the same committed class.
+## Final production check
 
-## Editing
+The 25 November 2026 release was built with the pinned official class and checked page by page. It has five content pages followed by exactly one reference page, resolved citations and cross-references, no overfull boxes or clipped content, readable figure labels, anonymous PDF metadata, and only embedded Type 1 fonts. Figure 2 lettering is outlined as vector paths in the publication PDF; the PowerPoint and SVG remain editable. Recheck the export after any subsequent edit.
 
-- `main.tex`: full anonymous draft, entry point for compilation.
-- `figures/transfer.tex`: editable vector thesis/transfer figure.
-- `figures/acquisition.tex`: editable vector pilot figure.
-- `references.bib`: citation database used by `plainnat.bst`; the manuscript uses the RSS kit's required `natbib` + `plainnat` workflow. BibTeX is invoked automatically by `latexmk`.
-- `FIGURE_REDRAW_GUIDE.md`: precise scientific specification of both figures.
-- `SUBMISSION_CHECKLIST.md`: production and anonymity checks.
-
-The figure sketch PowerPoint is delivered separately in the ChatGPT conversation and can be copied into this directory if desired. The submission uses editable LaTeX figures until they are explicitly replaced.
-
-**Privacy:** this GitHub repository is public. The branch's anonymous paper source should not be linked from the submission; consider making the repository private before review to protect double-blind anonymity.
+Author walkthroughs, if included outside the paper directory, are teaching material rather than part of the anonymous submission.

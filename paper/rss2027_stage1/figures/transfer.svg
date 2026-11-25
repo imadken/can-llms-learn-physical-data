@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="800" viewBox="0 0 2000 800"><rect width="2000" height="800" fill="#FFFFFF"/><text x="30" y="51.6" font-family="Liberation Sans, Arial, sans-serif" font-size="40" font-weight="700" fill="#173142" text-anchor="start"><tspan x="30" y="51.6">(a) Numerical intermediate pretraining</tspan></text>
+<text x="30" y="102.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="400" fill="#536775" text-anchor="start"><tspan x="30" y="102.54">Same actions, one of three conditioning signals</tspan></text>
+<text x="1100" y="51.6" font-family="Liberation Sans, Arial, sans-serif" font-size="40" font-weight="700" fill="#173142" text-anchor="start"><tspan x="1100" y="51.6">(b) Multimodal task training</tspan></text>
+<text x="1100" y="102.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="400" fill="#536775" text-anchor="start"><tspan x="1100" y="102.54">Task context, retained action generator</tspan></text>
+<polyline points="1065,20 1065,680" fill="none" stroke="#D4DEE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="30" y="135" width="235" height="158" rx="10" fill="#F1F4F6" stroke="#647787" stroke-width="2.5"/>
+<text x="59.5" y="176.56" font-family="Liberation Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#647787" text-anchor="middle"><tspan x="59.5" y="176.56">P</tspan></text>
+<text x="147.5" y="271.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#647787" text-anchor="middle"><tspan x="147.5" y="271.52">Action prior</tspan></text>
+<text x="147" y="219.66" font-family="Liberation Sans, Arial, sans-serif" font-size="49" font-weight="700" fill="#647787" text-anchor="middle"><tspan x="147" y="219.66">0</tspan></text>
+<text x="147.5" y="328.18" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="147.5" y="328.18">Neutral condition</tspan></text>
+<rect x="285" y="135" width="235" height="158" rx="10" fill="#FFF7E8" stroke="#B67B1E" stroke-width="2.5"/>
+<text x="314.5" y="176.56" font-family="Liberation Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#B67B1E" text-anchor="middle"><tspan x="314.5" y="176.56">K</tspan></text>
+<text x="402.5" y="271.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#B67B1E" text-anchor="middle"><tspan x="402.5" y="271.52">Nominal effect</tspan></text>
+<polyline points="331,218 480,218" fill="none" stroke="#CFDBE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="332" cy="207" rx="7" ry="7" fill="#FFFFFF" stroke="#B67B1E" stroke-width="2.5"/>
+<polyline points="332,207 470,207" fill="none" stroke="#B67B1E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="470,207 455,201 455,213" fill="#B67B1E"/>
+<ellipse cx="470" cy="207" rx="8" ry="8" fill="#B67B1E" stroke="none" stroke-width="0"/>
+<text x="402.5" y="328.18" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="402.5" y="328.18">From commands</tspan></text>
+<rect x="540" y="135" width="235" height="158" rx="10" fill="#E8F6F4" stroke="#268C8D" stroke-width="2.5"/>
+<text x="569.5" y="176.56" font-family="Liberation Sans, Arial, sans-serif" font-size="34" font-weight="700" fill="#268C8D" text-anchor="middle"><tspan x="569.5" y="176.56">D</tspan></text>
+<text x="657.5" y="271.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#268C8D" text-anchor="middle"><tspan x="657.5" y="271.52">Measured effect</tspan></text>
+<polyline points="586,218 735,218" fill="none" stroke="#CFDBE4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="587" cy="207" rx="7" ry="7" fill="#FFFFFF" stroke="#268C8D" stroke-width="2.5"/>
+<polyline points="587,207 665,207" fill="none" stroke="#268C8D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="665,207 650,201 650,213" fill="#268C8D"/>
+<ellipse cx="665" cy="207" rx="8" ry="8" fill="#268C8D" stroke="none" stroke-width="0"/>
+<text x="657.5" y="328.18" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="657.5" y="328.18">From observations</tspan></text>
+<polyline points="148,338 148,352 455,352" fill="none" stroke="#647787" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="658,338 658,352 455,352" fill="none" stroke="#268C8D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="403,338 403,352" fill="none" stroke="#B67B1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="455,352 455,375" fill="none" stroke="#7961A9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="455,375 461,360 449,360" fill="#7961A9"/>
+<rect x="325" y="375" width="355" height="75" rx="10" fill="#F5F0FB" stroke="#7961A9" stroke-width="2.5" stroke-dasharray="10 7"/>
+<text x="502.5" y="405.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#7961A9" text-anchor="middle"><tspan x="502.5" y="405.54">Effect projector</tspan></text>
+<text x="502.5" y="437.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="400" fill="#7961A9" text-anchor="middle"><tspan x="502.5" y="437.52">Temporary goal token</tspan></text>
+<text x="502.5" y="478.18" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="400" fill="#7961A9" text-anchor="middle"><tspan x="502.5" y="478.18">Removed before task training</tspan></text>
+<polyline points="44.5,551.75 116,551.75" fill="none" stroke="#D4DEE4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="51.65" y="540.75" width="40.7" height="11" rx="2.2" fill="#EFF3F5" stroke="#536775" stroke-width="1.6500000000000001"/>
+<polyline points="72,540.75 59.9,511.6 90.15,491.25 109.4,506.1" fill="none" stroke="#536775" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="72" cy="540.75" rx="4.4" ry="4.4" fill="#FFFFFF" stroke="#536775" stroke-width="1.6500000000000001"/>
+<ellipse cx="59.9" cy="511.6" rx="4.4" ry="4.4" fill="#FFFFFF" stroke="#536775" stroke-width="1.6500000000000001"/>
+<ellipse cx="90.15" cy="491.25" rx="4.4" ry="4.4" fill="#FFFFFF" stroke="#536775" stroke-width="1.6500000000000001"/>
+<polyline points="109.4,506.1 109.4,518.75 116.55000000000001,518.75" fill="none" stroke="#536775" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="109.4,506.1 122.05000000000001,506.1 122.05000000000001,513.25" fill="none" stroke="#536775" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="207" y="542.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="207" y="542.54">Robot state</tspan></text>
+<rect x="325" y="504" width="275" height="66" rx="10" fill="#EFF3F5" stroke="#9AABB6" stroke-width="2.5"/>
+<text x="445" y="532.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="445" y="532.52">State projector</tspan></text>
+<text x="460" y="560.84" font-family="Liberation Sans, Arial, sans-serif" font-size="26" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="460" y="560.84">Frozen</tspan></text>
+<rect x="566" y="522" width="23" height="20" rx="3" fill="#9AABB6" stroke="none" stroke-width="0"/>
+<polyline points="571,522 571,514 574,510 582,510 585,514 585,522" fill="none" stroke="#9AABB6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="297,537 325,537" fill="none" stroke="#728694" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="325,537 310,531 310,543" fill="#728694"/>
+<rect x="40" y="608" width="17" height="50" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="62" y="606" width="17" height="54" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="84" y="604" width="17" height="58" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="106" y="602" width="17" height="62" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="128" y="600" width="17" height="66" rx="3" fill="#536775" stroke="none" stroke-width="0"/>
+<text x="230" y="626.28" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="230" y="626.28">Action</tspan><tspan x="230" y="658.76">chunk</tspan></text>
+<rect x="325" y="602" width="325" height="71" rx="10" fill="#FFFFFF" stroke="#D4DEE4" stroke-width="2.5"/>
+<text x="487.5" y="630.78" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="400" fill="#173142" text-anchor="middle"><tspan x="487.5" y="630.78">Noisy actions</tspan><tspan x="487.5" y="663.26">+ flow time</tspan></text>
+<polyline points="300,638 325,638" fill="none" stroke="#728694" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="325,638 310,632 310,644" fill="#728694"/>
+<rect x="785" y="480" width="230" height="165" rx="13" fill="#EEF5FC" stroke="#285F99" stroke-width="3"/>
+<polyline points="845,498 900,493" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="845,498 900,525" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="845,530 900,493" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="845,530 900,525" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="900,493 955,498" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="900,493 955,530" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="900,525 955,498" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="900,525 955,530" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="845" cy="498" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="845" cy="530" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="900" cy="493" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="900" cy="525" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="955" cy="498" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="955" cy="530" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<text x="900" y="581.22" font-family="Liberation Sans, Arial, sans-serif" font-size="33" font-weight="700" fill="#285F99" text-anchor="middle"><tspan x="900" y="581.22">Action expert</tspan></text>
+<text x="900" y="619.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="400" fill="#285F99" text-anchor="middle"><tspan x="900" y="619.52">Trainable</tspan></text>
+<polyline points="680,412 734,412 734,515 785,515" fill="none" stroke="#7961A9" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="785,515 770,509 770,521" fill="#7961A9"/>
+<polyline points="600,537 785,537" fill="none" stroke="#728694" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="785,537 770,531 770,543" fill="#728694"/>
+<polyline points="650,638 724,638 724,610 785,610" fill="none" stroke="#728694" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="785,610 770,604 770,616" fill="#728694"/>
+<text x="897.5" y="465.18" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="897.5" y="465.18">Native flow objective</tspan></text>
+<rect x="1125" y="152" width="205" height="110" rx="7" fill="#FFFFFF" stroke="#B8C7D1" stroke-width="2"/>
+<rect x="1105" y="137" width="205" height="110" rx="7" fill="#F2F6F8" stroke="#9AABB6" stroke-width="2.5"/>
+<polyline points="1140,232.4 1207.6,232.4" fill="none" stroke="#D4DEE4" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1146.76" y="222" width="38.480000000000004" height="10.4" rx="2.08" fill="#EFF3F5" stroke="#536775" stroke-width="1.56"/>
+<polyline points="1166,222 1154.56,194.44 1183.16,175.2 1201.36,189.24" fill="none" stroke="#536775" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1166" cy="222" rx="4.16" ry="4.16" fill="#FFFFFF" stroke="#536775" stroke-width="1.56"/>
+<ellipse cx="1154.56" cy="194.44" rx="4.16" ry="4.16" fill="#FFFFFF" stroke="#536775" stroke-width="1.56"/>
+<ellipse cx="1183.16" cy="175.2" rx="4.16" ry="4.16" fill="#FFFFFF" stroke="#536775" stroke-width="1.56"/>
+<polyline points="1201.36,189.24 1201.36,201.2 1208.12,201.2" fill="none" stroke="#536775" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1201.36,189.24 1213.32,189.24 1213.32,196" fill="none" stroke="#536775" stroke-width="2.08" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1233" y="200" width="28" height="29" rx="2" fill="#E8F6F4" stroke="#268C8D" stroke-width="2"/>
+<text x="1217.5" y="297.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="1217.5" y="297.54">Images</tspan></text>
+<rect x="1105" y="330" width="225" height="68" rx="10" fill="#FFFFFF" stroke="#9AABB6" stroke-width="2.5"/>
+<text x="1217.5" y="372.36" font-family="Liberation Sans, Arial, sans-serif" font-size="29" font-weight="400" fill="#173142" text-anchor="middle"><tspan x="1217.5" y="372.36">“Move the cup”</tspan></text>
+<polygon points="1142,398 1164,398 1144,413" fill="#FFFFFF"/>
+<polyline points="1142,398 1144,413 1164,398" fill="none" stroke="#9AABB6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1220" y="451.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="1220" y="451.54">Task instruction</tspan></text>
+<rect x="1410" y="210" width="300" height="146" rx="10" fill="#EFF3F5" stroke="#9AABB6" stroke-width="2.5"/>
+<text x="1560" y="258.08000000000004" font-family="Liberation Sans, Arial, sans-serif" font-size="33" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="1560" y="258.08000000000004">Vision-language</tspan><tspan x="1560" y="296.36">encoder</tspan></text>
+<text x="1560" y="339.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="1560" y="339.52">Frozen</tspan></text>
+<rect x="1675" y="326" width="23" height="20" rx="3" fill="#9AABB6" stroke="none" stroke-width="0"/>
+<polyline points="1680,326 1680,318 1683,314 1691,314 1694,318 1694,326" fill="none" stroke="#9AABB6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1330,208 1370,208 1370,255 1410,255" fill="none" stroke="#728694" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1410,255 1395,249 1395,261" fill="#728694"/>
+<polyline points="1330,367 1370,367 1370,307 1410,307" fill="none" stroke="#728694" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1410,307 1395,301 1395,313" fill="#728694"/>
+<polyline points="1114.5,554.75 1186,554.75" fill="none" stroke="#D4DEE4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1121.65" y="543.75" width="40.7" height="11" rx="2.2" fill="#EFF3F5" stroke="#536775" stroke-width="1.6500000000000001"/>
+<polyline points="1142,543.75 1129.9,514.6 1160.15,494.25 1179.4,509.1" fill="none" stroke="#536775" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1142" cy="543.75" rx="4.4" ry="4.4" fill="#FFFFFF" stroke="#536775" stroke-width="1.6500000000000001"/>
+<ellipse cx="1129.9" cy="514.6" rx="4.4" ry="4.4" fill="#FFFFFF" stroke="#536775" stroke-width="1.6500000000000001"/>
+<ellipse cx="1160.15" cy="494.25" rx="4.4" ry="4.4" fill="#FFFFFF" stroke="#536775" stroke-width="1.6500000000000001"/>
+<polyline points="1179.4,509.1 1179.4,521.75 1186.55,521.75" fill="none" stroke="#536775" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1179.4,509.1 1192.05,509.1 1192.05,516.25" fill="none" stroke="#536775" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1267.5" y="545.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="1267.5" y="545.54">Robot state</tspan></text>
+<rect x="1105" y="611" width="250" height="66" rx="10" fill="#EEF5FC" stroke="#285F99" stroke-width="2.5"/>
+<text x="1230" y="639.2" font-family="Liberation Sans, Arial, sans-serif" font-size="30" font-weight="700" fill="#285F99" text-anchor="middle"><tspan x="1230" y="639.2">State projector</tspan></text>
+<text x="1230" y="667.84" font-family="Liberation Sans, Arial, sans-serif" font-size="26" font-weight="400" fill="#285F99" text-anchor="middle"><tspan x="1230" y="667.84">Trainable</tspan></text>
+<polyline points="1225,565 1225,611" fill="none" stroke="#728694" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1225,611 1231,596 1219,596" fill="#728694"/>
+<rect x="1435" y="480" width="295" height="165" rx="13" fill="#EEF5FC" stroke="#285F99" stroke-width="3"/>
+<polyline points="1527,498 1582,493" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1527,498 1582,525" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1527,530 1582,493" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1527,530 1582,525" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1582,493 1637,498" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1582,493 1637,530" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1582,525 1637,498" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="1582,525 1637,530" fill="none" stroke="#95C8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="1527" cy="498" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="1527" cy="530" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="1582" cy="493" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="1582" cy="525" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="1637" cy="498" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<ellipse cx="1637" cy="530" rx="7" ry="7" fill="#FFFFFF" stroke="#285F99" stroke-width="2.5"/>
+<text x="1582.5" y="581.22" font-family="Liberation Sans, Arial, sans-serif" font-size="33" font-weight="700" fill="#285F99" text-anchor="middle"><tspan x="1582.5" y="581.22">Action expert</tspan></text>
+<text x="1582.5" y="619.52" font-family="Liberation Sans, Arial, sans-serif" font-size="28" font-weight="400" fill="#285F99" text-anchor="middle"><tspan x="1582.5" y="619.52">Trainable</tspan></text>
+<polyline points="1560,356 1560,480" fill="none" stroke="#728694" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1560,480 1566,465 1554,465" fill="#728694"/>
+<text x="1660" y="418.18" font-family="Liberation Sans, Arial, sans-serif" font-size="27" font-weight="400" fill="#536775" text-anchor="middle"><tspan x="1660" y="418.18">Task context</tspan></text>
+<polyline points="1355,644 1395,644 1395,609 1435,609" fill="none" stroke="#285F99" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1435,609 1420,603 1420,615" fill="#285F99"/>
+<rect x="1817" y="507" width="17" height="50" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="1839" y="505" width="17" height="54" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="1861" y="503" width="17" height="58" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="1883" y="501" width="17" height="62" rx="3" fill="#B5D9D8" stroke="none" stroke-width="0"/>
+<rect x="1905" y="499" width="17" height="66" rx="3" fill="#285F99" stroke="none" stroke-width="0"/>
+<text x="1876.5" y="608.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#173142" text-anchor="middle"><tspan x="1876.5" y="608.54">Task actions</tspan></text>
+<polyline points="1730,547 1804,547" fill="none" stroke="#285F99" stroke-width="3.3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1804,547 1789,541 1789,553" fill="#285F99"/>
+<polyline points="900,645 900,745 1582,745 1582,645" fill="none" stroke="#285F99" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1582,645 1576,660 1588,660" fill="#285F99"/>
+<rect x="987" y="720" width="516" height="50" rx="0" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<text x="1245" y="755.54" font-family="Liberation Sans, Arial, sans-serif" font-size="31" font-weight="700" fill="#285F99" text-anchor="middle"><tspan x="1245" y="755.54">Retain action-generation weights</tspan></text></svg>

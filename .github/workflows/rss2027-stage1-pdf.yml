@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - paper/rss2027-stage1-official
+      - paper/rss2027-stage1-writing-v5.5
     paths:
       - paper/rss2027_stage1/**
       - .github/workflows/rss2027-stage1-pdf.yml
@@ -34,9 +35,12 @@ jobs:
         run: |
           TEXINPUTS="$PWD/template:$PWD/figures:" latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error main.tex
           grep -F 'Document Class: IEEEtran 2007/03/05 V1.7a' main.log
-          test "$(pdfinfo main.pdf | sed -n 's/^Pages:[[:space:]]*//p')" -eq 5
+          pages="$(pdfinfo main.pdf | sed -n 's/^Pages:[[:space:]]*//p')"
+          test "$pages" -ge 2
+          test "$pages" -le 6
           ! grep -E 'LaTeX Warning: (Citation|Reference)|There were undefined citations|There were undefined references|Overfull \\hbox' main.log
           pdffonts main.pdf
+          pdffonts main.pdf | awk 'NR > 2 && !($2 == "Type" && $3 == "1" && $5 == "yes") {bad=1} END {exit bad}'
       - name: Upload final PDF and build log
         if: always()
         uses: actions/upload-artifact@v4

@@ -1,20 +1,23 @@
 \documentclass[conference]{IEEEtran}
-% RSS author kit. Use its bundled unmodified IEEEtran.cls V1.7a at final build.
+% RSS author kit: unmodified IEEEtran.cls 2007/03/05 V1.7a.
 \usepackage{times}
 \usepackage[numbers]{natbib}
 \usepackage{multicol}
 \usepackage[bookmarks=true]{hyperref}
-\hypersetup{hidelinks}
+\hypersetup{hidelinks,
+ pdftitle={What Transfers from Effect-Conditioned Action Pretraining to Vision-Language-Action Policies?},
+ pdfauthor={Anonymous},
+ pdfsubject={RSS 2027 anonymous initial manuscript}}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{balance}
 \usepackage{tikz}
 \usetikzlibrary{positioning,arrows.meta,calc,patterns}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \newcommand{\E}{\mathbb{E}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\ind}{\mathbb{1}}
 \pagestyle{empty}
 \pdfinfo{
  /Author (Anonymous)
@@ -26,7 +29,7 @@
 \author{Author Names Omitted for Anonymous Review}
 \maketitle
 \begin{abstract}
-Numerical robot trajectories offer an opportunity to prepare a vision-language-action (VLA) policy before task-specific demonstrations are available. Yet an interaction carries several distinct supervisory signals: the actions taken, the motion requested by those actions, and the motion the robot actually executes. Which of these signals produces an initialization that remains useful for multimodal manipulation? We formulate two transfer contrasts among three intermediate pretraining regimes: a state-conditioned action prior ($P$), nominal-effect conditioning ($K$), and measured-effect conditioning ($D$). All regimes train the same SmolVLA action expert on matched trajectories using its native flow-matching objective; the temporary effect conditioner is removed before identical multimodal fine-tuning. In exploratory numerical-goal tests, $D$ attains 89.1\% and 78.1\% of 64 targets per seed, with substantially lower attainment when the supplied goal is masked or replaced. A separate low-demonstration task-training check achieves 158 successes in 200 rollouts. These observations motivate a paired Stage 2 study that will establish whether conditional action generation learned from nominal or measured effects transfers beyond an action prior and ordinary task training.
+Numerical robot experience offers a source of action learning before task-specific adaptation. Yet each interaction provides distinct supervisory signals: the actions taken, the motion requested, and the motion actually executed. Which signal prepares an action expert for subsequent vision-language-action (VLA) control? We study three intermediate pretraining regimes on the same trajectories: a state-conditioned action prior ($P$), nominal-effect conditioning ($K$), and measured-effect conditioning ($D$). Two transfer contrasts separate the value of conditioning on a numerical goal from the additional value of measuring its outcome. The regimes share an action expert and training objective; their temporary numerical conditioner is removed before identical multimodal fine-tuning. The mechanism hypothesis is that learning to generate actions from a compact motion specification develops action-generation parameters that remain useful under task conditioning. In preliminary tests, $D$ attains 89.1\% and 78.1\% of 64 measured endpoint targets per seed, with lower attainment when the supplied goal is masked or mismatched. A separate task-training check succeeds in 158 of 200 rollouts. The planned transfer study will test which numerical supervision improves task adaptation relative to an action prior and matched task-training alternatives.
 \end{abstract}
 \IEEEpeerreviewmaketitle
 
@@ -36,147 +39,178 @@ VLA policies learn manipulation from visual observations, language instructions 
 \begin{figure}[!b]
 \centering
 \resizebox{.97\columnwidth}{!}{\input{figures/motion_example.tex}}
-\caption{\textbf{Requested versus executed motion.} The same commands describe a nominal endpoint and produce a measured endpoint, motivating two distinct numerical conditioning signals (illustration).}
+\caption{\textbf{The same actions yield different effect labels.} Mean translation magnitudes in held-out pilot replays differ between nominal and measured effects. These two descriptions of a motion provide the conditioning signals compared in this study (Section~\ref{sec:preliminary}).}
 \label{fig:example}
 \end{figure}
 
-Figure~\ref{fig:example} illustrates the information difference. An action describes what the robot is asked to do, but need not specify what it actually accomplishes. For instance, a command requesting four centimeters of end-effector motion has a nominal displacement defined by the command convention and a measured displacement determined by the executed trajectory. The distinction is consequential because low-level control affects how requested actions are realized \citep{bronars2026tune}. In our exploratory robot-motion data, mean nominal translation was 56.2\,mm, compared with 13.1\,mm measured. Thus a single numerical interaction naturally provides \emph{three} possible training signals: the action itself, its nominal effect, and its observed effect.
+Figure~\ref{fig:example} illustrates the information difference. An action describes what the robot is asked to do, but need not specify what it actually accomplishes. For instance, a command requesting four centimeters of end-effector motion has a nominal displacement defined by the command convention and a measured displacement determined by the executed trajectory. The distinction is consequential because low-level control affects how requested actions are realized \citep{bronars2026tune}. In our exploratory robot-motion replays, mean nominal translation was 56.2\,mm, compared with 13.1\,mm measured. Thus a single numerical interaction naturally provides \emph{three} possible training signals: the action itself, its nominal effect, and its observed effect.
 
 These alternatives pose different learning problems. An \emph{action prior} learns how the robot tends to move from its current state. Conditioning on a \emph{nominal effect} asks the generator to turn a requested motion into actions. Conditioning on a \emph{measured effect} instead uses executed motion as the target specification. The scientific question is whether learning such conditional action generation improves subsequent manipulation, and whether observing actual effects adds value beyond command-derived goals. A comparison between a pretrained policy and standard fine-tuning cannot distinguish these possibilities.
 
 We therefore isolate two downstream contrasts, nominal conditioning against an action prior and measured conditioning against nominal conditioning. For practical context, standard task fine-tuning ($S$) and compute-matched additional task fine-tuning ($E$) provide reference policies. Our hypothesis is that the native action expert can learn a reusable mapping from state and a compact motion specification to an action chunk. Although the temporary numerical conditioning token is discarded, the resulting action-generation parameters are retained and fine-tuned using task information conveyed by images and language. Figure~\ref{fig:transfer} illustrates this transition between conditioning interfaces.
 
-The contribution is a controlled formulation of \emph{what transfers} from numerical robot experience, a native action-generation procedure that makes the supervisory alternatives comparable, and a hypothesis-driven evaluation that separates learning a numerical condition from transferring it to multimodal control. Initial evidence establishes goal-responsive action generation; the Stage 2 study resolves its downstream value.
+The contribution is a controlled formulation of \emph{what transfers} from numerical robot experience, a native action-generation procedure that makes the supervisory alternatives comparable, and a hypothesis-driven evaluation that separates learning a numerical condition from transferring it to multimodal control. Initial evidence establishes action generation responsive to measured goals; the planned study tests its downstream value.
 
 \begin{figure*}[t]
 \centering
-\resizebox{.99\textwidth}{!}{\input{figures/transfer.tex}}
-\caption{\textbf{Shared action expert, different numerical supervision.} A robot observation $r_t$ and action chunk $A_t$ are shared by $P$, $K$ and $D$. A temporary effect token conditions the native action expert $v_\theta$ during numerical pretraining. The token is removed, while the trained action generator is retained for task conditioning from images $I_t$, instruction $\ell$ and robot state.}
+\includegraphics[width=.99\textwidth]{figures/transfer.pdf}
+\caption{\textbf{Learning a numerical goal, then transferring the action expert.} $P$, $K$ and $D$ use the same action targets with alternative numerical conditions. The effect projector is temporary; the trained action-generation parameters carry over to multimodal task learning. Images and language then supply task context through the frozen backbone, while the native state projector and action generator are fine-tuned. Both phases use the native flow objective, whose inputs are shown once for clarity.}
 \label{fig:transfer}
 \end{figure*}
 
 \section{Related Work}
-\textbf{Pretraining robot action generators.} Prior work exploits unlabeled or task-agnostic robot experience in several forms. Manipulation-centric representation learning \citep{jiang2025mcr} and visual inverse dynamics on autonomous play in TAP \citep{shi2026tap} seek reusable experience before task adaptation. AR-VLA \citep{hu2026arvla} independently pretrains an autoregressive action expert, while APT \citep{xu2026apt} learns a vision-action prior before introducing language. Pose-VLA \citep{lin2026pose} instead emphasizes transferable pose representations. Together these approaches motivate staged learning, while leaving open how the \emph{choice of numerical supervision} affects transfer when the retained generator and trajectories are held fixed.
+\textbf{Pretraining robot action generators.} Prior work exploits unlabeled or task-agnostic robot experience in several forms. Manipulation-centric representation learning \citep{jiang2025mcr} and visual inverse dynamics on autonomous play in Task-Agnostic Pretraining (TAP) \citep{shi2026tap} seek reusable experience before task adaptation. The autoregressive action expert AR-VLA \citep{hu2026arvla} is independently pretrained, while Action Expert Pretraining (APT) \citep{xu2026apt} learns a vision-action prior before introducing language. Pose-VLA \citep{lin2026pose} instead emphasizes transferable pose representations. Together these approaches motivate staged learning, while leaving open how the \emph{choice of numerical supervision} affects transfer when the retained generator and trajectories are held fixed.
 
-\textbf{Learning from anticipated and observed effects.} Predictive sensorimotor representation learning in PSR \citep{li2026psr} uses forecasts of future sensorimotor responses; SLIM \citep{wang2026slim} couples action reconstruction with future-latent prediction. Our comparison differs at the learning interface: a measured endpoint is supplied as a temporary \emph{condition} for generating actions, rather than predicted as a separate output. We use the flow-matching action expert of SmolVLA \citep{shukor2025smolvla,lipman2023flow,black2025pi0} and evaluate transfer on the language-conditioned LIBERO tasks \citep{liu2023libero}. This isolates the supervisory signal while keeping the deployed action-generation interface unchanged.
+\textbf{Learning from anticipated and observed effects.} Predictive Sensorimotor Representation (PSR) learning \citep{li2026psr} forecasts future forces, joint effort and joint displacement, then retains its predictive hierarchy to augment action generation. The Self-supervised Latent Interaction Model (SLIM) \citep{wang2026slim} combines inverse dynamics with future-latent prediction. Measured-effect conditioning is itself a form of goal-conditioned inverse-dynamics learning: actions are generated from the current observation and a compact summary of their observed outcome, related to TAP's use of consecutive observations \citep{shi2026tap}. Our contribution is the controlled decomposition of this learning signal into an action prior, a command-derived goal and a measured goal. The same flow-matching action generator \citep{lipman2023flow,black2025pi0} is retained throughout, and the numerical condition is removed for deployment.
 
 \section{Problem Formulation}
-\subsection{Numerical interactions and endpoint effects}
-Consider a corpus of robot observations and the action chunks executed between them. A training instance is $(r_t,A_t,r_{t+H})$, where $r_t\in\R^8$ contains end-effector pose and gripper coordinates and $A_t=(a_t,\ldots,a_{t+H-1})\in\R^{H\times7}$ contains $H=16$ Cartesian and gripper commands. Let $p_t\in\R^3$ and $R_t\in\mathrm{SO}(3)$ be the observed end-effector position and orientation. An \emph{endpoint effect} describes the net translation and rotation over a chunk; when given to the generator, it serves as a numerical motion goal. The \emph{measured effect} is
+\subsection{Actions, nominal effects and measured effects}
+Consider a robot observation $r_t\in\R^{d_r}$ at time $t$ and an action $a_t\in\R^{d_a}$, where $\R$ denotes the real numbers and $d_r$ and $d_a$ are the observation and action dimensions. An action chunk $A_t=(a_t,\ldots,a_{t+H-1})\in\R^{H\times d_a}$ contains $H$ consecutive commands. A numerical training instance is $(r_t,A_t,r_{t+H})$. We define an \emph{effect} as a fixed numerical description of the change over a chunk. With effect dimension $d_e$, the measured and nominal effects are
 \begin{equation}
- e_t^{D}=\begin{bmatrix}p_{t+H}-p_t\\ \operatorname{Log}(R_t^\top R_{t+H})\end{bmatrix}\in\R^6,
+ e_t^D=\phi(r_t,r_{t+H}),\qquad e_t^K=G(r_t,A_t)
+ \quad\in\R^{d_e}.
+ \label{eq:effects_general}
+\end{equation}
+The observation map $\phi$ summarizes an executed outcome. The command map $G$ describes the outcome under the ideal command convention, using only the initial observation and action chunk. When supplied to the action expert, either effect serves as a numerical goal. Thus $P$, $K$ and $D$ learn from identical action targets but differ in the information supplied to explain those actions.
+
+This formulation accommodates different choices of robot effect. We instantiate it with end-effector motion for manipulation: both translation and rotation are represented, while gripper commands remain part of the action target. Let $p_t\in\R^3$ be the end-effector position in the world frame, and let $R_t\in\mathrm{SO}(3)$ map end-effector coordinates to that frame. Here $\mathrm{SO}(3)$ is the set of proper three-dimensional rotation matrices, which are orthogonal $3\times3$ matrices with determinant one. The six-dimensional measured effect is
+\begin{equation}
+ e_t^D=\begin{bmatrix}
+ p_{t+H}-p_t\\
+ \operatorname{Log}(R_t^\top R_{t+H})
+ \end{bmatrix}\in\R^6.
  \label{eq:effect}
 \end{equation}
-Here $\operatorname{Log}:\mathrm{SO}(3)\to\R^3$ denotes the rotation-vector form of the matrix logarithm of the relative orientation. This measured effect is defined only after the chunk has been executed. In contrast, the \emph{nominal effect}, $e_t^{K}=G(r_t,A_t)$, is computed from the initial pose and the ideal command mapping, with its prescribed scaling, clipping, coordinate conventions and limits. It requires no subsequent observations or realized controller targets. The nominal map thus provides an outcome-free reference for the supervisory information contributed by measurement.
+The superscript $\top$ denotes transpose. $\operatorname{Log}$ returns the principal rotation vector: its direction gives the relative rotation axis in the initial end-effector frame, and its length gives the angle in radians. We use the branch with angle below $\pi$. Translation is measured in meters in the world frame. The nominal map composes ideal pose commands with the controller's scaling, clipping, frame conventions and limits, without subsequent observations or realized controller targets. $D$ substitutes its measured label for $K$'s nominal label; these are alternative supervision regimes.
 
-The three regimes are \emph{action prior} ($P$), which receives no informative effect; \emph{nominal-effect conditioning} ($K$), which receives $e_t^K$; and \emph{measured-effect conditioning} ($D$), which receives $e_t^D$. They share the same initial observations and action targets. In particular, $D$ replaces $K$'s condition rather than adding a measured residual, so the comparison evaluates two supervision procedures, not an isolated representation of hidden physical parameters.
-
-\subsection{Transfer as a downstream quantity}
-The question of transfer concerns manipulation after the numerical effect token has been removed. Let $I_t$ denote task images, $\ell$ an instruction, and $\pi_{m,b}$ the policy obtained from training regime $m\in\{P,K,D,S,E\}$ using $b$ demonstrations per task. Each policy uses the ordinary deployed inputs $(I_t,\ell,r_t)$. Let $Y_{m,b,j}\in\{0,1\}$ indicate success on task $j$, with expectation over the specified training and evaluation randomness. Across the fixed task set $\mathcal{T}$, define
+\subsection{Transfer to task-conditioned control}
+The transfer question concerns task performance after removing the numerical effect token. Let $I_t$ denote task images, $\ell$ a language instruction, and $\pi_{m,b}$ the policy obtained under regime $m\in\{P,K,D,S,E\}$ using $b$ demonstrations per task. Every policy generates action chunks from the ordinary deployed inputs $(I_t,\ell,r_t)$. On a fixed task set $\mathcal T$, let $Y_{m,b,j}\in\{0,1\}$ indicate success on task $j$. Define task-balanced expected success as
 \begin{equation}
- J_b(m)=\frac{1}{|\mathcal{T}|}\sum_{j\in\mathcal{T}}\E\!\left[Y_{m,b,j}\right],
+ J_b(m)=\frac{1}{|\mathcal T|}\sum_{j\in\mathcal T}\E[Y_{m,b,j}],
  \label{eq:utility}
 \end{equation}
-where each task has equal weight. Our primary low-demonstration contrasts are
+where $|\mathcal T|$ is the number of tasks and $\E$ averages over training and evaluation randomness. The transfer contrasts are
 \begin{equation}
- C_1=J_{10}(K)-J_{10}(P),\qquad
- C_2=J_{10}(D)-J_{10}(K).
+ \begin{aligned}
+ C_1(b)&=J_b(K)-J_b(P),\\
+ C_2(b)&=J_b(D)-J_b(K).
+ \end{aligned}
  \label{eq:contrasts}
 \end{equation}
-The first contrast, $C_1$, asks whether a nominal effect improves transfer beyond learning an action prior. The second, $C_2$, asks whether measured effects provide further downstream value relative to that nominal reference. Our directional hypotheses are $H_1:C_1>0$ and $H_2:C_2>0$, although both contrasts will be estimated in either direction. We prespecify five percentage points as the smallest gain of practical interest. Both hypotheses concern downstream task success, not endpoint attainment during pretraining.
-
-
+The hypothesis $H_1:C_1(b)>0$ asks whether learning from a nominal goal improves task adaptation beyond an action prior. The hypothesis $H_2:C_2(b)>0$ asks whether measured outcomes add further value relative to that nominal reference. Both contrasts will be estimated in either direction. They concern downstream task success, separately from endpoint attainment during numerical pretraining.
 
 \section{Intermediate Pretraining and Transfer}
-The central methodological requirement is to vary \emph{supervision}, not the actions used for learning. Stage 2 therefore uses one fixed corpus of 250,000 numerical transitions from bounded arm and gripper interactions, with free-motion and contact attempts specified before collection. Neither task-success labels nor visual or linguistic inputs inform collection or intermediate training. Episodes are divided into disjoint splits before extracting action windows, and all numerical regimes use identical windows.
-\subsection{Learning actions conditioned on effects}
-Figure~\ref{fig:transfer} shows how the intervention is applied to a shared action expert. From one SmolVLA initialization, the vision-language backbone and robot-state projector remain frozen during intermediate learning. A temporary projector $h_{\eta}$ maps the numerical effect to a conditioning token, while the native action expert and its action-generation projections are trained. Because multiple action chunks can achieve the same endpoint, the native flow-matching objective learns conditional action generation without imposing a unique inverse or adding a dynamics-prediction head.
+Our method presents the same robot experience to a shared action expert through three supervisory interfaces. This isolates the role of the conditioning signal while preserving the action-learning problem. Numerical observations and actions provide the intermediate training data; images, language and task-success labels are not used in this phase. Episodes are split before extracting action windows, and every numerical regime uses identical windows.
 
-To make the conditions comparable, $z$ standardizes effects using only the nominal-effect statistics of the numerical training split. We set $q_t^P=0$, $q_t^K=z(e_t^K)$ and $q_t^D=z(e_t^D)$; hence $P$ has a neutral token, and $K$ and $D$ share one coordinate transformation. With Gaussian action noise $\epsilon$ and flow time $\tau\in[0,1]$, let $Z_\tau=(1-\tau)A_t+\tau\epsilon$ and $u_t=\epsilon-A_t$. Each regime $m\in\{P,K,D\}$ minimizes
+\subsection{Learning actions from numerical goals}
+Figure~\ref{fig:transfer} shows the common learning pathway. Each regime starts from the same pretrained VLA parameters. During intermediate learning, the vision-language backbone and native robot-state projector remain frozen. A temporary linear projector $h_\eta$, with parameters $\eta$, maps the effect to a conditioning token. The native action expert and its action, time and output projections, collectively parameterized by $\theta$, are trained. An effect can be achieved by several action chunks, so we model conditional action generation with the native flow-matching objective \citep{lipman2023flow}.
+
+A shared transformation $z$ standardizes each effect coordinate using the nominal-effect mean and standard deviation from the numerical training split, with fixed scale floors. We set $q_t^P=\mathbf 0$, $q_t^K=z(e_t^K)$ and $q_t^D=z(e_t^D)$, where $\mathbf 0\in\R^{d_e}$ is a neutral condition. Projector initialization is scaled to the native state-token magnitude. The projected token $h_\eta(q_t^m)$ is attention-masked independently with probability 0.2, encouraging action generation with and without the numerical goal. Let $c_t^m$ denote this token together with its attention mask.
+
+Let $\bar A_t$ denote the normalized action target in the model's native coordinates, including any padding. Draw a same-shaped matrix $\epsilon$ of independent standard Gaussian entries and a flow time $\tau\in[0,1]$ from the native time distribution. The interpolated action is $Z_\tau=(1-\tau)\bar A_t+\tau\epsilon$, with target velocity $u_t=\epsilon-\bar A_t$. Regime $m\in\{P,K,D\}$ minimizes
 \begin{equation}
- \mathcal{L}_m=\E_{t,\epsilon,\tau}\!\left[\left\|v_\theta\!\left(Z_\tau,\tau\mid r_t,h_{\eta}(q_t^m)\right)-u_t\right\|_2^2\right],
+ \mathcal L_m=\E\!\left[
+ \frac{\big\|[v_\theta(Z_\tau,\tau\mid r_t,c_t^m)-u_t]_{\mathrm{act}}\big\|_F^2}
+ {H d_a}\right].
  \label{eq:fm}
 \end{equation}
-The loss is evaluated over the seven action coordinates. Projector initialization is matched to the native state-token scale, and a fixed 20\% of training windows mask effect-token attention. All regimes share training windows, optimization schedules and initial native parameters. Consequently, differences between their pretrained experts arise from the specified conditioning information.
+Here $v_\theta$ is the action expert's velocity field, $[\cdot]_{\mathrm{act}}$ selects physical action coordinates, and $\|\cdot\|_F^2$ sums squared entries over those coordinates and chunk steps. The expectation includes sampled training windows, noise, flow time and token masking. Generation integrates the learned field from noise at $\tau=1$ toward actions at $\tau=0$. All regimes share initial native parameters, optimization schedules and paired random sources.
 
-\subsection{Transferring the action generator}
-The temporary projector and effect token are removed before task learning. Only the updated native action-generation weights are retained, and the optimizer is reset. Every model is then fine-tuned with the same images, instructions, robot states and demonstrations; the vision-language backbone remains frozen, and the native robot-state projector is treated identically across conditions. The resulting policies have identical deployed inputs and architecture. Transfer is established only if learning to generate actions from numerical effects improves success when the expert is subsequently conditioned by multimodal task information.
+\subsection{Reusing the action generator under task conditioning}
+The transfer hypothesis rests on the role of the condition: a numerical goal specifies a desired motion, and the expert learns to generate actions consistent with it. Multimodal fine-tuning subsequently supplies task context through images and language. The possible reusable capability resides in the action-generation parameters that connect context and robot state to coherent action chunks.
+
+Accordingly, we remove the temporary projector and effect token, retain the updated native action-generation weights and reset the optimizer. Every regime is then fine-tuned on the same task demonstrations. The vision-language backbone remains frozen; the native state projector and action generator are trainable in all regimes. Deployment uses identical inputs and architecture. The planned comparison tests whether the hypothesized reuse survives this change of conditioning interface.
 
 \begin{table}[t]
-\caption{\textbf{Numerical supervision and reference training regimes.} All downstream policies use the same deployed inputs and architecture.}
+\caption{\textbf{The supervision choices under comparison.} All regimes share the downstream architecture and inputs.}
 \label{tab:arms}
 \centering
 \footnotesize
-\begin{tabular}{@{}p{.66cm}p{2.86cm}p{3.79cm}@{}}
+\begin{tabular}{@{}p{.88cm}p{2.70cm}p{3.73cm}@{}}
 \toprule
-Arm & Numerical supervision & Training choice\\
+Regime & Numerical condition & Training choice\\
 \midrule
-$P$ & Neutral effect token & Learn an action prior\\
-$K$ & Nominal endpoint & Learn goal-conditioned actions from commands\\
-$D$ & Measured endpoint & Learn goal-conditioned actions from observations\\
+$P$ & Neutral token & Learn an action prior\\
+$K$ & Nominal effect & Generate actions from command-derived goals\\
+$D$ & Measured effect & Generate actions from observed outcomes\\
 $S$ & None & Standard task fine-tuning\\
 $E$ & None & Additional task training at matched extra compute\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:arms} includes the practical reference conditions: $S$ starts task fine-tuning directly, whereas $E$ uses an equivalent additional compute allocation on the \emph{same} task demonstrations. These references test whether numerical pretraining is preferable to spending those resources on ordinary task learning.
+Table~\ref{tab:arms} also includes the practical alternatives. $S$ starts task fine-tuning directly from the common pretrained checkpoint. $E$ adds task updates whose measured compute matches one numerical pretraining fit, using the same demonstrations and no additional examples. Its update allocation is fixed before comparing task success. These references connect the transfer contrasts to the choice of how to spend additional training resources.
 
 \section{Preliminary Evidence}
-The proposed transfer mechanism requires a distinguishable effect signal and an action expert capable of responding to numerical motion goals. We examine these prerequisites before asking whether their learned parameters improve a multimodal policy.
+\label{sec:preliminary}
+Before testing transfer, we examine whether nominal and measured effects provide distinct supervision and whether the action expert responds to a numerical goal.
 
-\textbf{Commanded and observed motion differ.} In 100 episodes from a fixed LIBERO-Goal scene (20,000 retained transitions), nominal motion averaged 56.2\,mm and 16.2$^\circ$, whereas measured motion averaged 13.1\,mm and 3.8$^\circ$. A linear predictor of the measured-versus-nominal discrepancy, using current robot state and actions, reduced held-out squared error by 99.0\% and 96.5\% relative to a training-mean predictor for translation and rotation. This pilot, which contained no movable-object contact, establishes that the command-derived and measured end-effector effects differ systematically under the selected controller.
+\textbf{Experimental setting.} We use the public SmolVLA base checkpoint (\texttt{lerobot/smolvla\_base}) \citep{shukor2025smolvla} and LIBERO-Goal \citep{liu2023libero}. Robot observations contain eight coordinates: end-effector position and axis-angle orientation, plus two gripper coordinates. Actions contain six Cartesian pose commands and one gripper command, with chunk length $H=16$. Numerical training uses batch size 128 and task fine-tuning uses 32. The native flow-time distribution is an affine transformation $0.001+0.999x$ of a draw $x$ from the beta distribution with parameters $(1.5,1)$. Effects share nominal training-split normalization with scale floors of 1\,mm and $1^\circ$. A fixed plate-pushing scene provides 100 episodes and 20,000 transitions, with held-out episodes reserved for evaluation.
 
-\textbf{The action expert responds to numerical goals.} We trained each regime for 1,000 updates with two paired seeds, then evaluated 64 endpoint targets per seed from four held-out source episodes. At a joint tolerance of 10\,mm and 5$^\circ$, $D$ attained 89.1\% and 78.1\% of matched measured goals. Removing the conditioning reduced attainment to 12.5\% and 20.3\%; substituting an alternative goal reduced it to 6.3\% and 1.6\% (Fig.~\ref{fig:acquisition}a). This contrast demonstrates target-sensitive action generation beyond what is provided by the state-conditioned action prior.
+\textbf{Nominal and measured effects provide distinct labels.} Figure~\ref{fig:example} summarizes 200 reference chunks from 100 restored snapshots in ten held-out episodes, each replayed twice. Nominal motion averaged 56.2\,mm and $16.2^\circ$, whereas measured motion averaged 13.1\,mm and $3.8^\circ$. Ridge regression from initial robot state and action chunks reduced held-out squared error of the translation and rotation discrepancies by 99.0\% and 96.5\%, respectively, relative to a training-mean predictor. The pilot contained no movable-object contact, so this result identifies a systematic controller-level distinction between the two supervision signals.
+
+\textbf{Measured goals shape the generated actions.} We trained each numerical regime for 1,000 updates with two paired seeds, then evaluated 64 endpoint targets per seed from four held-out source episodes. At a joint tolerance of 10\,mm and $5^\circ$, $D$ attained 89.1\% and 78.1\% of matched measured goals. Masking the goal reduced attainment to 12.5\% and 20.3\%; supplying a different goal reduced attainment of the \emph{original target} to 6.3\% and 1.6\% (Fig.~\ref{fig:acquisition}a). These interventions demonstrate that the measured goal influences the generated action chunk.
 
 \begin{figure*}[t]
 \centering
 \input{figures/acquisition.tex}
-\caption{\textbf{Acquisition of numerical endpoint goals.} (a) Measured-effect conditioning under matched, masked and alternative goals. (b) Attainment on common measured goals for $P$, $K$ and $D$; $K$ was trained on nominal goals, so this is a shifted conditioning test. Bars denote the two seeds, with 64 targets each. The dashed line is the analytic zero-displacement reference, not an executed policy. Joint attainment requires 10\,mm and 5$^\circ$ accuracy. These tests establish acquisition, not multimodal transfer.}
+\caption{\textbf{Measured goals influence generated actions.} (a) Original-target attainment for $D$ under matched, masked and mismatched input goals. (b) $P$, $K$ and $D$ evaluated on the same measured goals; this changes $K$'s conditioning distribution. Each pair of bars shows two seeds with 64 targets each. The dashed line is an analytic zero-displacement reference. Joint attainment requires translation error at most 10\,mm and rotation error at most $5^\circ$.}
 \label{fig:acquisition}
 \end{figure*}
 
-Figure~\ref{fig:acquisition}b provides context on the common measured-goal set: attainment was 14.1\%/20.3\% for $P$, 51.6\%/50.0\% for $K$, and 89.1\%/78.1\% for $D$, against a 29.7\% analytic zero-displacement reference. The numerical comparison is not a downstream ranking: $K$ receives goals outside its nominal training distribution, and its strict in-domain nominal attainment was 1/64 and 0/64 despite improved continuous error under matched conditions. These complementary tests identify the acquired conditional behavior and motivate the downstream comparisons defined above.
+On the common measured-goal test (Fig.~\ref{fig:acquisition}b), attainment was 14.1\%/20.3\% for $P$, 51.6\%/50.0\% for $K$ and 89.1\%/78.1\% for $D$; the analytic zero-displacement reference was 29.7\%. This comparison assesses responses to measured goals. For $K$, a separate test under its native nominal goals reduced continuous endpoint errors with matched conditioning, but reached the strict joint tolerance in only 1/64 and 0/64 cases. Thus the pilot establishes measured-goal acquisition and a conditioning response for $K$. The planned schedule will test strict nominal-goal acquisition at the larger training budget. The subsequent transfer study evaluates each regime after ordinary task fine-tuning.
 
-\textbf{Multimodal task training is operational.} A separate standard policy ($S$), trained for 5,000 updates on ten demonstrations per task, succeeded in 158 of 200 exploratory LIBERO-Goal rollouts (79.0\%). This establishes an executable low-demonstration task setting in which the transfer hypotheses can be evaluated.
+\textbf{The task setting supports downstream evaluation.} A separate standard policy ($S$), trained for 5,000 updates with ten demonstrations per task, succeeded in 158 of 200 LIBERO-Goal rollouts (79.0\%) using one training seed. This verifies an executable low-demonstration evaluation setting. The planned paired study assesses the variability and downstream benefit of the numerical initializations.
 
-\section{Stage 2: Testing Transfer}
-\subsection{Does numerical conditioning improve manipulation?}
-The measured-effect acquisition results establish that a numerical motion goal can shape generated actions. The decisive question is whether the resulting action expert improves task success after its conditioning interface changes. We evaluate the same SmolVLA initialization on all ten LIBERO-Goal tasks, using 10 and 40 demonstrations per task with separate validation data. Each paired experiment keeps the numerical corpus, action windows, optimization schedule and deployment interface fixed across $P$, $K$ and $D$. Comparison with $S$ and $E$ then reveals whether the same resources are better used for intermediate numerical experience or additional task training.
+\section{Planned Evaluation of Transfer}
+The Stage 2 study will test whether learning a numerical condition prepares the action expert for multimodal task control. We organize the evaluation around the two contrasts in Eq.~\eqref{eq:contrasts}, with the practical reference regimes determining whether numerical pretraining is useful relative to additional task learning.
 
-For each regime we evaluate eight paired training seeds and 50 fixed resets per task. Numerical pretraining uses 5,000 updates, and task fine-tuning uses 10,000; a prespecified 5,000-update task checkpoint additionally tests whether any transfer benefit persists through training. To establish acquisition independently of task performance, native $K$ and $D$ goal response is evaluated with matched, masked and alternative goals. The acquisition criterion is a 10-percentage-point improvement in joint attainment over both masked conditioning and $P$, together with reduced translation and rotation error. These tests diagnose the proposed mechanism; they do not select the downstream policy or alter the fixed training schedule.
+\subsection{Testing the transfer hypotheses}
+We will retain the same base model and evaluate all ten LIBERO-Goal tasks with 10 and 40 demonstrations per task, using separate validation data. The shared numerical corpus will contain 250,000 transitions from bounded arm and gripper interactions, with free-motion and contact attempts specified before collection and no task-success filtering. Eight paired training seeds yield 24 numerical pretraining fits and 80 multitask fine-tunes across the five regimes and two demonstration budgets.
 
-\subsection{When is a difference scientifically meaningful?}
-Our primary estimates are the paired $C_1$ and $C_2$ differences at ten demonstrations per task. The independent unit is a training seed, with task outcomes averaged equally; resets are repeated measurements of a trained policy. We use two-sided 97.5\% paired confidence intervals to control the two primary comparisons, with the prespecified practical margin $\delta=0.05$. A meaningful gain requires the interval's lower bound to exceed $\delta$; a meaningful gain is excluded if the upper bound falls below $\delta$. An interval wholly within $[-\delta,\delta]$ supports practical equivalence, while other intervals remain inconclusive. These conclusions depend on the estimated paired variability rather than episode counts alone.
+Numerical pretraining will use 5,000 updates and task fine-tuning 10,000. A fixed 5,000-update task checkpoint will reveal whether an early benefit persists to the final checkpoint. Final policies will be evaluated on 50 fixed resets per task, giving 40,000 rollouts. The primary contrasts are $C_1(10)$ and $C_2(10)$; the larger demonstration budget tests their dependence on task data availability. Extrapolating measured pilot throughput gives approximately 600 device-hours for these fits and final rollouts on one NVIDIA DGX Spark, before new data collection and early-checkpoint evaluation.
+
+Numerical acquisition will be assessed before interpreting transfer. $K$ and $D$ will each receive matched, masked and mismatched goals in their native goal space. Acquisition requires a ten-percentage-point improvement in joint attainment over both masking and $P$, together with lower translation and rotation errors. All regimes proceed to task fine-tuning under the fixed schedule. This ordering distinguishes the acquisition of conditional behavior from its usefulness after the conditioning interface changes.
+
+\subsection{Interpreting the comparisons}
+In this section, $C_1$ and $C_2$ refer to the primary contrasts at $b=10$. We will report task-balanced success and paired differences across training seeds, treating repeated resets as observations of a policy rather than independent training replicates. Bonferroni-adjusted paired Student intervals will provide at least 95\% simultaneous coverage for the two primary contrasts under the paired-seed model. With eight seeds, each adjusted interval's half-width is approximately the standard deviation of the paired differences. We will therefore report effect sizes and uncertainty together, including differences that remain unresolved.
 
 \begin{table}[t]
-\caption{\textbf{Interpretation of the primary transfer contrasts.} The table specifies conclusions sought in Stage 2, not results already observed.}
+\caption{\textbf{What the transfer comparisons can establish.} These are planned interpretations, not observed transfer results.}
 \label{tab:outcomes}
 \centering
 \footnotesize
-\begin{tabular}{@{}p{2.38cm}p{5.09cm}@{}}
+\begin{tabular}{@{}p{2.40cm}p{5.07cm}@{}}
 \toprule
-Supported outcome & Training implication\\
+Supported pattern & Scientific implication\\
 \midrule
-$C_1$ gain; $C_2$ equivalent & Nominal conditioning helps beyond an action prior; measured labels confer no resolved practical benefit.\\
-Meaningful $C_2$ gain & Measured labels outperform the ideal command map; test practical value against $S/E$.\\
-Negative $C_2$ & Nominal conditioning is preferable if competitive with $S/E$.\\
-$S$ or $E$ performs best & Prefer standard or extra task training.\\
-Acquisition not established & Compare procedures, without attributing differences to learned goal conditioning.\\
-Unresolved intervals & No supervision preference is established.\\
+Positive $C_1$; unresolved $C_2$ & Nominal goals aid transfer; the additional value of measurement remains undecided.\\
+Nonpositive $C_1$ & Nominal goals offer no supported advantage over the action prior; assess measured goals separately.\\
+Positive $C_2$ & Measured outcomes improve over the ideal command map; compare their value against $S$ and $E$.\\
+Negative $C_2$ & Nominal supervision yields better transfer than measured supervision in this setting.\\
+Supported $S/E$ advantage & Task training yields higher success at the evaluated compute allocation.\\
+Acquisition not established & Compare training procedures without attributing transfer to acquired goal conditioning.\\
+Unresolved contrasts & The available precision does not establish a supervision preference.\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:outcomes} makes the planned inferences explicit. Attribution to \emph{transfer of goal conditioning} requires evidence that the corresponding numerical objective was acquired. If acquisition is not established, any task difference remains a comparison between training procedures rather than an identified goal-conditioning mechanism. Early and final task checkpoints distinguish temporary improvement from a persistent advantage without choosing a favorable checkpoint.
+Table~\ref{tab:outcomes} relates each contrast to the decision it informs. A supported positive or negative contrast requires its interval to lie on the corresponding side of zero; a nonpositive contrast requires an upper bound at most zero. An interval crossing zero remains unresolved and does not establish equivalence. Attribution to the transfer of goal conditioning additionally requires acquisition of the relevant numerical objective. Early and final checkpoints distinguish transient from persistent improvement without selecting a favorable checkpoint.
 
-\subsection{Distinguishing supervision from controller calibration}
-The measured-versus-ideal discrepancy observed in the pilot was largely predictable from robot state and commands. On the full corpus we will separately characterize residual predictability for free-motion and observed contact transitions, where such contacts occur. Accordingly, $C_2$ compares measured outcomes with an \emph{ideal command map}, not with a learned calibrated controller. A positive result would motivate a calibrated-nominal diagnostic, while a precise negligible difference would support the adequacy of nominal supervision within the evaluated regime. The negotiated Extension Charter may include this calibration test or an intermediate-training dose comparison as explanatory diagnostics while retaining the primary five-regime study.
+\balance
+\subsection{Understanding the role of measured outcomes}
+Measured labels capture the response of the robot and its controller. The preliminary evidence identifies a structured signal to study, and the full corpus will characterize it separately in free motion and in transitions with observed contact. This distinction clarifies what $C_2$ measures: the value of observed outcomes relative to the ideal command map used for nominal supervision. It does not identify which aspect of the observed response accounts for a transfer difference.
+
+A calibrated-nominal comparison can test whether a learned correction to the command map explains an observed benefit; an intermediate-training dose comparison can test whether a regime has acquired its conditioning objective. These explanatory diagnostics can be agreed in the Extension Charter, while the primary study retains the five regimes and fixed transfer contrasts. The goal is a conclusion about which supervision supports task adaptation, supported by evidence of what each expert learned before transfer.
 
 \section{Conclusion}
-Actions, requested motion, and measured motion pose distinct learning problems for a shared action generator. Our matched formulation and pilot establish goal-responsive numerical pretraining without changing the deployed VLA. Stage 2 will test whether the resulting initialization improves multimodal manipulation and which supervision is worth collecting.
+We formulate effect-conditioned action pretraining as a controlled comparison of an action prior, nominal effects and measured effects. Preliminary evidence shows that nominal and measured labels differ systematically and that measured goals can guide the shared action expert's generated motions. The planned transfer study will test whether this conditional behavior improves multimodal task adaptation and assess the value of measured outcomes relative to nominal supervision and additional task training.
 
 \clearpage
 \bibliographystyle{plainnat}
+\begingroup
+\interlinepenalty=10000
 \bibliography{references}
+\endgroup
 \end{document}
+

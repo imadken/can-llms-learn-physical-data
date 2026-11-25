@@ -1,15 +1,20 @@
-% Illustrative thesis figure: source of the two conditioning signals.
-% Not intended to depict a measured trajectory or infer object dynamics.
-\begin{tikzpicture}[font=\sffamily\scriptsize,>=Stealth]
-  \node[anchor=west,font=\bfseries\scriptsize] at (0,1.75) {One action sequence, two descriptions};
-  \draw[thin,black!30] (0.5,.35) -- (6.8,.35);
-  \fill[black] (0.7,.53) circle (0.085);
-  \node[anchor=east,align=right,font=\tiny] at (.55,.57) {Start};
-  \draw[-{Stealth[length=2mm]},line width=1pt,draw=blue!65!black] (.7,.53) -- (3.2,1.27);
-  \draw[-{Stealth[length=2mm]},line width=.95pt,dashed,draw=black!70] (.7,.53) -- (6.05,.53);
-  \fill[blue!65!black] (3.2,1.27) circle (0.065);
-  \fill[black!70] (6.05,.53) circle (0.065);
-  \node[anchor=west,align=left,text=blue!65!black] at (3.35,1.26) {Observed motion};
-  \node[anchor=south,align=center] at (4.95,.57) {Commanded motion};
-  \node[anchor=west,font=\tiny,text=black!75] at (.7,.02) {Same commands; distinct training conditions};
+% Audited sample means from 200 distinct start/chunk pairs; each replayed twice.
+% These are scalar translation magnitudes, not reconstructed trajectories.
+\begin{tikzpicture}[font=\sffamily\scriptsize]
+\definecolor{nominalgold}{HTML}{D59A37}
+\definecolor{measuredteal}{HTML}{268C8D}
+\node[anchor=west,font=\sffamily\bfseries\scriptsize] at (0,2.15) {One action chunk, two effect descriptions};
+\node[anchor=east,text=black!80] at (1.70,1.47) {Nominal};
+\node[anchor=east,text=black!80] at (1.70,.78) {Measured};
+\fill[nominalgold] (1.87,1.25) rectangle (6.365,1.69);
+\fill[measuredteal] (1.87,.56) rectangle (2.922,1.00);
+\node[anchor=west,font=\sffamily\bfseries\scriptsize,text=black!85] at (6.45,1.47) {56.2 mm};
+\node[anchor=west,font=\sffamily\bfseries\scriptsize,text=black!85] at (3.01,.78) {13.1 mm};
+\draw[black!50,thin] (1.87,.33) -- (6.67,.33);
+\foreach \x/\lab in {1.87/0,3.47/20,5.07/40,6.67/60}{
+  \draw[black!50,thin] (\x,.33) -- (\x,.25);
+  \node[anchor=north,font=\sffamily\tiny,text=black!65] at (\x,.20) {\lab};
+}
+\node[anchor=north,font=\sffamily\scriptsize,text=black!75] at (4.27,-.08) {Mean translation magnitude (mm)};
 \end{tikzpicture}
+
