@@ -1,8 +1,8 @@
-# RSS 2027 Stage 1 manuscript, revision v5.5
+# RSS 2027 Stage 1 manuscript, revision v5.6
 
 **What Transfers from Effect-Conditioned Action Pretraining to Vision-Language-Action Policies?**
 
-This revision develops the scientific narrative from the supervision question through the method, preliminary evidence and planned transfer study. The five regimes, paired comparisons, training schedules and audited pilot observations retain the locked research design. No new training or experimental result is introduced.
+This revision develops the scientific narrative from the supervision question through the method, preliminary evidence and planned transfer study. The five regimes, paired comparisons, training schedules and audited pilot observations remain unchanged. The proposed Stage 2 scale is reduced to a 100,000-transition collection target, six paired seeds and 30 evaluation resets per task. No new training or experimental result is introduced.
 
 ## Contents
 
@@ -29,6 +29,6 @@ The current official-class build has **six pages: five content pages and one ref
 
 ## Final production check
 
-The 25 November 2026 release was built with the pinned official class and checked page by page. It has five content pages followed by exactly one reference page, resolved citations and cross-references, no overfull boxes or clipped content, readable figure labels, anonymous PDF metadata, and only embedded Type 1 fonts. Figure 2 lettering is outlined as vector paths in the publication PDF; the PowerPoint and SVG remain editable. Recheck the export after any subsequent edit.
+The v5.6 release was built with the pinned official class and checked page by page. It has five content pages followed by exactly one reference page, resolved citations and cross-references, no overfull boxes or clipped content, readable figure labels, anonymous PDF metadata, and only embedded Type 1 fonts. Figure 2 lettering is outlined as vector paths in the publication PDF; the PowerPoint and SVG remain editable. Recheck the export after any subsequent edit.
 
 Author walkthroughs, if included outside the paper directory, are teaching material rather than part of the anonymous submission.
